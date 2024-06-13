@@ -8,7 +8,6 @@ import EmailIcon from '@mui/icons-material/Email'
 import PatreonIcon from './PatreonIcon'
 const LOGO = 'src/assets/images/logo.png'
 
-
 const Home = (): ReactElement => {
   return (
     <Container sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
