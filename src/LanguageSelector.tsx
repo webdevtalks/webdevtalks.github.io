@@ -23,6 +23,7 @@ export const LanguageSelector = () => {
             id="demo-simple-select"
             value={language}
             label="Idioma"
+            color="primary"
             onChange={onChangeLang}
           >
            {LANGUAGES.map(({code, label}) => (
