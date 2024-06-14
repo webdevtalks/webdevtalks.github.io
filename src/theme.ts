@@ -4,6 +4,7 @@ const theme = createTheme({
   palette: {
     primary: {
       main: '#1c1c17',
+      hover: '',
     },
     secondary: {
       main: '#3298cc',
