@@ -5,7 +5,7 @@ import theme from './theme'
 
 export default function App() {
   return(
-    <BrowserRouter>
+    <BrowserRouter basename='/website2.0'>
       <ThemeProvider theme={theme}>
         <Router/>
       </ThemeProvider>

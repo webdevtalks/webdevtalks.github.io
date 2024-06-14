@@ -15,7 +15,7 @@ import {
 } from '@mui/material'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import NavBar from './NavBar'
-const LOGO = 'src/assets/images/logo.png'
+import logo from './assets/images/logo.png'
 
 ChartJS.register(ArcElement, Tooltip, Legend)
 
@@ -54,7 +54,7 @@ const Sponsorship = (): ReactElement =>  {
       <NavBar/>
       <Container>
         <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '100px', padding: 3 }}>
-          <Avatar src={LOGO} alt="Logo WDT" sx={{ width: '100%', height: '100%', maxWidth: '250px' }} />
+          <Avatar src={logo} alt="Logo WDT" sx={{ width: '100%', height: '100%', maxWidth: '250px' }} />
         </Box>
         <Typography variant="body1" paragraph>
           {t("sponsorship.description1","WebDevTalks es una comunidad de desarrollo y tecnología, que inició hace más de 10 años con la finalidad de acercar desarrolladores a diversos temas dentro del área del desarrollo de software, web, móvil, IoT, manejo de proyectos, diseño y más.")}

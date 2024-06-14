@@ -13,7 +13,7 @@ import {
 } from '@mui/material'
 import { LanguageSelector } from './LanguageSelector';
 import { ReactElement } from 'react'
-const LOGO = 'src/assets/images/logo.png'
+import logo from './assets/images/logo.png'
 
 const NavBar = (): ReactElement => {
   const location = useLocation()
@@ -30,7 +30,7 @@ const NavBar = (): ReactElement => {
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Link to="/" style={{ textDecoration: 'none', marginRight: '1rem' }}>
-              <Avatar src={LOGO} alt="Logo WDT" sx={{ width: '100%', height: '100%', maxWidth: '50px' }} />
+              <Avatar src={logo} alt="Logo WDT" sx={{ width: '100%', height: '100%', maxWidth: '50px' }} />
             </Link>
             <Link to="/sponsorship" style={{ textDecoration: 'none', height: '100%' }}>
               <Button sx={{ height: '100%', backgroundColor: isActive('/sponsorship') ? '#c1c1c1' : 'transparent' }}>

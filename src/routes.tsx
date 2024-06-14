@@ -1,4 +1,4 @@
-import { useRoutes } from "react-router-dom";
+import { useRoutes } from 'react-router-dom'
 import { type ReactElement } from 'react'
 import Home from './Home'
 import Sponsorship from './Sponsorship'
@@ -11,6 +11,7 @@ export default function Router (): ReactElement | null {
     { path: '/about', element: <About/> },
     { path: '/sponsorship', element: <Sponsorship/> },
     { path: '/survey', element: <Survey/> },
+    { path: '*', element: <Home/> },
   ])
 
   return routes
