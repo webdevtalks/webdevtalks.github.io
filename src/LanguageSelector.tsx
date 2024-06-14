@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { useTranslation } from "react-i18next";
 import { LANGUAGES } from "./constants";
-import { Select, FormControl, Box, InputLabel, MenuItem} from '@mui/material';
+import { Select, FormControl, Box, InputLabel, MenuItem, SelectChangeEvent } from '@mui/material';
 
 export const LanguageSelector = () => {
   const [language, setLanguage] = useState('');
   const { i18n } = useTranslation();
 
-  const onChangeLang = (e) => {
+  const onChangeLang = (e: SelectChangeEvent) => {
     const languageCode = e.target.value;
     i18n.changeLanguage(languageCode);
     setLanguage(languageCode);

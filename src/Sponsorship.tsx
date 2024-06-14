@@ -112,8 +112,8 @@ const Sponsorship = (): ReactElement =>  {
               <TableCell>{t("sponsorship.sponsorshipGold5","Promoción de su logo durante la sesión bimestral.")}</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell>{t("sponsorship.sponsorshipGold6", { level: "Gold" }, "Agradecimiento por redes sociales después del evento bimestral como patrocinador")}</TableCell>
-              <TableCell>{t("sponsorship.sponsorshipGold6",{ level: "Silver" }, "Agradecimiento por redes sociales después del evento bimestral como patrocinador")}</TableCell>
+              <TableCell>{t("sponsorship.sponsorshipGold6", "Agradecimiento por redes sociales después del evento bimestral como patrocinador", { level: "Gold" })}</TableCell>
+              <TableCell>{t("sponsorship.sponsorshipGold6", "Agradecimiento por redes sociales después del evento bimestral como patrocinador", { level: "Silver" })}</TableCell>
             </TableRow>
           </TableBody>
         </Table>
@@ -129,11 +129,11 @@ const Sponsorship = (): ReactElement =>  {
           <TableBody>
             <TableRow>
               <TableCell>Gold</TableCell>
-              <TableCell>{t("sponsorship.goldAnualCost",{ dolar: "$510 USD", peso: "$8,874 MXN" }, "$8,874 MXN por año")}</TableCell>
+              <TableCell>{t("sponsorship.goldAnualCost", "$8,874 MXN por año", { dolar: "$510 USD", peso: "$8,874 MXN" })}</TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Silver</TableCell>
-              <TableCell>{t("sponsorship.silverAnualCost",{ dolar: "$340 USD", peso: "$5,916 MXN" }, "$5,916 MXN por año")}</TableCell>
+              <TableCell>{t("sponsorship.silverAnualCost", "$5,916 MXN por año", { dolar: "$340 USD", peso: "$5,916 MXN" })}</TableCell>
             </TableRow>
           </TableBody>
         </Table>
@@ -148,11 +148,11 @@ const Sponsorship = (): ReactElement =>  {
           <TableBody>
             <TableRow>
               <TableCell>Gold</TableCell>
-              <TableCell>{t("sponsorship.gold3sesionsCost",{ dolar: "$270 USD", peso: "$4,698 MXN" }, "$4,698 MXN por 3 eventos")}</TableCell>
+              <TableCell>{t("sponsorship.gold3sesionsCost", "$4,698 MXN por 3 eventos", { dolar: "$270 USD", peso: "$4,698 MXN" })}</TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Silver</TableCell>
-              <TableCell>{t("sponsorship.silver3sesionsCost",{ dolar: "$180 USD", peso: "$3,132 MXN" }, "$3,132 MXN por 3 eventos")}</TableCell>
+              <TableCell>{t("sponsorship.silver3sesionsCost", "$3,132 MXN por 3 eventos", { dolar: "$180 USD", peso: "$3,132 MXN" })}</TableCell>
             </TableRow>
           </TableBody>
         </Table>
@@ -167,11 +167,11 @@ const Sponsorship = (): ReactElement =>  {
           <TableBody>
             <TableRow>
               <TableCell>Gold</TableCell>
-              <TableCell>{t("sponsorship.goldSesionCost",{ dolar: "$100 USD", peso: "$1,740 MXN" }, "$1,740 MXN por evento")}</TableCell>
+              <TableCell>{t("sponsorship.goldSesionCost", "$1,740 MXN por evento", { dolar: "$100 USD", peso: "$1,740 MXN" })}</TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Silver</TableCell>
-              <TableCell>{t("sponsorship.silverSesionCost",{ dolar: "$70 USD", peso: "$1,160 MXN" }, "$1,160 MXN por evento")}</TableCell>
+              <TableCell>{t("sponsorship.silverSesionCost", "$1,160 MXN por evento", { dolar: "$70 USD", peso: "$1,160 MXN" })}</TableCell>
             </TableRow>
           </TableBody>
         </Table>
