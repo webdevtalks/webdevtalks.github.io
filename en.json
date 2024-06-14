@@ -2,7 +2,8 @@
   "navbar": {
       "sponsorship": "Are you interested in sponsoring?",
       "aboutUs": "About us",
-      "survey": "Survey"
+      "survey": "Survey",
+      "home": "Home"
   },
   "sponsorship": {
       "description1": "WebDevTalks is a community of development and technology that began over 10 years ago with the aim of bringing developers closer to various topics within the field of software development, web, mobile, IoT, project management, design, and more.",
