@@ -9,10 +9,39 @@ const theme = createTheme({
       main: '#3298cc',
     },
     background: {
-      default: '#ffffff'
+      default: 'rgba(51,152,203,.9)'
     }
   },
-  typography: {
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          '&:hover': {
+            backgroundColor: 'rgba(51,152,203,.9)',
+            color: 'white',
+          },
+          '&.active': {
+            backgroundColor: 'rgba(51,152,203,.9)',
+            color: 'white',
+          },
+        },
+      },
+    },
+    MuiListItemButton: {
+      styleOverrides: {
+        root: {
+          color: '#1c1c17',
+          '&:hover': {
+            backgroundColor: 'rgba(51,152,203,.9)',
+            color: 'white',
+          },
+          '&.active': {
+            backgroundColor: 'rgba(51,152,203,.9)',
+            color: 'white',
+          },
+        },
+      },
+    },
   },
 });
 

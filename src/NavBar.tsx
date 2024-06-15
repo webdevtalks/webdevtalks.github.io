@@ -20,7 +20,6 @@ import {
 import { LanguageSelector } from './LanguageSelector'
 import { ReactElement } from 'react'
 import MenuIcon from '@mui/icons-material/Menu'
-import { useTheme } from '@mui/material/styles'
 import logo from './assets/images/logo.png'
 
 const NavBar = (): ReactElement => {
@@ -28,7 +27,6 @@ const NavBar = (): ReactElement => {
   const location = useLocation()
   const { openSurvey } = useSurvey()
   const { t } = useTranslation()
-  const theme = useTheme()
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setIsDrawerOpen(newOpen)
@@ -49,35 +47,37 @@ const NavBar = (): ReactElement => {
     <>
       <AppBar position="sticky" color="default">
         <Container maxWidth="xl">
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={toggleDrawer(true)}
-            sx={{ display: { xs: 'block', md: 'none' } }}
-            edge="start"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Toolbar disableGutters sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <Link to="/" style={{ textDecoration: 'none', marginRight: '1rem', flexShrink: 0, color: theme.palette.primary.main }}>
-              <Avatar src={logo} alt="Logo WDT" sx={{ width: '100%', height: '100%', maxWidth: '50px' }} />
-            </Link>
-            <Link to="/sponsorship" style={{ textDecoration: 'none', height: '100%', color: theme.palette.primary.main }}>
-              <Button sx={{ height: '100%', backgroundColor: isActive('/sponsorship') ? '#c1c1c1' : 'transparent' }}>
-                <Typography>{t("navbar.sponsorship", "¿Te interesa patrocinar?")}</Typography>
-              </Button>
-            </Link>
-            <Link to="/about" style={{ textDecoration: 'none', height: '100%', color: theme.palette.primary.main }}>
-              <Button sx={{ height: '100%', backgroundColor: isActive('/about') ? '#c1c1c1' : 'transparent' }}>
-                <Typography>{t("navbar.aboutUs", "Acerca de nosotros")}</Typography>
-              </Button>
-            </Link>
-            <Link to="/" onClick={openSurvey} style={{ textDecoration: 'none', height: '100%', color: theme.palette.primary.main }}>
-              <Button sx={{ height: '100%'}}>
-                <Typography>{t("navbar.survey", "Encuesta")}</Typography>
-              </Button>
-            </Link>
-            <Box sx={{ ml: 1 }}>
+          <Toolbar variant="dense" sx={{ alignItems: 'stretch', justifyContent: 'space-between' }}>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={toggleDrawer(true)}
+              edge="start"
+              sx={{ display: { xs: 'flex', md: 'none' } }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' } }>
+              <Link to="/" style={{ textDecoration: 'none', marginRight: '1rem', flexShrink: 0 }}>
+                <Avatar src={logo} alt="Logo WDT" sx={{ width: '100%', height: '100%', maxWidth: '50px' }} />
+              </Link>
+              <Link to="/sponsorship" style={{ textDecoration: 'none', height: '100%' }}>
+                <Button className={isActive('/sponsorship') ? 'active' : '' } sx={{ height: '100%', borderRadius: '0' }}>
+                  <Typography>{t("navbar.sponsorship")}</Typography>
+                </Button>
+              </Link>
+              <Link to="/about" style={{ textDecoration: 'none', height: '100%' }}>
+                <Button className={isActive('/about') ? 'active' : '' } sx={{ height: '100%', borderRadius: '0' }}>
+                  <Typography>{t("navbar.aboutUs")}</Typography>
+                </Button>
+              </Link>
+              <Link to="/" onClick={openSurvey} style={{ textDecoration: 'none', height: '100%' }}>
+                <Button sx={{ height: '100%', borderRadius: '0' }}>
+                  <Typography>{t("navbar.survey")}</Typography>
+                </Button>
+              </Link>
+            </Box>
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <LanguageSelector/>
             </Box>
           </Toolbar>
@@ -86,31 +86,31 @@ const NavBar = (): ReactElement => {
       <Drawer open={isDrawerOpen} onClose={toggleDrawer(false)}>
         <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
           <List>
-            <ListItem>
-              <Link to="/" style={{ textDecoration: 'none', height: '100%', width: '100%', color: theme.palette.primary.main }}>
-                <ListItemButton sx={{ height: '100%', color: '#000000', backgroundColor: isActive('/') ? '#c1c1c1' : 'transparent' }}>
-                  <Typography>{t("navbar.home", "Inicio")}</Typography>
+            <ListItem sx={{ px: 0 }}>
+              <Link to="/" style={{ textDecoration: 'none', width: '100%' }}>
+                <ListItemButton className={isActive('/') ? 'active' : ''}>
+                  <Typography>{t("navbar.home")}</Typography>
                 </ListItemButton>
               </Link>
             </ListItem>
-            <ListItem>
-              <Link to="/sponsorship" style={{ textDecoration: 'none', height: '100%', width: '100%', color: theme.palette.primary.main }}>
-                <ListItemButton sx={{ height: '100%', color: '#000000', backgroundColor: isActive('/sponsorship') ? '#c1c1c1' : 'transparent' }}>
-                  <Typography>{t("navbar.sponsorship", "¿Te interesa patrocinar?")}</Typography>
+            <ListItem sx={{ px: 0 }}>
+              <Link to="/sponsorship" style={{ textDecoration: 'none', width: '100%' }}>
+                <ListItemButton className={isActive('/sponsorship') ? 'active' : ''}>
+                  <Typography>{t("navbar.sponsorship")}</Typography>
                 </ListItemButton>
               </Link>
             </ListItem>
-            <ListItem>
-              <Link to="/about" style={{ textDecoration: 'none', height: '100%', width: '100%', color: theme.palette.primary.main }}>
-                <ListItemButton sx={{ height: '100%', color: '#000000', backgroundColor: isActive('/about') ? '#c1c1c1' : 'transparent' }}>
-                  <Typography>{t("navbar.aboutUs", "Acerca de nosotros")}</Typography>
+            <ListItem sx={{ px: 0 }}>
+              <Link to="/about" style={{ textDecoration: 'none', width: '100%' }}>
+                <ListItemButton className={isActive('/about') ? 'active' : ''}>
+                  <Typography>{t("navbar.aboutUs")}</Typography>
                 </ListItemButton>
               </Link>
             </ListItem>
-            <ListItem>
-              <Link to="/" onClick={openSurvey} style={{ textDecoration: 'none', height: '100%', width: '100%', color: theme.palette.primary.main }}>
-                <ListItemButton sx={{ height: '100%', color: theme.palette.primary.main }}>
-                  <Typography>{t("navbar.survey", "Encuesta")}</Typography>
+            <ListItem sx={{ px: 0 }}>
+              <Link to="#" onClick={openSurvey} style={{ textDecoration: 'none', width: '100%' }}>
+                <ListItemButton sx={{ height: '100%' }}>
+                  <Typography>{t("navbar.survey")}</Typography>
                 </ListItemButton>
               </Link>
             </ListItem>
