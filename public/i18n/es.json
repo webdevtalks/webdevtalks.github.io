@@ -6,8 +6,8 @@
       "home": "Inicio"
   },
   "sponsorship": {
-      "description1": "WebDevTalks somos una comunidad de desarrollo y tecnología, que inició hace más de 10 años con la finalidad de acercar a desarrolladores, diseñadores, managers, product owners, testers y cualquier profesional/carrera con relación a IT, a diversos temas dentro del área del desarrollo de software, web, móvil, IoT, gestión de proyectos, testing, infraestructura, diseño y más.",
-      "description2": "Gracias al esfuerzo y apoyo de diversas empresas hemos podido llegar hasta el día de hoy, proporcionando un evento de calidad, ayudando a incentivar a las nuevas generaciones y fortaleciendo la comunidad de desarrollo en la ciudad de Colima.",
+      "description1": "WebDevTalks(WDT) es una comunidad de desarrollo y tecnología que inició hace más de 10 años con la finalidad de acercar a desarrolladores, diseñadores, managers, product owners, testers y cualquier profesional con una carrera relacionada a IT a diversos temas dentro del área del desarrollo de software web, móvil, IoT, gestión de proyectos, testing, infraestructura, diseño y más.",
+      "description2": "Gracias al esfuerzo y apoyo de diversas empresas hemos llegado al día de hoy, proporcionando un evento de calidad, ayudando a incentivar a las nuevas generaciones y fortaleciendo la comunidad de desarrollo en la ciudad de Colima.",
       "description3": "Son nuestros sponsors y patreons quienes nos permiten seguir haciendo posible estos eventos y cursos.",
       "attendeesTitle": "Perfil de Asistentes",
       "wdtVideo": "Video de WebDevTalks",
@@ -17,7 +17,7 @@
       "areas": "Otras areas",
       "design": "Diseño",
       "students": "Estudiantes",
-      "costs": "Costos de patrocinio",
+      "costs": "Costos de Patrocinio",
       "sponsorshipGold1": "5 minutos durante la sesión bimestral (Para hablar de la empresa, promocionar vacantes, workshops, etc).",
       "sponsorshipGold2": "Compartir FB/IG posts y tweets de los patrocinadores (5 shares/retweets), lo cual incluye: (Vacantes lanzadas en redes sociales, Talleres y Cursos, Noticias)",
       "sponsorshipSilver1": "Compartir FB/IG posts y tweets de los patrocinadores (2 shares/retweets), lo cual incluye: (Vacantes lanzadas en redes sociales, Talleres y Cursos, Noticias)",
@@ -55,7 +55,8 @@
       "goldPerEvent": "{{peso}}",
       "silverPerEvent": "{{peso}}",
       "ourSponsors": "Nuestros Patrocinadores",
-      "ourPatreons": "Nuestros Patreons"
+      "ourPatreons": "Nuestros Patreons",
+      "votes": "# de votos"
   },
   "aboutUs": {
       "quote": "“Desde tiempos ancestrales la sociedad ha funcionado como una especie social. Hemos tenido la capacidad de organizarnos en grupos dependiendo de nuestros objetivos e intereses. Así que una comunidad no es algo nuevo, pero sí algo que hoy deberíamos considerar para un crecimiento con mayor potencial.”",

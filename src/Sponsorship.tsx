@@ -46,7 +46,7 @@ const Sponsorship = (): ReactElement =>  {
     labels: [t("sponsorship.areas"), 'Software', 'PM', 'QA', t("sponsorship.design"), t("sponsorship.students")],
     datasets: [
       {
-        label: '# of Votes',
+        label: t("sponsorship.votes"),
         data: [4, 51, 6, 4, 2, 30],
         backgroundColor: [
           '#E59866',
@@ -79,15 +79,15 @@ const Sponsorship = (): ReactElement =>  {
         <Typography variant="body1" paragraph>{t("sponsorship.description1")}</Typography>
         <Typography variant="body1">{t("sponsorship.description2")}</Typography>
         <Typography variant="body1" paragraph>{t("sponsorship.description3")}</Typography>
+        <Box mb={4}>
+          <iframe width="100%" style={{ maxHeight: '600px', height: '60vw' }} src="https://www.youtube.com/embed/3kLz1Q0myiM" title="YouTube video player" allow="accelerometer autoplay clipboard-write encrypted-media gyroscope picture-in-picture" allowFullScreen></iframe>
+        </Box>
+
         <Typography variant="h2" sx={{ my: 8 }}>{t("sponsorship.attendeesTitle")}</Typography>
         <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
           <Box width={{ xs: '100%', sm: '75%', md: '50%' }} >
             <Pie data={data} />
           </Box>
-        </Box>
-        <Typography variant="h3" sx={{ my: 8 }}>{t("sponsorship.wdtVideo")}</Typography>
-        <Box mb={4}>
-          <iframe width="100%" style={{ maxHeight: '600px', height: '60vw' }} src="https://www.youtube.com/embed/3kLz1Q0myiM" title="YouTube video player" allow="accelerometer autoplay clipboard-write encrypted-media gyroscope picture-in-picture" allowFullScreen></iframe>
         </Box>
         <Typography variant="h3" sx={{ my: 8 }}>Venues</Typography>
         <Typography variant="body1" paragraph>{t("sponsorship.venues")}</Typography>
