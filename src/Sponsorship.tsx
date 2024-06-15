@@ -80,8 +80,8 @@ const Sponsorship = (): ReactElement =>  {
         <Typography variant="body1">{t("sponsorship.description2")}</Typography>
         <Typography variant="body1" paragraph>{t("sponsorship.description3")}</Typography>
         <Typography variant="h2" sx={{ my: 8 }}>{t("sponsorship.attendeesTitle")}</Typography>
-        <Box sx={{ display: 'flex', justifyContent: 'center'}}>
-          <Box sx={{ width: '50%' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+          <Box width={{ xs: '100%', sm: '75%', md: '50%' }} >
             <Pie data={data} />
           </Box>
         </Box>
