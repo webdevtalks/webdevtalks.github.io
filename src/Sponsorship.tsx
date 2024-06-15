@@ -11,17 +11,28 @@ import {
   Card,
   CardContent,
   Stack,
-  Divider,
+  Divider
 } from '@mui/material'
+import MaterialTooltip from '@mui/material/Tooltip';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import NavBar from './NavBar'
-import communitySupporters from './assets/images//sponsors/community_supporters.png'
-import laFronteraCaseCafe from './assets/images//sponsors/la_frontera_casa_cafe.png'
-import magma from './assets/images//sponsors/magma.png'
-import salesloft from './assets/images//sponsors/salesloft.png'
-import softwareGuru from './assets/images//sponsors/software_guru.png'
-import vauxoo from './assets/images//sponsors/vauxoo.png'
+import communitySupporters from './assets/images/sponsors/community_supporters.png'
+import laFronteraCaseCafe from './assets/images/sponsors/la_frontera_casa_cafe.png'
+import magma from './assets/images/sponsors/magma.png'
+import salesloft from './assets/images/sponsors/salesloft.png'
+import softwareGuru from './assets/images/sponsors/software_guru.png'
+import vauxoo from './assets/images/sponsors/vauxoo.png'
+import alejandroRebollar from './assets/images/patreons/alejandro_rebollar.png'
+import alexisChavez from './assets/images/patreons/alexis_chavez.png'
+import alexisNavarro from './assets/images/patreons/alexis_navarro.png'
+import anonymous from './assets/images/patreons/anonymous.png'
+import benjaminPena from './assets/images/patreons/benajmin_pena.jpeg'
+import edsonPaul from './assets/images/patreons/edson_paul.png'
+import miguelUrbina from './assets/images/patreons/miguel_urbina.jpeg'
+import oscarSwanros from './assets/images/patreons/oscar_swanros.jpg'
+import sorielVallejo from './assets/images/patreons/soriel_vallejo.png'
 import logo from './assets/images/logo.png'
+
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import ShareIcon from '@mui/icons-material/Share'
 import FacebookIcon from '@mui/icons-material/Facebook'
@@ -325,6 +336,37 @@ const Sponsorship = (): ReactElement =>  {
             <Avatar variant='square' src={vauxoo} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
           </Grid>
         </Grid>
+        <Typography variant="h3" sx={{ my: 8}}>{t('sponsorship.ourPatreons')}</Typography>
+        <Box sx={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap' }}>
+          <MaterialTooltip title="Alejandro Rebollar" sx={{ p: 4 }}>
+            <Avatar src={alejandroRebollar} sx={{ height: '50px', width: '50px', m: 2 }} />
+          </MaterialTooltip>
+          <MaterialTooltip title="Alexis Chavez">
+            <Avatar src={alexisChavez} sx={{ height: '50px', width: '50px', m: 2 }} />
+          </MaterialTooltip>
+          <MaterialTooltip title="Alexis Navarro">
+            <Avatar src={alexisNavarro} sx={{ height: '50px', width: '50px', m: 2 }} />
+          </MaterialTooltip>
+          <MaterialTooltip title="Anonymous">
+            <Avatar src={anonymous} sx={{ height: '50px', width: '50px', m: 2 }} />
+          </MaterialTooltip>
+          <MaterialTooltip title="Benjamin Peña">
+            <Avatar src={benjaminPena} sx={{ height: '50px', width: '50px', m: 2 }} />
+          </MaterialTooltip>
+          <MaterialTooltip title="Edson Paul">
+            <Avatar src={edsonPaul} sx={{ height: '50px', width: '50px', m: 2 }} />
+          </MaterialTooltip>
+          <MaterialTooltip title="Miguel Urbina">
+            <Avatar src={miguelUrbina} sx={{ height: '50px', width: '50px', m: 2 }} />
+          </MaterialTooltip>
+          <MaterialTooltip title="Oscar Swanros">
+            <Avatar src={oscarSwanros} sx={{ height: '50px', width: '50px', m: 2 }} />
+          </MaterialTooltip>
+          <MaterialTooltip title="Soriel Vallejo">
+            <Avatar src={sorielVallejo} sx={{ height: '50px', width: '50px', m: 2 }} />
+          </MaterialTooltip>
+        </Box>
+
         <Box sx={{ mt: 8 }}>
           <Typography variant="caption">{t("sponsorship.tax")}</Typography>
           <Typography variant="caption" paragraph>{t("sponsorship.contact1")} <Link href="mailto:contacto@webdevtalks.mx">contacto@webdevtalks.mx</Link> {t("sponsorship.contact2")}</Typography>
@@ -335,4 +377,3 @@ const Sponsorship = (): ReactElement =>  {
 }
 
 export default Sponsorship
-

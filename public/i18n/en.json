@@ -45,7 +45,8 @@
       "perEvent": "Per event",
       "goldPerEvent": "{{dolar}}",
       "silverPerEvent": "{{dolar}}",
-      "ourSponsors": "Our Sponsors"
+      "ourSponsors": "Our Sponsors",
+      "ourPatreons": "Our Patreons"
   },
   "aboutUs": {
       "quote": "“Since ancient times, society has functioned as a social species. We've had the ability to organize ourselves into groups based on our goals and interests. So, a community isn't something new, but it is something we should consider today for a growth with greater potential.”",

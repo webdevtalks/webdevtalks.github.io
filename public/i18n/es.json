@@ -54,7 +54,8 @@
       "perEvent": "Por evento",
       "goldPerEvent": "{{peso}}",
       "silverPerEvent": "{{peso}}",
-      "ourSponsors": "Nuestros Patrocinadores"
+      "ourSponsors": "Nuestros Patrocinadores",
+      "ourPatreons": "Nuestros Patreons"
   },
   "aboutUs": {
       "quote": "“Desde tiempos ancestrales la sociedad ha funcionado como una especie social. Hemos tenido la capacidad de organizarnos en grupos dependiendo de nuestros objetivos e intereses. Así que una comunidad no es algo nuevo, pero sí algo que hoy deberíamos considerar para un crecimiento con mayor potencial.”",
