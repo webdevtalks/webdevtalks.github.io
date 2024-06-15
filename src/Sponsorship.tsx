@@ -5,17 +5,26 @@ import {
   Container,
   Typography,
   Box,
-  Table,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody,
   Link,
-  Avatar
+  Avatar,
+  Grid,
+  Card,
+  CardContent,
+  Stack,
+  Divider,
 } from '@mui/material'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import NavBar from './NavBar'
+import communitySupporters from './assets/images//sponsors/community_supporters.png'
+import laFronteraCaseCafe from './assets/images//sponsors/la_frontera_casa_cafe.png'
+import magma from './assets/images//sponsors/magma.png'
+import salesloft from './assets/images//sponsors/salesloft.png'
+import softwareGuru from './assets/images//sponsors/software_guru.png'
+import vauxoo from './assets/images//sponsors/vauxoo.png'
 import logo from './assets/images/logo.png'
+import AccessTimeIcon from '@mui/icons-material/AccessTime'
+import ShareIcon from '@mui/icons-material/Share'
+import FacebookIcon from '@mui/icons-material/Facebook'
 
 ChartJS.register(ArcElement, Tooltip, Legend)
 
@@ -23,7 +32,7 @@ const Sponsorship = (): ReactElement =>  {
   const { t } = useTranslation()
 
   const data = {
-    labels: [t("sponsorship.areas",'Otras areas'), 'Software', 'PM', 'QA', t("sponsorship.design",'Diseño'), t("sponsorship.students",'Estudiantes')],
+    labels: [t("sponsorship.areas"), 'Software', 'PM', 'QA', t("sponsorship.design"), t("sponsorship.students")],
     datasets: [
       {
         label: '# of Votes',
@@ -53,130 +62,273 @@ const Sponsorship = (): ReactElement =>  {
     <>
       <NavBar/>
       <Container>
-        <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '100px', padding: 3 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', p: 5 }}>
           <Avatar src={logo} alt="Logo WDT" sx={{ width: '100%', height: '100%', maxWidth: '250px' }} />
         </Box>
-        <Typography variant="body1" paragraph>
-          {t("sponsorship.description1","WebDevTalks es una comunidad de desarrollo y tecnología, que inició hace más de 10 años con la finalidad de acercar desarrolladores a diversos temas dentro del área del desarrollo de software, web, móvil, IoT, manejo de proyectos, diseño y más.")}
-        </Typography>
-        <Typography variant="body1" paragraph>
-          {t("sponsorship.description2","Gracias al esfuerzo y apoyo de diversas empresas hemos podido llegar hasta el día de hoy, proporcionando un evento de calidad, ayudando a incentivar a las nuevas generaciones y fortalecer la comunidad de desarrollo en la ciudad de Colima.")}
-        </Typography>
-        <Typography variant="body1" paragraph>
-          {t("sponsorship.description3","El evento se lleva a cabo en el último miércoles de cada dos meses donde por medio de una sesión 3 personas exponen sobre cualquier tema en el desarrollo. Donde generalmente intentamos balancear las pláticas en 3 distintos niveles: Novatos, Proficientes y Avanzados. Esto para seguir teniendo atracción no solo por estudiantes o neófitos sino también para atraer a asistentes con experiencia y tener una comunidad más enriquecida.")}
-        </Typography>
-        <Typography variant="h4" paragraph>{t("sponsorship.attendeesTitle","Perfil de Asistentes")}</Typography>
+        <Typography variant="body1" paragraph>{t("sponsorship.description1")}</Typography>
+        <Typography variant="body1">{t("sponsorship.description2")}</Typography>
+        <Typography variant="body1" paragraph>{t("sponsorship.description3")}</Typography>
+        <Typography variant="h2" sx={{ my: 8 }}>{t("sponsorship.attendeesTitle")}</Typography>
         <Box sx={{ display: 'flex', justifyContent: 'center'}}>
           <Box sx={{ width: '50%' }}>
             <Pie data={data} />
           </Box>
         </Box>
-        <Typography variant="h4" paragraph>{t("sponsorship.wdtVideo","Video de WebDevTalks")}</Typography>
+        <Typography variant="h3" sx={{ my: 8 }}>{t("sponsorship.wdtVideo")}</Typography>
         <Box mb={4}>
-          <iframe width="100%" height="400" src="https://www.youtube.com/embed/3kLz1Q0myiM" title="YouTube video player" allow="accelerometer autoplay clipboard-write encrypted-media gyroscope picture-in-picture" allowFullScreen></iframe>
+          <iframe width="100%" style={{ maxHeight: '600px', height: '60vw' }} src="https://www.youtube.com/embed/3kLz1Q0myiM" title="YouTube video player" allow="accelerometer autoplay clipboard-write encrypted-media gyroscope picture-in-picture" allowFullScreen></iframe>
         </Box>
-        <Typography variant="h4" paragraph>Venues</Typography>
-        <Typography variant="body1" paragraph>
-          {t("sponsorship.venues","Intentamos rotar el lugar donde se hace el evento, varias empresas y asociaciones nos han ayudado colaborando y proporcionando sus oficinas y espacios para llevar el evento a cabo.")}
-        </Typography>
-        <Typography variant="h4" paragraph>{t("sponsorship.sponsorshipPlans","Planes de patrocinio")}</Typography>
-        <Typography variant="body1" paragraph>
-          {t("sponsorship.sponsorshipPlansBody","Con el ideal de seguir mejorando la comunidad, WebDevTalks busca patrocinio y ofrece las siguientes modalidades:")}
-        </Typography>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>GOLD</TableCell>
-              <TableCell>SILVER</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            <TableRow>
-              <TableCell>{t("sponsorshipsponsorship.sponsorshipGold1","5 minutos durante la sesión bimestral (Para hablar de la empresa, promocionar vacantes, workshops, etc).")}</TableCell>
-              <TableCell></TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>{t("sponsorship.sponsorshipGold2","Compartir FB/IG posts y tweets de los patrocinadores (5 shares/retweets), lo cual incluye: (Vacantes lanzadas en redes sociales, Talleres y Cursos, Noticias)")}</TableCell>
-              <TableCell>{t("sponsorship.sponsorshipSilver1","Compartir FB/IG posts y tweets de los patrocinadores (2 shares/retweets), lo cual incluye: (Vacantes lanzadas en redes sociales, Talleres y Cursos, Noticias)")}</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>{t("sponsorship.sponsorshipGold3","Espacio para Booth en el lugar")}</TableCell>
-              <TableCell></TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>{t("sponsorship.sponsorshipGold4","Promoción durante la campaña de promoción de la sesión bimestral en las redes sociales de WebDevTalks. (Facebook, Twitter, Instagram, Linkedin)")}</TableCell>
-              <TableCell>{t("sponsorship.sponsorshipSilver2","Promoción durante la campaña de promoción de la sesión bimestral en las redes sociales de WebDevTalks. (Facebook, Twitter, Instagram, Linkedin)")}</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>{t("sponsorship.sponsorshipGold5","Promoción de su logo durante la sesión bimestral.")}</TableCell>
-              <TableCell>{t("sponsorship.sponsorshipGold5","Promoción de su logo durante la sesión bimestral.")}</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>{t("sponsorship.sponsorshipGold6", "Agradecimiento por redes sociales después del evento bimestral como patrocinador", { level: "Gold" })}</TableCell>
-              <TableCell>{t("sponsorship.sponsorshipGold6", "Agradecimiento por redes sociales después del evento bimestral como patrocinador", { level: "Silver" })}</TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
-        <Typography variant="h4" paragraph>{t("sponsorship.costs","Costos de patrocinio")}</Typography>
-        <Typography variant="h5" paragraph>{t("sponsorship.anualPlan","Plan anual:")}</Typography>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>{t("sponsorship.sponsor","Patrocinio")}</TableCell>
-              <TableCell>{t("sponsorship.contribution","Contribución")}</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            <TableRow>
-              <TableCell>Gold</TableCell>
-              <TableCell>{t("sponsorship.goldAnualCost", "$8,874 MXN por año", { dolar: "$510 USD", peso: "$8,874 MXN" })}</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>Silver</TableCell>
-              <TableCell>{t("sponsorship.silverAnualCost", "$5,916 MXN por año", { dolar: "$340 USD", peso: "$5,916 MXN" })}</TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
-        <Typography variant="h5" paragraph>{t("sponsorship.trimestralPlan","Pago por 3 eventos:")}</Typography>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>{t("sponsorship.sponsor","Patrocinio")}</TableCell>
-              <TableCell>{t("sponsorship.contribution","Contribución")}</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            <TableRow>
-              <TableCell>Gold</TableCell>
-              <TableCell>{t("sponsorship.gold3sesionsCost", "$4,698 MXN por 3 eventos", { dolar: "$270 USD", peso: "$4,698 MXN" })}</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>Silver</TableCell>
-              <TableCell>{t("sponsorship.silver3sesionsCost", "$3,132 MXN por 3 eventos", { dolar: "$180 USD", peso: "$3,132 MXN" })}</TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
-        <Typography variant="h5" paragraph>{t("sponsorship.monthlyPlan","Pago por evento:")}</Typography>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>{t("sponsorship.sponsor","Patrocinio")}</TableCell>
-              <TableCell>{t("sponsorship.contribution","Contribución")}</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            <TableRow>
-              <TableCell>Gold</TableCell>
-              <TableCell>{t("sponsorship.goldSesionCost", "$1,740 MXN por evento", { dolar: "$100 USD", peso: "$1,740 MXN" })}</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>Silver</TableCell>
-              <TableCell>{t("sponsorship.silverSesionCost", "$1,160 MXN por evento", { dolar: "$70 USD", peso: "$1,160 MXN" })}</TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
-        <Typography variant="body1" paragraph><b>{t("sponsorship.tax","Todos nuestros precios incluyen IVA.")}</b></Typography>
-        <Typography variant="body1" paragraph>{t("sponsorship.contact","Para cualquier duda o aclaración puede dirigirse a")} <Link href="mailto:contacto@webdevtalks.mx">contacto@webdevtalks.mx</Link></Typography>
+        <Typography variant="h3" sx={{ my: 8 }}>Venues</Typography>
+        <Typography variant="body1" paragraph>{t("sponsorship.venues")}</Typography>
+        <Typography variant="h3" sx={{ my: 8 }}>{t("sponsorship.sponsorshipPlans")}</Typography>
+        <Typography variant="body1" paragraph>{t("sponsorship.sponsorshipPlansBody")}</Typography>
+        <Grid container spacing={5}>
+          <Grid item xs={12} md={6}>
+            <Card variant="outlined">
+              <CardContent>
+                <Typography variant="h5" gutterBottom>
+                  Gold
+                </Typography>
+                <Divider/>
+                <Stack spacing={5} sx={{ mt: 2 }}>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                      <AccessTimeIcon/>
+                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
+                        {t("sponsorship.minutes", { minutes: 5 })}
+                      </Typography>
+                    </Box>
+                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
+                      {t("sponsorship.goldTime")}
+                    </Typography>
+                  </Box>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                      <ShareIcon/>
+                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
+                        {t("sponsorship.shares", { shares: 5 })}
+                      </Typography>
+                    </Box>
+                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
+                      {t("sponsorship.goldShares")}
+                    </Typography>
+                  </Box>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
+                        {t("sponsorship.boothSpace")}
+                      </Typography>
+                    </Box>
+                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
+                      {t("sponsorship.goldBoothSpace")}
+                    </Typography>
+                  </Box>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                      <FacebookIcon/>
+                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
+                        {t("sponsorship.socialNetwork")}
+                      </Typography>
+                    </Box>
+                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
+                      {t("sponsorship.goldSocialNetwork")}
+                    </Typography>
+                  </Box>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
+                        {t("sponsorship.promotion")}
+                      </Typography>
+                    </Box>
+                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
+                      {t("sponsorship.goldPromotion")}
+                    </Typography>
+                  </Box>
+                </Stack>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Card variant="outlined">
+              <CardContent>
+                <Typography variant="h5" gutterBottom>
+                  Silver
+                </Typography>
+                <Divider/>
+                <Stack spacing={5} sx={{ mt: 2 }}>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                      <AccessTimeIcon/>
+                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
+                        -
+                      </Typography>
+                    </Box>
+                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
+                      {t("sponsorship.silverTime")}
+                    </Typography>
+                  </Box>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                      <ShareIcon/>
+                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
+                        {t("sponsorship.shares", { shares: 2 })}
+                      </Typography>
+                    </Box>
+                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
+                      {t("sponsorship.silverShares")}
+                    </Typography>
+                  </Box>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
+                        -
+                      </Typography>
+                    </Box>
+                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
+                      {t("sponsorship.silverBoothSpace")}
+                    </Typography>
+                  </Box>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                      <FacebookIcon/>
+                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
+                        {t("sponsorship.socialNetwork")}
+                      </Typography>
+                    </Box>
+                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
+                      {t("sponsorship.silverSocialNetwork")}
+                    </Typography>
+                  </Box>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
+                        {t("sponsorship.promotion")}
+                      </Typography>
+                    </Box>
+                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
+                      {t("sponsorship.silverPromotion")}
+                    </Typography>
+                  </Box>
+                </Stack>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+
+        <Typography variant="h3" sx={{ my: 4 }}>{t("sponsorship.costs")}</Typography>
+
+        <Grid container spacing={5}>
+          <Grid item xs={12} md={6}>
+            <Card variant="outlined">
+              <CardContent>
+                <Typography variant="h5" gutterBottom>
+                  Gold
+                </Typography>
+                <Divider/>
+                <Stack spacing={2} sx={{ mt: 2 }}>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
+                        {t("sponsorship.annually")}
+                      </Typography>
+                    </Box>
+                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
+                      {t("sponsorship.goldAnnually", { peso: '$8,874 MXN', dolar: '$510 USD' })}
+                    </Typography>
+                  </Box>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
+                        {t("sponsorship.semester")}
+                      </Typography>
+                    </Box>
+                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
+                      {t("sponsorship.goldSemester", { peso: '$4,698 MXN', dolar: '$270 USD' })}
+                    </Typography>
+                  </Box>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
+                        {t("sponsorship.perEvent")}
+                      </Typography>
+                    </Box>
+                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
+                      {t("sponsorship.goldPerEvent", { peso: '$1,740 MXN', dolar: '$100 USD' })}
+                    </Typography>
+                  </Box>
+                </Stack>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Card variant="outlined">
+              <CardContent>
+                <Typography variant="h5" gutterBottom>
+                  Silver
+                </Typography>
+                <Divider/>
+                <Stack spacing={2} sx={{ mt: 2 }}>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
+                        {t("sponsorship.annually")}
+                      </Typography>
+                    </Box>
+                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
+                      {t("sponsorship.silverAnnually", { peso: '$5,916 MXN', dolar: '$340 USD' })}
+                    </Typography>
+                  </Box>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
+                        {t("sponsorship.semester")}
+                      </Typography>
+                    </Box>
+                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
+                      {t("sponsorship.silverSemester", { peso: '$3,9132 MXN', dolar: '$180 USD' })}
+                    </Typography>
+                  </Box>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
+                        {t("sponsorship.perEvent")}
+                      </Typography>
+                    </Box>
+                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
+                      {t("sponsorship.silverPerEvent", { peso: '$1,160 MXN', dolar: '$70 USD' })}
+                    </Typography>
+                  </Box>
+                </Stack>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+
+        <Typography variant="h3" sx={{ my: 8}}>{t('sponsorship.ourSponsors')}</Typography>
+        <Grid container spacing={4} sx={{ mt: 8, alignItems: 'center', flexWrap: 'wrap', px: 4 }}>
+          <Grid item xs={4} md={2} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
+            <Avatar variant='square' src={communitySupporters} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
+          </Grid>
+          <Grid item xs={4} md={2} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
+            <Avatar variant='square' src={laFronteraCaseCafe} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
+          </Grid>
+          <Grid item xs={4} md={2} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
+            <Avatar variant='square' src={magma} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
+          </Grid>
+          <Grid item xs={4} md={2} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
+            <Avatar variant='square' src={salesloft} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
+          </Grid>
+          <Grid item xs={4} md={2} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
+            <Avatar variant='square' src={softwareGuru} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
+          </Grid>
+          <Grid item xs={4} md={2} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
+            <Avatar variant='square' src={vauxoo} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
+          </Grid>
+        </Grid>
+        <Box sx={{ mt: 8 }}>
+          <Typography variant="caption">{t("sponsorship.tax")}</Typography>
+          <Typography variant="caption" paragraph>{t("sponsorship.contact1")} <Link href="mailto:contacto@webdevtalks.mx">contacto@webdevtalks.mx</Link> {t("sponsorship.contact2")}</Typography>
+        </Box>
       </Container>
     </>
   )
