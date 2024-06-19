@@ -79,7 +79,7 @@ const Sponsorship = (): ReactElement =>  {
         <Typography variant="body1" paragraph>{t("sponsorship.description1")}</Typography>
         <Typography variant="body1">{t("sponsorship.description2")}</Typography>
         <Typography variant="body1" paragraph>{t("sponsorship.description3")}</Typography>
-        <Box mb={4}>
+        <Box my={5}>
           <iframe width="100%" style={{ maxHeight: '600px', height: '60vw' }} src="https://www.youtube.com/embed/3kLz1Q0myiM" title="YouTube video player" allow="accelerometer autoplay clipboard-write encrypted-media gyroscope picture-in-picture" allowFullScreen></iframe>
         </Box>
 
