@@ -28,6 +28,7 @@ import image23 from './assets/images/23.jpg'
 import image24 from './assets/images/24.jpg'
 import NavBar from './NavBar'
 import Carousel from 'react-material-ui-carousel'
+import Footer from './Footer';
 
 function About() {
   const { t } = useTranslation()
@@ -113,6 +114,7 @@ function About() {
           <LazyLoadImage src={image24} alt={''} style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
         </Carousel>
       </Container>
+      <Footer/>
     </>
   )
 }

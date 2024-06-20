@@ -1,45 +1,29 @@
 import { type ReactElement } from 'react'
-import { Box, Container, Avatar, IconButton, Link } from '@mui/material'
-import FacebookIcon from '@mui/icons-material/Facebook'
-import InstagramIcon from '@mui/icons-material/Instagram'
-import XIcon from '@mui/icons-material/X'
-import LinkedInIcon from '@mui/icons-material/LinkedIn'
-import EmailIcon from '@mui/icons-material/Email'
-import PatreonIcon from './PatreonIcon'
+import { Box, Container, Avatar } from '@mui/material'
 import NavBar from './NavBar';
+import Footer from './Footer';
+import Icons from './Icons';
 import logo from './assets/images/logo.png'
 
 const Home = (): ReactElement => {
   return (
-    <>
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+      }}
+    >
       <NavBar />
-      <Container sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <Container sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1 }}>
         <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '100px', padding: 3 }}>
           <Avatar src={logo} alt="Logo WDT" sx={{ width: '100%', height: '100%', maxWidth: '500px' }} />
         </Box>
-        <Box>
-          <IconButton component={Link} href="https://www.facebook.com/ColimaWebDevTalks" target="_blank">
-            <FacebookIcon fontSize="large" />
-          </IconButton>
-          <IconButton component={Link} href="https://www.instagram.com/webdevtalksmx" target="_blank">
-            <InstagramIcon fontSize="large" />
-          </IconButton>
-          <IconButton component={Link} href="https://twitter.com/webdevtalksmx" target="_blank">
-            <XIcon fontSize="large" />
-          </IconButton>
-          <IconButton component={Link} href="https://www.linkedin.com/company/web-dev-talks" target="_blank">
-            <LinkedInIcon fontSize="large" />
-          </IconButton>
-          <IconButton component={Link} href="https://patreon.com/WebDevTalksColima" target="_blank">
-            <PatreonIcon/>
-          </IconButton>
-          <IconButton component={Link} href="mailto:contacto@webdevtalks.mx" target="_blank">
-            <EmailIcon fontSize="large" />
-          </IconButton>
-        </Box>
+        <Icons color={"#8d8d8d"}/>
       </Container>
-    </>
-  )
+      <Footer/>
+    </Box>
+  ) as ReactElement;
 }
 
 export default Home
