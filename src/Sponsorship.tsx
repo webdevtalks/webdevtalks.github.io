@@ -32,6 +32,7 @@ import miguelUrbina from './assets/images/patreons/miguel_urbina.jpeg'
 import oscarSwanros from './assets/images/patreons/oscar_swanros.jpg'
 import sorielVallejo from './assets/images/patreons/soriel_vallejo.png'
 import logo from './assets/images/logo.png'
+import Footer from './Footer';
 
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import ShareIcon from '@mui/icons-material/Share'
@@ -372,8 +373,9 @@ const Sponsorship = (): ReactElement =>  {
           <Typography variant="caption" paragraph>{t("sponsorship.contact1")} <Link href="mailto:contacto@webdevtalks.mx">contacto@webdevtalks.mx</Link> {t("sponsorship.contact2")}</Typography>
         </Box>
       </Container>
+      <Footer/>
     </>
-  )
+  ) as ReactElement;
 }
 
 export default Sponsorship
