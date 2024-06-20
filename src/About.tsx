@@ -33,8 +33,6 @@ import Footer from './Footer';
 
 function About() {
   const { t } = useTranslation()
-  const noteText = t("aboutUs.note");
-  const benefitsNoteText =  t("aboutUs.benefitsNote");
 
   return (
     <>
@@ -100,7 +98,7 @@ function About() {
         </List>
 
         <Typography sx={{ mb: 2 }}>
-          <strong>{noteText}</strong> {benefitsNoteText}
+          <strong>{t("aboutUs.note")}</strong> {t("aboutUs.benefitsNote")}
         </Typography>
 
         <Typography>{t("aboutUs.closingNote")}</Typography>
