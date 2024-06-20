@@ -33,9 +33,6 @@ import Footer from './Footer';
 
 function About() {
   const { t } = useTranslation()
-  const benefitsNote = t("aboutUs.benefitsNote");
-  const noteText = benefitsNote.split(":")[0] + ":";
-  const restOfText = benefitsNote.split(":").slice(1).join(":").trim();
 
   return (
     <>
@@ -101,7 +98,7 @@ function About() {
         </List>
 
         <Typography sx={{ mb: 2 }}>
-          <strong>{noteText}</strong> {restOfText}
+          <strong>{t("aboutUs.note")}</strong> {t("aboutUs.benefitsNote")}
         </Typography>
 
         <Typography>{t("aboutUs.closingNote")}</Typography>
