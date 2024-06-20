@@ -77,23 +77,26 @@ const Sponsorship = (): ReactElement =>  {
         <Box sx={{ display: 'flex', justifyContent: 'center', p: 5 }}>
           <Avatar src={logo} alt="Logo WDT" sx={{ width: '100%', height: '100%', maxWidth: '250px' }} />
         </Box>
-        <Typography variant="body1" paragraph>{t("sponsorship.description1")}</Typography>
-        <Typography variant="body1">{t("sponsorship.description2")}</Typography>
-        <Typography variant="body1" paragraph>{t("sponsorship.description3")}</Typography>
+        <Typography sx={{ textAlign: 'justify' }} variant="body1" paragraph>{t("sponsorship.description1")}</Typography>
+        <Typography sx={{ textAlign: 'justify', mb: 1.5 }} variant="body1">{t("sponsorship.description2")}</Typography>
+        <Typography sx={{ textAlign: 'justify' }} variant="body1" paragraph>{t("sponsorship.description3")}</Typography>
         <Box my={5}>
           <iframe width="100%" style={{ maxHeight: '600px', height: '60vw' }} src="https://www.youtube.com/embed/3kLz1Q0myiM" title="YouTube video player" allow="accelerometer autoplay clipboard-write encrypted-media gyroscope picture-in-picture" allowFullScreen></iframe>
         </Box>
 
-        <Typography variant="h2" sx={{ my: 8 }}>{t("sponsorship.attendeesTitle")}</Typography>
+        <Typography variant="h2" sx={{ my: 8, textAlign: 'center' }}>{t("sponsorship.attendeesTitle")}</Typography>
         <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
           <Box width={{ xs: '100%', sm: '75%', md: '50%' }} >
             <Pie data={data} />
           </Box>
         </Box>
-        <Typography variant="h3" sx={{ my: 8 }}>Venues</Typography>
-        <Typography variant="body1" paragraph>{t("sponsorship.venues")}</Typography>
-        <Typography variant="h3" sx={{ my: 8 }}>{t("sponsorship.sponsorshipPlans")}</Typography>
-        <Typography variant="body1" paragraph>{t("sponsorship.sponsorshipPlansBody")}</Typography>
+
+        <Typography variant="h3" sx={{ my: 8, textAlign: 'center' }}>Venues</Typography>
+        <Typography sx={{ textAlign: 'justify' }} variant="body1" paragraph>{t("sponsorship.venues")}</Typography>
+
+        <Typography variant="h3" sx={{ mt: 8, mb: 3, textAlign: 'center' }}>{t("sponsorship.sponsorshipPlans")}</Typography>
+        <Typography sx={{ textAlign: 'center' }} variant="body1" paragraph>{t("sponsorship.sponsorshipPlansBody")}</Typography>
+
         <Grid container spacing={5}>
           <Grid item xs={12} md={6}>
             <Card variant="outlined">
@@ -227,7 +230,7 @@ const Sponsorship = (): ReactElement =>  {
           </Grid>
         </Grid>
 
-        <Typography variant="h3" sx={{ my: 4 }}>{t("sponsorship.costs")}</Typography>
+        <Typography variant="h3" sx={{ my: 4, textAlign: 'center' }}>{t("sponsorship.costs")}</Typography>
 
         <Grid container spacing={5}>
           <Grid item xs={12} md={6}>
@@ -316,7 +319,7 @@ const Sponsorship = (): ReactElement =>  {
           </Grid>
         </Grid>
 
-        <Typography variant="h3" sx={{ my: 8}}>{t('sponsorship.ourSponsors')}</Typography>
+        <Typography variant="h3" sx={{ my: 8, textAlign: 'center' }}>{t('sponsorship.ourSponsors')}</Typography>
         <Grid container spacing={4} sx={{ mt: 8, alignItems: 'center', flexWrap: 'wrap', px: 4 }}>
           <Grid item xs={4} md={2} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
             <Avatar variant='square' src={communitySupporters} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
@@ -337,7 +340,7 @@ const Sponsorship = (): ReactElement =>  {
             <Avatar variant='square' src={vauxoo} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
           </Grid>
         </Grid>
-        <Typography variant="h3" sx={{ my: 8}}>{t('sponsorship.ourPatreons')}</Typography>
+        <Typography variant="h3" sx={{ my: 8, textAlign: 'center' }}>{t('sponsorship.ourPatreons')}</Typography>
         <Box sx={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap' }}>
           <MaterialTooltip title="Alejandro Rebollar" sx={{ p: 4 }}>
             <Avatar src={alejandroRebollar} sx={{ height: '50px', width: '50px', m: 2 }} />
