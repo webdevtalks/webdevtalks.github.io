@@ -47,7 +47,7 @@ const NavBar = (): ReactElement => {
     <>
       <AppBar position="sticky" color="default">
         <Container maxWidth="xl">
-          <Toolbar variant="dense" sx={{ alignItems: 'stretch', justifyContent: 'space-between' }}>
+          <Toolbar variant="dense" sx={{ alignItems: { xs: 'center', md: 'stretch' }, justifyContent: 'space-between' }}>
             <IconButton
               color="inherit"
               aria-label="open drawer"
