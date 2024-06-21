@@ -13,6 +13,20 @@ const theme = createTheme({
     }
   },
   components: {
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          '&:hover': {
+            backgroundColor: 'rgba(51,152,203,.9)',
+            color: 'white',
+          },
+          '&.active': {
+            backgroundColor: 'rgba(51,152,203,.9)',
+            color: 'white',
+          },
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {

@@ -53,13 +53,13 @@ const NavBar = (): ReactElement => {
               aria-label="open drawer"
               onClick={toggleDrawer(true)}
               edge="start"
-              sx={{ display: { xs: 'flex', md: 'none' } }}
+              sx={{ display: { xs: 'flex', md: 'none' }}}
             >
               <MenuIcon />
             </IconButton>
             <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' } }>
               <Link to="/" style={{ textDecoration: 'none', marginRight: '1rem', flexShrink: 0 }}>
-                <Avatar src={logo} alt="Logo WDT" sx={{ width: '100%', height: '100%', maxWidth: '50px' }} />
+                <Avatar src={logo} alt="Logo WDT" sx={{ width: '100%', height: '100%', maxWidth: '50px', py: 1 }} />
               </Link>
               <Link to="/sponsorship" style={{ textDecoration: 'none', height: '100%' }}>
                 <Button className={isActive('/sponsorship') ? 'active' : '' } sx={{ height: '100%', borderRadius: '0' }}>
