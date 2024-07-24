@@ -16,9 +16,10 @@ import {
 import MaterialTooltip from '@mui/material/Tooltip';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import NavBar from './NavBar'
-import communitySupporters from './assets/images/sponsors/community_supporters.png'
+// import communitySupporters from './assets/images/sponsors/community_supporters.png'
 import laFronteraCaseCafe from './assets/images/sponsors/la_frontera_casa_cafe.png'
-import magma from './assets/images/sponsors/magma.png'
+import tential from './assets/images/sponsors/tential.png'
+import incode from './assets/images/sponsors/incode.svg'
 import salesloft from './assets/images/sponsors/salesloft.png'
 import softwareGuru from './assets/images/sponsors/software_guru.png'
 import vauxoo from './assets/images/sponsors/vauxoo.png'
@@ -321,14 +322,17 @@ const Sponsorship = (): ReactElement =>  {
 
         <Typography variant="h3" sx={{ my: 8, textAlign: 'center' }}>{t('sponsorship.ourSponsors')}</Typography>
         <Grid container spacing={4} sx={{ mt: 8, alignItems: 'center', flexWrap: 'wrap', px: 4 }}>
-          <Grid item xs={4} md={2} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
+          {/* <Grid item xs={4} md={2} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
             <Avatar variant='square' src={communitySupporters} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
-          </Grid>
+          </Grid> */}
           <Grid item xs={4} md={2} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
             <Avatar variant='square' src={laFronteraCaseCafe} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
           </Grid>
           <Grid item xs={4} md={2} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
-            <Avatar variant='square' src={magma} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
+            <Avatar variant='square' src={tential} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
+          </Grid>
+          <Grid item xs={4} md={2} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
+            <Avatar variant='square' src={incode} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
           </Grid>
           <Grid item xs={4} md={2} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
             <Avatar variant='square' src={salesloft} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
