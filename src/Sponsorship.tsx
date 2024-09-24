@@ -16,10 +16,7 @@ import {
 import MaterialTooltip from '@mui/material/Tooltip';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import NavBar from './NavBar'
-// import communitySupporters from './assets/images/sponsors/community_supporters.png'
 import laFronteraCaseCafe from './assets/images/sponsors/la_frontera_casa_cafe.png'
-import tential from './assets/images/sponsors/tential.png'
-import incode from './assets/images/sponsors/incode.svg'
 import salesloft from './assets/images/sponsors/salesloft.png'
 import softwareGuru from './assets/images/sponsors/software_guru.png'
 import vauxoo from './assets/images/sponsors/vauxoo.png'
@@ -32,6 +29,13 @@ import edsonPaul from './assets/images/patreons/edson_paul.png'
 import miguelUrbina from './assets/images/patreons/miguel_urbina.jpeg'
 import oscarSwanros from './assets/images/patreons/oscar_swanros.jpg'
 import sorielVallejo from './assets/images/patreons/soriel_vallejo.png'
+import juanMeza from './assets/images/patreons/juan_meza.jpeg'
+import edwinCruz from './assets/images/patreons/edwin_cruz.jpeg'
+import mariaAvila from './assets/images/patreons/maria_avila.png'
+import franciscoChacon from './assets/images/patreons/francisco_chacon.jpg'
+import walterMata from './assets/images/patreons/walter_mata.jpeg'
+import myrkaLarios from './assets/images/patreons/myrka_larios.jpeg'
+import gibranLopez from './assets/images/patreons/gibran_lopez.jpeg'
 import logo from './assets/images/logo.png'
 import Footer from './Footer';
 
@@ -322,25 +326,16 @@ const Sponsorship = (): ReactElement =>  {
 
         <Typography variant="h3" sx={{ my: 8, textAlign: 'center' }}>{t('sponsorship.ourSponsors')}</Typography>
         <Grid container spacing={4} sx={{ mt: 8, alignItems: 'center', flexWrap: 'wrap', px: 4 }}>
-          {/* <Grid item xs={4} md={2} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
-            <Avatar variant='square' src={communitySupporters} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
-          </Grid> */}
-          <Grid item xs={4} md={2} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
+          <Grid item xs={6} md={3} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
             <Avatar variant='square' src={laFronteraCaseCafe} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
           </Grid>
-          <Grid item xs={4} md={2} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
-            <Avatar variant='square' src={tential} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
-          </Grid>
-          <Grid item xs={4} md={2} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
-            <Avatar variant='square' src={incode} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
-          </Grid>
-          <Grid item xs={4} md={2} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
+          <Grid item xs={6} md={3} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
             <Avatar variant='square' src={salesloft} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
           </Grid>
-          <Grid item xs={4} md={2} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
+          <Grid item xs={6} md={3} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
             <Avatar variant='square' src={softwareGuru} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
           </Grid>
-          <Grid item xs={4} md={2} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
+          <Grid item xs={6} md={3} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
             <Avatar variant='square' src={vauxoo} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
           </Grid>
         </Grid>
@@ -372,6 +367,27 @@ const Sponsorship = (): ReactElement =>  {
           </MaterialTooltip>
           <MaterialTooltip title="Soriel Vallejo">
             <Avatar src={sorielVallejo} sx={{ height: '50px', width: '50px', m: 2 }} />
+          </MaterialTooltip>
+          <MaterialTooltip title="Juan Meza">
+            <Avatar src={juanMeza} sx={{ height: '50px', width: '50px', m: 2 }} />
+          </MaterialTooltip>
+          <MaterialTooltip title="Edwin Cruz">
+            <Avatar src={edwinCruz} sx={{ height: '50px', width: '50px', m: 2 }} />
+          </MaterialTooltip>
+          <MaterialTooltip title="María Avila">
+            <Avatar src={mariaAvila} sx={{ height: '50px', width: '50px', m: 2 }} />
+          </MaterialTooltip>
+          <MaterialTooltip title="Francisco Chacón">
+            <Avatar src={franciscoChacon} sx={{ height: '50px', width: '50px', m: 2 }} />
+          </MaterialTooltip>
+          <MaterialTooltip title="Walter Mata">
+            <Avatar src={walterMata} sx={{ height: '50px', width: '50px', m: 2 }} />
+          </MaterialTooltip>
+          <MaterialTooltip title="Myrka Larios">
+            <Avatar src={myrkaLarios} sx={{ height: '50px', width: '50px', m: 2 }} />
+          </MaterialTooltip>
+          <MaterialTooltip title="Gibran Lopez">
+            <Avatar src={gibranLopez} sx={{ height: '50px', width: '50px', m: 2 }} />
           </MaterialTooltip>
         </Box>
 
