@@ -16,6 +16,8 @@ import {
 import MaterialTooltip from '@mui/material/Tooltip';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import NavBar from './NavBar'
+import ditigalNao from './assets/images/sponsors/ditigal_nao.png'
+import rubyCentral from './assets/images/sponsors/ruby_central.png'
 import laFronteraCaseCafe from './assets/images/sponsors/la_frontera_casa_cafe.png'
 import salesloft from './assets/images/sponsors/salesloft.png'
 import softwareGuru from './assets/images/sponsors/software_guru.png'
@@ -325,7 +327,7 @@ const Sponsorship = (): ReactElement =>  {
         </Grid>
 
         <Typography variant="h3" sx={{ my: 8, textAlign: 'center' }}>{t('sponsorship.ourSponsors')}</Typography>
-        <Grid container spacing={4} sx={{ mt: 8, alignItems: 'center', flexWrap: 'wrap', px: 4 }}>
+        <Grid container spacing={4} sx={{ mt: 8, alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center', px: 4 }}>
           <Grid item xs={6} md={3} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
             <Avatar variant='square' src={laFronteraCaseCafe} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
           </Grid>
@@ -337,6 +339,12 @@ const Sponsorship = (): ReactElement =>  {
           </Grid>
           <Grid item xs={6} md={3} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
             <Avatar variant='square' src={vauxoo} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
+          </Grid>
+          <Grid item xs={6} md={3} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
+            <Avatar variant='square' src={ditigalNao} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
+          </Grid>
+          <Grid item xs={6} md={3} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
+            <Avatar variant='square' src={rubyCentral} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
           </Grid>
         </Grid>
         <Typography variant="h3" sx={{ my: 8, textAlign: 'center' }}>{t('sponsorship.ourPatreons')}</Typography>
