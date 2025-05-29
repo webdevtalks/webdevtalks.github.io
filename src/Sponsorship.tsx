@@ -16,7 +16,6 @@ import {
 import MaterialTooltip from '@mui/material/Tooltip';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import NavBar from './NavBar'
-import ditigalNao from './assets/images/sponsors/ditigal_nao.png'
 import rubyCentral from './assets/images/sponsors/ruby_central.png'
 import laFronteraCaseCafe from './assets/images/sponsors/la_frontera_casa_cafe.png'
 import salesloft from './assets/images/sponsors/salesloft.png'
@@ -35,9 +34,12 @@ import juanMeza from './assets/images/patreons/juan_meza.jpeg'
 import edwinCruz from './assets/images/patreons/edwin_cruz.jpeg'
 import mariaAvila from './assets/images/patreons/maria_avila.png'
 import franciscoChacon from './assets/images/patreons/francisco_chacon.jpg'
+import franciscoBatista from './assets/images/patreons/francisco_batista.png'
 import walterMata from './assets/images/patreons/walter_mata.jpeg'
 import myrkaLarios from './assets/images/patreons/myrka_larios.jpeg'
 import gibranLopez from './assets/images/patreons/gibran_lopez.jpeg'
+import gil from './assets/images/patreons/gil.png'
+import reginaEspinosa from './assets/images/patreons/regina_espinosa.jpeg'
 import logo from './assets/images/logo.png'
 import Footer from './Footer';
 
@@ -341,9 +343,6 @@ const Sponsorship = (): ReactElement =>  {
             <Avatar variant='square' src={vauxoo} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
           </Grid>
           <Grid item xs={6} md={3} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
-            <Avatar variant='square' src={ditigalNao} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
-          </Grid>
-          <Grid item xs={6} md={3} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
             <Avatar variant='square' src={rubyCentral} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
           </Grid>
         </Grid>
@@ -396,6 +395,15 @@ const Sponsorship = (): ReactElement =>  {
           </MaterialTooltip>
           <MaterialTooltip title="Gibran Lopez">
             <Avatar src={gibranLopez} sx={{ height: '50px', width: '50px', m: 2 }} />
+          </MaterialTooltip>
+          <MaterialTooltip title="Francisco Batista">
+            <Avatar src={franciscoBatista} sx={{ height: '50px', width: '50px', m: 2 }} />
+          </MaterialTooltip>
+          <MaterialTooltip title="Gil">
+            <Avatar src={gil} sx={{ height: '50px', width: '50px', m: 2 }} />
+          </MaterialTooltip>
+          <MaterialTooltip title="Regina Espinosa">
+            <Avatar src={reginaEspinosa} sx={{ height: '50px', width: '50px', m: 2 }} />
           </MaterialTooltip>
         </Box>
 
