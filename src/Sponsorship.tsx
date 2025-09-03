@@ -409,7 +409,7 @@ const Sponsorship = (): ReactElement =>  {
 
         <Box sx={{ mt: 8 }}>
           <Typography variant="caption">{t("sponsorship.tax")}</Typography>
-          <Typography variant="caption" paragraph>{t("sponsorship.contact1")} <Link href="mailto:contacto@webdevtalks.mx">contacto@webdevtalks.mx</Link> {t("sponsorship.contact2")}</Typography>
+          <Typography variant="caption" paragraph>{t("sponsorship.contact1")} <Link href="mailto:webdevtalkscolima@gmail.com">webdevtalkscolima@gmail.com</Link> {t("sponsorship.contact2")}</Typography>
         </Box>
       </Container>
       <Footer/>

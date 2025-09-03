@@ -56,7 +56,7 @@ interface IconsProps {
         </IconButton>
         <IconButton
           component={Link}
-          href="mailto:contacto@webdevtalks.mx"
+          href="mailto:webdevtalkscolima@gmail.com"
           target="_blank"
           sx={{ color: color ?? 'inherit' }}
         >
