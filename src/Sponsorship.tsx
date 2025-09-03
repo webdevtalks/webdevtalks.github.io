@@ -40,6 +40,7 @@ import myrkaLarios from './assets/images/patreons/myrka_larios.jpeg'
 import gibranLopez from './assets/images/patreons/gibran_lopez.jpeg'
 import gil from './assets/images/patreons/gil.png'
 import reginaEspinosa from './assets/images/patreons/regina_espinosa.jpeg'
+import edmundoPerez from './assets/images/patreons/edmundo_perez.jpeg'
 import logo from './assets/images/logo.png'
 import Footer from './Footer';
 
@@ -404,6 +405,9 @@ const Sponsorship = (): ReactElement =>  {
           </MaterialTooltip>
           <MaterialTooltip title="Regina Espinosa">
             <Avatar src={reginaEspinosa} sx={{ height: '50px', width: '50px', m: 2 }} />
+          </MaterialTooltip>
+          <MaterialTooltip title="Edmundo Perez">
+            <Avatar src={edmundoPerez} sx={{ height: '50px', width: '50px', m: 2 }} />
           </MaterialTooltip>
         </Box>
 
