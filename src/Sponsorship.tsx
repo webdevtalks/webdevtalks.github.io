@@ -34,13 +34,14 @@ import juanMeza from './assets/images/patreons/juan_meza.jpeg'
 import edwinCruz from './assets/images/patreons/edwin_cruz.jpeg'
 import mariaAvila from './assets/images/patreons/maria_avila.png'
 import franciscoChacon from './assets/images/patreons/francisco_chacon.jpg'
-import franciscoBatista from './assets/images/patreons/francisco_batista.png'
+import abrilGonzalez from './assets/images/patreons/abril_gonzalez.png'
 import walterMata from './assets/images/patreons/walter_mata.jpeg'
 import myrkaLarios from './assets/images/patreons/myrka_larios.jpeg'
 import gibranLopez from './assets/images/patreons/gibran_lopez.jpeg'
 import gil from './assets/images/patreons/gil.png'
 import reginaEspinosa from './assets/images/patreons/regina_espinosa.jpeg'
 import edmundoPerez from './assets/images/patreons/edmundo_perez.jpeg'
+import hectorAlvarez from './assets/images/patreons/hector_alvarez.jpeg'
 import logo from './assets/images/logo.png'
 import Footer from './Footer';
 
@@ -397,8 +398,8 @@ const Sponsorship = (): ReactElement =>  {
           <MaterialTooltip title="Gibran Lopez">
             <Avatar src={gibranLopez} sx={{ height: '50px', width: '50px', m: 2 }} />
           </MaterialTooltip>
-          <MaterialTooltip title="Francisco Batista">
-            <Avatar src={franciscoBatista} sx={{ height: '50px', width: '50px', m: 2 }} />
+          <MaterialTooltip title="Abril González">
+            <Avatar src={abrilGonzalez} sx={{ height: '50px', width: '50px', m: 2 }} />
           </MaterialTooltip>
           <MaterialTooltip title="Gil">
             <Avatar src={gil} sx={{ height: '50px', width: '50px', m: 2 }} />
@@ -408,6 +409,9 @@ const Sponsorship = (): ReactElement =>  {
           </MaterialTooltip>
           <MaterialTooltip title="Edmundo Perez">
             <Avatar src={edmundoPerez} sx={{ height: '50px', width: '50px', m: 2 }} />
+          </MaterialTooltip>
+          <MaterialTooltip title="Héctor Alvarez">
+            <Avatar src={hectorAlvarez} sx={{ height: '50px', width: '50px', m: 2 }} />
           </MaterialTooltip>
         </Box>
 
