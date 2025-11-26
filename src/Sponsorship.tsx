@@ -18,8 +18,6 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import NavBar from './NavBar'
 import rubyCentral from './assets/images/sponsors/ruby_central.png'
 import laFronteraCaseCafe from './assets/images/sponsors/la_frontera_casa_cafe.png'
-import salesloft from './assets/images/sponsors/salesloft.png'
-import softwareGuru from './assets/images/sponsors/software_guru.png'
 import vauxoo from './assets/images/sponsors/vauxoo.png'
 import alejandroRebollar from './assets/images/patreons/alejandro_rebollar.png'
 import alexisChavez from './assets/images/patreons/alexis_chavez.png'
@@ -334,12 +332,6 @@ const Sponsorship = (): ReactElement =>  {
         <Grid container spacing={4} sx={{ mt: 8, alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center', px: 4 }}>
           <Grid item xs={6} md={3} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
             <Avatar variant='square' src={laFronteraCaseCafe} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
-          </Grid>
-          <Grid item xs={6} md={3} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
-            <Avatar variant='square' src={salesloft} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
-          </Grid>
-          <Grid item xs={6} md={3} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
-            <Avatar variant='square' src={softwareGuru} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
           </Grid>
           <Grid item xs={6} md={3} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
             <Avatar variant='square' src={vauxoo} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
