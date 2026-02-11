@@ -22,7 +22,7 @@ import vauxoo from './assets/images/sponsors/vauxoo.png'
 import alejandroRebollar from './assets/images/patreons/alejandro_rebollar.png'
 import alexisChavez from './assets/images/patreons/alexis_chavez.png'
 import alexisNavarro from './assets/images/patreons/alexis_navarro.png'
-import anonymous from './assets/images/patreons/anonymous.png'
+import l from './assets/images/patreons/l.jpg'
 import benjaminPena from './assets/images/patreons/benajmin_pena.jpeg'
 import edsonPaul from './assets/images/patreons/edson_paul.png'
 import miguelUrbina from './assets/images/patreons/miguel_urbina.jpeg'
@@ -351,8 +351,8 @@ const Sponsorship = (): ReactElement =>  {
           <MaterialTooltip title="Alexis Navarro">
             <Avatar src={alexisNavarro} sx={{ height: '50px', width: '50px', m: 2 }} />
           </MaterialTooltip>
-          <MaterialTooltip title="Anonymous">
-            <Avatar src={anonymous} sx={{ height: '50px', width: '50px', m: 2 }} />
+          <MaterialTooltip title="L">
+            <Avatar src={l} sx={{ height: '50px', width: '50px', m: 2 }} />
           </MaterialTooltip>
           <MaterialTooltip title="Benjamin Peña">
             <Avatar src={benjaminPena} sx={{ height: '50px', width: '50px', m: 2 }} />
