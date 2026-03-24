@@ -71,6 +71,11 @@ const NavBar = (): ReactElement => {
                   <Typography>{t("navbar.aboutUs")}</Typography>
                 </Button>
               </Link>
+              <Link to="/code-of-conduct" style={{ textDecoration: 'none', height: '100%' }}>
+                <Button className={isActive('/code-of-conduct') ? 'active' : '' } sx={{ height: '100%', borderRadius: '0' }}>
+                  <Typography>{t("navbar.codeOfConduct")}</Typography>
+                </Button>
+              </Link>
               <Link to="/" onClick={openSurvey} style={{ textDecoration: 'none', height: '100%' }}>
                 <Button sx={{ height: '100%', borderRadius: '0' }}>
                   <Typography>{t("navbar.survey")}</Typography>
@@ -104,6 +109,13 @@ const NavBar = (): ReactElement => {
               <Link to="/about" style={{ textDecoration: 'none', width: '100%' }}>
                 <ListItemButton className={isActive('/about') ? 'active' : ''}>
                   <Typography>{t("navbar.aboutUs")}</Typography>
+                </ListItemButton>
+              </Link>
+            </ListItem>
+            <ListItem sx={{ px: 0 }}>
+              <Link to="/code-of-conduct" style={{ textDecoration: 'none', width: '100%' }}>
+                <ListItemButton className={isActive('/code-of-conduct') ? 'active' : ''}>
+                  <Typography>{t("navbar.codeOfConduct")}</Typography>
                 </ListItemButton>
               </Link>
             </ListItem>

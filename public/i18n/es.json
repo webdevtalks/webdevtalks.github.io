@@ -3,7 +3,8 @@
       "sponsorship": "¿Te interesa patrocinar?",
       "aboutUs": "Acerca de nosotros",
       "survey": "Encuesta",
-      "home": "Inicio"
+      "home": "Inicio",
+      "codeOfConduct": "Código de Conducta"
   },
   "sponsorship": {
       "description1": "WebDevTalks(WDT) es una comunidad de desarrollo y tecnología que inició hace más de 10 años con la finalidad de acercar a desarrolladores, diseñadores, managers, product owners, testers y cualquier profesional con una carrera relacionada a IT a diversos temas dentro del área del desarrollo de software web, móvil, IoT, gestión de proyectos, testing, infraestructura, diseño y más.",
@@ -87,5 +88,93 @@
       "communityHeader": "“Somos comunidad”",
       "adrianaReyes": " - Adriana Reyes.",
       "gallery": "Galeria"
+  },
+  "codeOfConduct": {
+      "title": "Código de Conducta",
+      "purpose": {
+          "title": "1. Propósito",
+          "description1": "Web Dev Talks es una comunidad abierta cuyo objetivo es fomentar el aprendizaje, el networking y el crecimiento profesional dentro del área de tecnología, en un ambiente seguro, respetuoso e inclusivo para todas las personas.",
+          "description2": "Este Código de Conducta establece las reglas de participación para todos los asistentes, speakers, organizadores, patrocinadores y colaboradores en cualquier actividad relacionada con la comunidad.",
+          "appliesTo": "Este documento aplica a:",
+          "inPersonEvents": "Eventos presenciales",
+          "onlineEvents": "Eventos en línea",
+          "networking": "Networking posterior a las charlas",
+          "socialMedia": "Redes sociales oficiales",
+          "communicationChannels": "Canales de comunicación de la comunidad",
+          "memberInteractions": "Interacciones entre miembros de la comunidad dentro y fuera de los eventos",
+          "participation": "La participación en cualquier actividad de Web Dev Talks implica la aceptación de este código."
+      },
+      "values": {
+          "title": "2. Valores de la comunidad",
+          "description": "En Web Dev Talks promovemos:",
+          "respect": "Respeto mutuo",
+          "inclusion": "Inclusión",
+          "professionalism": "Profesionalismo",
+          "collaboration": "Colaboración",
+          "diversity": "Diversidad de opiniones",
+          "learning": "Aprendizaje continuo",
+          "welcome": "Queremos que cualquier persona se sienta bienvenida, independientemente de su experiencia, profesión o contexto personal."
+      },
+      "expected": {
+          "title": "3. Conducta esperada",
+          "description": "Se espera que todas las personas participantes:",
+          "respectful": "Se comporten de manera respetuosa hacia los demás",
+          "avoidOffensive": "Eviten lenguaje ofensivo, hostil o discriminatorio",
+          "respectStaff": "Respeten las indicaciones del staff y de la sede anfitriona",
+          "professional": "Mantengan un ambiente profesional durante las charlas y el networking",
+          "respectSpaces": "Respeten los espacios físicos, instalaciones y equipo",
+          "constructive": "Participen en las discusiones de forma constructiva"
+      },
+      "unacceptable": {
+          "title": "4. Conducta inaceptable",
+          "description": "No se tolerará ninguna forma de:",
+          "harassment": "Acoso verbal, físico o digital",
+          "stalking": "Hostigamiento en persona o a través de redes sociales",
+          "offensiveComments": "Comentarios ofensivos o discriminatorios",
+          "intimidation": "Intimidación o amenazas",
+          "sexualConduct": "Conducta sexual inapropiada",
+          "insults": "Insultos o lenguaje agresivo",
+          "interruptions": "Interrupciones intencionales de las charlas",
+          "uncomfortable": "Comportamiento que incomode, intimide o ponga en riesgo a otras personas",
+          "propertyDamage": "Daño a instalaciones o propiedad de terceros",
+          "invasivePromotion": "Promoción invasiva o comportamiento disruptivo",
+          "note": "El acoso incluye también interacciones fuera del evento cuando estén dirigidas a miembros de la comunidad, speakers, organizadores o asistentes."
+      },
+      "scope": {
+          "title": "5. Alcance fuera del evento",
+          "description": "El Código de Conducta aplica también a comportamientos ocurridos fuera de los eventos cuando estos:",
+          "directed": "Estén dirigidos a miembros de la comunidad",
+          "safety": "Afecten la seguridad o bienestar de asistentes, speakers u organizadores",
+          "hostileEnvironment": "Generen un ambiente hostil para la participación en la comunidad",
+          "socialMediaHarassment": "Incluyan acoso en redes sociales, mensajes privados, correos electrónicos u otros medios",
+          "reserve": "La comunidad se reserva el derecho de tomar decisiones basadas en este tipo de comportamientos aunque no hayan ocurrido durante un evento."
+      },
+      "enforcement": {
+          "title": "6. Cumplimiento y medidas",
+          "description": "Los organizadores se reservan el derecho de tomar las medidas necesarias para mantener un ambiente seguro, incluyendo:",
+          "warnings": "Advertencias",
+          "expulsion": "Expulsión del evento",
+          "ticketCancellation": "Cancelación de boletos",
+          "futureAccess": "Negar acceso a futuros eventos",
+          "speakerInvitations": "Retirar invitaciones a speakers o colaboradores",
+          "participation": "Limitar la participación en actividades de la comunidad",
+          "outsideEvents": "Estas medidas pueden aplicarse incluso si el comportamiento ocurrió fuera del evento, cuando se considere que afecta a la comunidad o a sus miembros.",
+          "finalDecisions": "Las decisiones del staff son finales."
+      },
+      "reporting": {
+          "title": "7. Reporte de incidentes",
+          "description": "Si alguna persona se siente incómoda, insegura o considera que este Código ha sido violado, puede reportarlo con cualquier miembro del staff.",
+          "confidentiality": "Los reportes serán tratados con seriedad y confidencialidad.",
+          "howTo": "Se puede reportar:",
+          "duringEvent": "Durante el evento, directamente con organizadores",
+          "socialMedia": "A través de redes oficiales",
+          "email": "Por correo de la comunidad"
+      },
+      "commitment": {
+          "title": "8. Compromiso",
+          "description": "Web Dev Talks busca ser un espacio donde todas las personas puedan aprender, compartir y convivir sin miedo a ser acosadas, discriminadas o intimidadas.",
+          "responsibility": "Mantener este ambiente es responsabilidad de todos.",
+          "community": "Somos comunidad."
+      }
   }
 }
