@@ -140,7 +140,8 @@
           "uncomfortable": "Comportamiento que incomode, intimide o ponga en riesgo a otras personas",
           "propertyDamage": "Daño a instalaciones o propiedad de terceros",
           "invasivePromotion": "Promoción invasiva o comportamiento disruptivo",
-          "note": "El acoso incluye también interacciones fuera del evento cuando estén dirigidas a miembros de la comunidad, speakers, organizadores o asistentes."
+          "note": "El acoso incluye también interacciones fuera del evento cuando estén dirigidas a miembros de la comunidad, speakers, organizadores o asistentes.",
+          "admissionRights": "Web Dev Talks se reserva el derecho de admisión y puede prohibir la entrada o permanencia en cualquier evento a cualquier persona, en cualquier momento, sin necesidad de justificación previa."
       },
       "scope": {
           "title": "5. Alcance fuera del evento",

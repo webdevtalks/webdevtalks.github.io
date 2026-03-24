@@ -131,7 +131,8 @@
           "uncomfortable": "Behavior that makes others uncomfortable, intimidated, or at risk",
           "propertyDamage": "Damage to facilities or third-party property",
           "invasivePromotion": "Invasive promotion or disruptive behavior",
-          "note": "Harassment also includes interactions outside the event when directed at community members, speakers, organizers, or attendees."
+          "note": "Harassment also includes interactions outside the event when directed at community members, speakers, organizers, or attendees.",
+          "admissionRights": "Web Dev Talks reserves the right of admission and may prohibit entry or permanence at any event to any person, at any time, without prior justification."
       },
       "scope": {
           "title": "5. Scope outside the event",

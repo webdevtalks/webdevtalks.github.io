@@ -505,6 +505,9 @@ function CodeOfConduct() {
           <Typography sx={{ textAlign: 'justify', mt: 2 }}>
             {t("codeOfConduct.unacceptable.note")}
           </Typography>
+          <Typography sx={{ textAlign: 'justify', mt: 2, fontWeight: 'bold', color: 'error.main' }}>
+            {t("codeOfConduct.unacceptable.admissionRights")}
+          </Typography>
         </Box>
 
         <Divider sx={{ width: '100%', my: 3 }} />
