@@ -91,6 +91,8 @@
   },
   "codeOfConduct": {
       "title": "Código de Conducta",
+      "copyLink": "Copiar enlace a esta sección",
+      "tableOfContents": "Tabla de contenidos",
       "purpose": {
           "title": "1. Propósito",
           "description1": "Web Dev Talks es una comunidad abierta cuyo objetivo es fomentar el aprendizaje, el networking y el crecimiento profesional dentro del área de tecnología, en un ambiente seguro, respetuoso e inclusivo para todas las personas.",

@@ -1,25 +1,280 @@
-import { Typography, Container, List, ListItem, ListItemText, ListItemIcon, Divider, Box } from '@mui/material'
+import { Typography, Container, List, ListItem, ListItemText, ListItemIcon, Divider, Box, IconButton, Tooltip } from '@mui/material'
 import CircleIcon from '@mui/icons-material/Circle'
+import LinkIcon from '@mui/icons-material/Link'
 import { useTranslation } from 'react-i18next'
 import NavBar from './NavBar'
 import Footer from './Footer'
+import { useAnchorLinks } from './hooks/useAnchorLinks'
 
 function CodeOfConduct() {
   const { t } = useTranslation()
+  const { copyAnchorLink, scrollToElement } = useAnchorLinks()
+
+  // Component for section header with anchor link
+  const SectionHeader = ({ id, variant, children, color = 'primary.main' }: { 
+    id: string, 
+    variant: 'h1' | 'h2', 
+    children: React.ReactNode,
+    color?: string 
+  }) => (
+    <Box 
+      id={id} 
+      sx={{ 
+        display: 'flex', 
+        alignItems: 'center', 
+        gap: 1, 
+        mb: 2,
+        '&:hover .anchor-link': {
+          opacity: 0.6
+        }
+      }}
+    >
+      <Tooltip title={t("codeOfConduct.copyLink") || "Copiar enlace"}>
+        <IconButton 
+          className="anchor-link"
+          size="small" 
+          onClick={() => copyAnchorLink(id)}
+          sx={{ 
+            opacity: 0,
+            transition: 'opacity 0.2s ease-in-out',
+            '&:hover': { opacity: 1 },
+            color: color,
+            mr: 0.5
+          }}
+        >
+          <LinkIcon fontSize="small" />
+        </IconButton>
+      </Tooltip>
+      <Typography variant={variant} sx={{ color, flex: 1 }}>
+        {children}
+      </Typography>
+    </Box>
+  )
 
   return (
     <>
       <NavBar />
-      <Container sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', pt: 5, pb: 5 }}>
+      <Container sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        pt: 5,
+        pb: 5,
+        // Add scroll padding to account for sticky header
+        '& [id]': {
+          scrollMarginTop: '80px' // 65px header + 15px extra padding
+        }
+      }}>
         <Typography variant="h1" sx={{ mb: 4, textAlign: 'center' }}>
           {t("codeOfConduct.title")}
         </Typography>
 
+        {/* Tabla de contenidos */}
+        <Box sx={{ width: '100%', mb: 4, p: 3, bgcolor: 'grey.50', borderRadius: 2, border: '1px solid', borderColor: 'grey.200' }}>
+          <Typography variant="h3" sx={{ mb: 2, color: 'primary.main' }}>
+            {t("codeOfConduct.tableOfContents") || "Tabla de contenidos"}
+          </Typography>
+          <List dense>
+            <ListItem sx={{ py: 0.5 }}>
+              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
+                <CircleIcon sx={{ fontSize: '6px' }} />
+              </ListItemIcon>
+              <ListItemText>
+                <Typography
+                  component="button"
+                  onClick={() => scrollToElement('proposito')}
+                  sx={{
+                    textDecoration: 'none',
+                    color: 'primary.main',
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                    padding: 0,
+                    font: 'inherit',
+                    '&:hover': { textDecoration: 'underline' }
+                  }}
+                >
+                  {t("codeOfConduct.purpose.title")}
+                </Typography>
+              </ListItemText>
+            </ListItem>
+            <ListItem sx={{ py: 0.5 }}>
+              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
+                <CircleIcon sx={{ fontSize: '6px' }} />
+              </ListItemIcon>
+              <ListItemText>
+                <Typography
+                  component="button"
+                  onClick={() => scrollToElement('valores')}
+                  sx={{
+                    textDecoration: 'none',
+                    color: 'primary.main',
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                    padding: 0,
+                    font: 'inherit',
+                    '&:hover': { textDecoration: 'underline' }
+                  }}
+                >
+                  {t("codeOfConduct.values.title")}
+                </Typography>
+              </ListItemText>
+            </ListItem>
+            <ListItem sx={{ py: 0.5 }}>
+              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
+                <CircleIcon sx={{ fontSize: '6px' }} />
+              </ListItemIcon>
+              <ListItemText>
+                <Typography
+                  component="button"
+                  onClick={() => scrollToElement('conducta-esperada')}
+                  sx={{
+                    textDecoration: 'none',
+                    color: 'primary.main',
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                    padding: 0,
+                    font: 'inherit',
+                    '&:hover': { textDecoration: 'underline' }
+                  }}
+                >
+                  {t("codeOfConduct.expected.title")}
+                </Typography>
+              </ListItemText>
+            </ListItem>
+            <ListItem sx={{ py: 0.5 }}>
+              <ListItemIcon sx={{ minWidth: '20px', color: 'error.main' }}>
+                <CircleIcon sx={{ fontSize: '6px' }} />
+              </ListItemIcon>
+              <ListItemText>
+                <Typography
+                  component="button"
+                  onClick={() => scrollToElement('conducta-inaceptable')}
+                  sx={{
+                    textDecoration: 'none',
+                    color: 'error.main',
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                    padding: 0,
+                    font: 'inherit',
+                    '&:hover': { textDecoration: 'underline' }
+                  }}
+                >
+                  {t("codeOfConduct.unacceptable.title")}
+                </Typography>
+              </ListItemText>
+            </ListItem>
+            <ListItem sx={{ py: 0.5 }}>
+              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
+                <CircleIcon sx={{ fontSize: '6px' }} />
+              </ListItemIcon>
+              <ListItemText>
+                <Typography
+                  component="button"
+                  onClick={() => scrollToElement('alcance-fuera-evento')}
+                  sx={{
+                    textDecoration: 'none',
+                    color: 'primary.main',
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                    padding: 0,
+                    font: 'inherit',
+                    '&:hover': { textDecoration: 'underline' }
+                  }}
+                >
+                  {t("codeOfConduct.scope.title")}
+                </Typography>
+              </ListItemText>
+            </ListItem>
+            <ListItem sx={{ py: 0.5 }}>
+              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
+                <CircleIcon sx={{ fontSize: '6px' }} />
+              </ListItemIcon>
+              <ListItemText>
+                <Typography
+                  component="button"
+                  onClick={() => scrollToElement('cumplimiento-medidas')}
+                  sx={{
+                    textDecoration: 'none',
+                    color: 'primary.main',
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                    padding: 0,
+                    font: 'inherit',
+                    '&:hover': { textDecoration: 'underline' }
+                  }}
+                >
+                  {t("codeOfConduct.enforcement.title")}
+                </Typography>
+              </ListItemText>
+            </ListItem>
+            <ListItem sx={{ py: 0.5 }}>
+              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
+                <CircleIcon sx={{ fontSize: '6px' }} />
+              </ListItemIcon>
+              <ListItemText>
+                <Typography
+                  component="button"
+                  onClick={() => scrollToElement('reporte-incidentes')}
+                  sx={{
+                    textDecoration: 'none',
+                    color: 'primary.main',
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                    padding: 0,
+                    font: 'inherit',
+                    '&:hover': { textDecoration: 'underline' }
+                  }}
+                >
+                  {t("codeOfConduct.reporting.title")}
+                </Typography>
+              </ListItemText>
+            </ListItem>
+            <ListItem sx={{ py: 0.5 }}>
+              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
+                <CircleIcon sx={{ fontSize: '6px' }} />
+              </ListItemIcon>
+              <ListItemText>
+                <Typography
+                  component="button"
+                  onClick={() => scrollToElement('compromiso')}
+                  sx={{
+                    textDecoration: 'none',
+                    color: 'primary.main',
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                    padding: 0,
+                    font: 'inherit',
+                    '&:hover': { textDecoration: 'underline' }
+                  }}
+                >
+                  {t("codeOfConduct.commitment.title")}
+                </Typography>
+              </ListItemText>
+            </ListItem>
+          </List>
+        </Box>
+
         {/* Sección 1: Propósito */}
         <Box sx={{ width: '100%', mb: 4 }}>
-          <Typography variant="h2" sx={{ mb: 2, color: 'primary.main' }}>
+          <SectionHeader id="proposito" variant="h2">
             {t("codeOfConduct.purpose.title")}
-          </Typography>
+          </SectionHeader>
           <Typography sx={{ textAlign: 'justify', mb: 2 }}>
             {t("codeOfConduct.purpose.description1")}
           </Typography>
@@ -76,9 +331,9 @@ function CodeOfConduct() {
 
         {/* Sección 2: Valores */}
         <Box sx={{ width: '100%', mb: 4 }}>
-          <Typography variant="h2" sx={{ mb: 2, color: 'primary.main' }}>
+          <SectionHeader id="valores" variant="h2">
             {t("codeOfConduct.values.title")}
-          </Typography>
+          </SectionHeader>
           <Typography sx={{ textAlign: 'justify', mb: 2 }}>
             {t("codeOfConduct.values.description")}
           </Typography>
@@ -129,9 +384,9 @@ function CodeOfConduct() {
 
         {/* Sección 3: Conducta Esperada */}
         <Box sx={{ width: '100%', mb: 4 }}>
-          <Typography variant="h2" sx={{ mb: 2, color: 'primary.main' }}>
+          <SectionHeader id="conducta-esperada" variant="h2">
             {t("codeOfConduct.expected.title")}
-          </Typography>
+          </SectionHeader>
           <Typography sx={{ textAlign: 'justify', mb: 2 }}>
             {t("codeOfConduct.expected.description")}
           </Typography>
@@ -179,9 +434,9 @@ function CodeOfConduct() {
 
         {/* Sección 4: Conducta Inaceptable */}
         <Box sx={{ width: '100%', mb: 4 }}>
-          <Typography variant="h2" sx={{ mb: 2, color: 'error.main' }}>
+          <SectionHeader id="conducta-inaceptable" variant="h2" color="error.main">
             {t("codeOfConduct.unacceptable.title")}
-          </Typography>
+          </SectionHeader>
           <Typography sx={{ textAlign: 'justify', mb: 2 }}>
             {t("codeOfConduct.unacceptable.description")}
           </Typography>
@@ -256,9 +511,9 @@ function CodeOfConduct() {
 
         {/* Sección 5: Alcance fuera del evento */}
         <Box sx={{ width: '100%', mb: 4 }}>
-          <Typography variant="h2" sx={{ mb: 2, color: 'primary.main' }}>
+          <SectionHeader id="alcance-fuera-evento" variant="h2">
             {t("codeOfConduct.scope.title")}
-          </Typography>
+          </SectionHeader>
           <Typography sx={{ textAlign: 'justify', mb: 2 }}>
             {t("codeOfConduct.scope.description")}
           </Typography>
@@ -297,9 +552,9 @@ function CodeOfConduct() {
 
         {/* Sección 6: Cumplimiento y medidas */}
         <Box sx={{ width: '100%', mb: 4 }}>
-          <Typography variant="h2" sx={{ mb: 2, color: 'primary.main' }}>
+          <SectionHeader id="cumplimiento-medidas" variant="h2">
             {t("codeOfConduct.enforcement.title")}
-          </Typography>
+          </SectionHeader>
           <Typography sx={{ textAlign: 'justify', mb: 2 }}>
             {t("codeOfConduct.enforcement.description")}
           </Typography>
@@ -353,9 +608,9 @@ function CodeOfConduct() {
 
         {/* Sección 7: Reporte de incidentes */}
         <Box sx={{ width: '100%', mb: 4 }}>
-          <Typography variant="h2" sx={{ mb: 2, color: 'primary.main' }}>
+          <SectionHeader id="reporte-incidentes" variant="h2">
             {t("codeOfConduct.reporting.title")}
-          </Typography>
+          </SectionHeader>
           <Typography sx={{ textAlign: 'justify', mb: 2 }}>
             {t("codeOfConduct.reporting.description")}
           </Typography>
@@ -391,9 +646,9 @@ function CodeOfConduct() {
 
         {/* Sección 8: Compromiso */}
         <Box sx={{ width: '100%', mb: 4 }}>
-          <Typography variant="h2" sx={{ mb: 2, color: 'primary.main' }}>
+          <SectionHeader id="compromiso" variant="h2">
             {t("codeOfConduct.commitment.title")}
-          </Typography>
+          </SectionHeader>
           <Typography sx={{ textAlign: 'justify', mb: 2 }}>
             {t("codeOfConduct.commitment.description")}
           </Typography>
