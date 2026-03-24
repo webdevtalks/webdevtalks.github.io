@@ -13,7 +13,7 @@ i18n.use(HttpApi)
         escapeValue: false,
       },
       backend: {
-        loadPath: `${basePath}/i18n/{{lng}}.json`,
+        loadPath: `${basePath}/i18n/{{lng}}.json?v=${Date.now()}`,
       },
   })
 
