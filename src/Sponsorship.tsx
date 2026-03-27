@@ -309,7 +309,7 @@ const Sponsorship = (): ReactElement =>  {
                       </Typography>
                     </Box>
                     <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
-                      {t("sponsorship.silverSemester", { peso: '$3,9132 MXN', dolar: '$180 USD' })}
+                      {t("sponsorship.silverSemester", { peso: '$3,132 MXN', dolar: '$180 USD' })}
                     </Typography>
                   </Box>
                   <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
