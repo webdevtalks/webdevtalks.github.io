@@ -90,36 +90,36 @@ const NavBar = (): ReactElement => {
       </AppBar>
       <Drawer open={isDrawerOpen} onClose={toggleDrawer(false)}>
         <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
-          <List>
-            <ListItem sx={{ px: 0 }}>
+          <List sx={{ p: 0 }}>
+            <ListItem sx={{ p: 0 }}>
               <Link to="/" style={{ textDecoration: 'none', width: '100%' }}>
                 <ListItemButton className={isActive('/') ? 'active' : ''}>
                   <Typography>{t("navbar.home")}</Typography>
                 </ListItemButton>
               </Link>
             </ListItem>
-            <ListItem sx={{ px: 0 }}>
+            <ListItem sx={{ p: 0 }}>
               <Link to="/sponsorship" style={{ textDecoration: 'none', width: '100%' }}>
                 <ListItemButton className={isActive('/sponsorship') ? 'active' : ''}>
                   <Typography>{t("navbar.sponsorship")}</Typography>
                 </ListItemButton>
               </Link>
             </ListItem>
-            <ListItem sx={{ px: 0 }}>
+            <ListItem sx={{ p: 0 }}>
               <Link to="/about" style={{ textDecoration: 'none', width: '100%' }}>
                 <ListItemButton className={isActive('/about') ? 'active' : ''}>
                   <Typography>{t("navbar.aboutUs")}</Typography>
                 </ListItemButton>
               </Link>
             </ListItem>
-            <ListItem sx={{ px: 0 }}>
+            <ListItem sx={{ p: 0 }}>
               <Link to="/code-of-conduct" style={{ textDecoration: 'none', width: '100%' }}>
                 <ListItemButton className={isActive('/code-of-conduct') ? 'active' : ''}>
                   <Typography>{t("navbar.codeOfConduct")}</Typography>
                 </ListItemButton>
               </Link>
             </ListItem>
-            <ListItem sx={{ px: 0 }}>
+            <ListItem sx={{ p: 0 }}>
               <Link to="#" onClick={openSurvey} style={{ textDecoration: 'none', width: '100%' }}>
                 <ListItemButton sx={{ height: '100%' }}>
                   <Typography>{t("navbar.survey")}</Typography>
