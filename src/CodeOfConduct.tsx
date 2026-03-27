@@ -11,40 +11,42 @@ function CodeOfConduct() {
   const { copyAnchorLink, scrollToElement } = useAnchorLinks()
 
   // Component for section header with anchor link
-  const SectionHeader = ({ id, variant, children, color = 'primary.main' }: { 
-    id: string, 
-    variant: 'h1' | 'h2', 
+  const SectionHeader = ({ id, variant, children, color = 'primary.main' }: {
+    id: string,
+    variant: 'h1' | 'h2',
     children: React.ReactNode,
-    color?: string 
+    color?: string
   }) => (
-    <Box 
-      id={id} 
-      sx={{ 
-        display: 'flex', 
-        alignItems: 'center', 
-        gap: 1, 
+    <Box
+      id={id}
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: 1,
         mb: 2,
         '&:hover .anchor-link': {
           opacity: 0.6
         }
       }}
     >
-      <Tooltip title={t("codeOfConduct.copyLink") || "Copiar enlace"}>
-        <IconButton 
-          className="anchor-link"
-          size="small" 
-          onClick={() => copyAnchorLink(id)}
-          sx={{ 
-            opacity: 0,
-            transition: 'opacity 0.2s ease-in-out',
-            '&:hover': { opacity: 1 },
-            color: color,
-            mr: 0.5
-          }}
-        >
-          <LinkIcon fontSize="small" />
-        </IconButton>
-      </Tooltip>
+      <Box sx={{ display: { xs: 'none', sm: 'flex' }, alignItems: 'center' }}>
+        <Tooltip title={t("codeOfConduct.copyLink") || "Copiar enlace"}>
+          <IconButton
+            className="anchor-link"
+            size="small"
+            onClick={() => copyAnchorLink(id)}
+            sx={{
+              opacity: 0,
+              transition: 'opacity 0.2s ease-in-out',
+              '&:hover': { opacity: 1 },
+              color: color,
+              mr: 0.5
+            }}
+          >
+            <LinkIcon fontSize="small" />
+          </IconButton>
+        </Tooltip>
+      </Box>
       <Typography variant={variant} sx={{ color, flex: 1 }}>
         {children}
       </Typography>
