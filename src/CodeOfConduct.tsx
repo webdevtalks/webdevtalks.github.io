@@ -59,7 +59,8 @@ function CodeOfConduct() {
       <Container sx={{
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
+        alignItems: 'stretch',
+        minWidth: 0,
         pt: 5,
         pb: 5,
         // Add scroll padding to account for sticky header
@@ -72,11 +73,35 @@ function CodeOfConduct() {
         </Typography>
 
         {/* Tabla de contenidos */}
-        <Box sx={{ width: '100%', mb: 4, p: 3, bgcolor: 'grey.50', borderRadius: 2, border: '1px solid', borderColor: 'grey.200' }}>
-          <Typography variant="h3" sx={{ mb: 2, color: 'primary.main' }}>
+        <Box sx={{
+          width: '100%',
+          maxWidth: '100%',
+          minWidth: 0,
+          mb: 4,
+          p: { xs: 2, sm: 3 },
+          bgcolor: 'grey.50',
+          borderRadius: 2,
+          border: '1px solid',
+          borderColor: 'grey.200',
+          boxSizing: 'border-box',
+        }}>
+          <Typography variant="h3" sx={{ mb: 2, color: 'primary.main', overflowWrap: 'break-word' }}>
             {t("codeOfConduct.tableOfContents") || "Tabla de contenidos"}
           </Typography>
-          <List dense>
+          <List
+            dense
+            sx={{
+              width: '100%',
+              minWidth: 0,
+              '& .MuiListItem-root': { minWidth: 0 },
+              '& .MuiListItemText-root': { minWidth: 0 },
+              '& .MuiListItemText-root .MuiTypography-root': {
+                overflowWrap: 'break-word',
+                wordBreak: 'break-word',
+                maxWidth: '100%',
+              },
+            }}
+          >
             <ListItem sx={{ py: 0.5 }}>
               <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
                 <CircleIcon sx={{ fontSize: '6px' }} />
