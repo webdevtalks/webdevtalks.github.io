@@ -26,9 +26,11 @@
   "sponsorship": {
       "description1": "WebDevTalks is a community of development and technology that began over 10 years ago with the aim of bringing developers closer to various topics within the field of software development, web, mobile, IoT, project management, design, and more.",
       "description2": "Thanks to the effort and support of various companies, we've been able to reach today, providing a quality event, helping to incentivize new generations, and strengthening the development community in the city of Colima.",
-      "attendeesTitle": "Attendee Profile",
+      "attendeesTitle": "Attendee profile",
+      "attendeesIntro": "Meetups bring together different roles: engineering, product, QA, design, students, and more. The chart summarizes a community survey—the numbers are approximate.",
+      "venuesTitle": "Event locations",
       "wdtVideo": "WebDevTalks Video (Audio on Spanish)",
-      "venues": "We try to rotate the location where the event takes place. Several companies and associations have helped us by collaborating and providing their offices and spaces to carry out the event.",
+      "venues": "We don't always host in the same place—we change venues so more people can join. Companies and associations have lent us their offices and spaces to make the meetups happen.",
       "sponsorshipPlans": "Sponsorship Plans",
       "sponsorshipPlansBody": "With the goal of continuing to enhance the community, WebDevTalks seeks sponsorship and offers the following modalities:",
       "areas": "Other Areas",
@@ -67,7 +69,6 @@
       "ourPatreons": "Our Patreons",
       "votes": "# dof votes",
       "heroEyebrow": "Sponsor WDT",
-      "audienceProfile": "Audience profile",
       "closingNote": "Your support helps us keep building better events for the community."
   },
   "aboutUs": {

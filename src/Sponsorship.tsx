@@ -194,14 +194,17 @@ const Sponsorship = (): ReactElement => {
           <div className="grid gap-8 lg:grid-cols-3">
             <div>
               <p className="inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1.5 text-[0.82rem] font-bold uppercase tracking-[0.08em] text-sky-600">{t('sponsorship.attendeesTitle')}</p>
-              <h2 className="mt-4 text-2xl font-bold tracking-tight text-brand md:text-3xl">{t('sponsorship.audienceProfile')}</h2>
-              <p className="mt-4 text-slate-600">{t('sponsorship.venues')}</p>
+              <p className="mt-4 text-slate-600">{t('sponsorship.attendeesIntro')}</p>
             </div>
             <div className="mx-auto w-full min-w-0 max-w-xl rounded-3xl border border-black/8 bg-white/82 p-4 shadow-sm sm:col-span-2 sm:p-6">
               <div className="relative mx-auto aspect-square w-full max-w-md">
                 <Pie data={audienceData} options={audienceOptions} />
               </div>
             </div>
+          </div>
+          <div className="mt-8 border-t border-black/8 pt-8">
+            <p className="inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1.5 text-[0.82rem] font-bold uppercase tracking-[0.08em] text-sky-600">{t('sponsorship.venuesTitle')}</p>
+            <p className="mt-4 text-slate-600">{t('sponsorship.venues')}</p>
           </div>
         </Card>
 
@@ -252,7 +255,6 @@ const Sponsorship = (): ReactElement => {
           <div className="mb-6 flex items-end justify-between gap-4">
             <div>
               <p className="inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1.5 text-[0.82rem] font-bold uppercase tracking-[0.08em] text-sky-600">{t('sponsorship.ourSponsors')}</p>
-              <h2 className="mt-4 text-2xl font-bold tracking-tight text-brand md:text-3xl">{t('sponsorship.ourSponsors')}</h2>
             </div>
           </div>
           <div className="grid gap-4 md:grid-cols-3">
@@ -268,7 +270,6 @@ const Sponsorship = (): ReactElement => {
           <div className="mb-6 flex items-end justify-between gap-4">
             <div>
               <p className="inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1.5 text-[0.82rem] font-bold uppercase tracking-[0.08em] text-sky-600">{t('sponsorship.ourPatreons')}</p>
-              <h2 className="mt-4 text-2xl font-bold tracking-tight text-brand md:text-3xl">{t('sponsorship.ourPatreons')}</h2>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">

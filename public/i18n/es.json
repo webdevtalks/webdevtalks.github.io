@@ -28,8 +28,10 @@
       "description2": "Gracias al esfuerzo y apoyo de diversas empresas hemos llegado al día de hoy, proporcionando un evento de calidad, ayudando a incentivar a las nuevas generaciones y fortaleciendo la comunidad de desarrollo en la ciudad de Colima.",
       "description3": "Son nuestros sponsors y patreons quienes nos permiten seguir haciendo posible estos eventos y cursos.",
       "attendeesTitle": "Perfil de Asistentes",
+      "attendeesIntro": "En los encuentros conviven perfiles distintos: desarrollo, producto, QA, diseño, estudiantes y otras áreas. La gráfica resume una encuesta a la comunidad; las cifras son orientativas.",
+      "venuesTitle": "Sedes del evento",
       "wdtVideo": "Video de WebDevTalks",
-      "venues": "Intentamos rotar el lugar donde se hace el evento, varias empresas y asociaciones nos han ayudado colaborando y proporcionando sus oficinas y espacios para llevar el evento a cabo.",
+      "venues": "No siempre hacemos el evento en el mismo lugar: cambiamos de sede para que más personas puedan sumarse. Varias empresas y asociaciones nos han prestado sus oficinas y espacios para que los encuentros se realicen.",
       "sponsorshipPlans": "Planes de Patrocinio",
       "sponsorshipPlansBody": "Con el ideal de seguir mejorando la comunidad, WebDevTalks busca patrocinio y ofrece las siguientes modalidades:",
       "areas": "Otras areas",
@@ -76,7 +78,6 @@
       "ourPatreons": "Nuestros Patreons",
       "votes": "# de votos",
       "heroEyebrow": "Patrocina WDT",
-      "audienceProfile": "Perfil de audiencia",
       "closingNote": "Tu apoyo nos ayuda a seguir creando mejores eventos para la comunidad."
   },
   "aboutUs": {
