@@ -134,8 +134,7 @@ function CodeOfConduct() {
               <span className="inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1.5 text-[0.82rem] font-bold uppercase tracking-[0.08em] text-sky-600">{t('codeOfConduct.heroEyebrow')}</span>
               <h1 className="mt-4 text-4xl font-bold leading-none tracking-tight text-brand md:text-5xl lg:text-6xl">{t('codeOfConduct.title')}</h1>
             </div>
-            <div className="space-y-4 text-slate-600">
-              <p>{t('codeOfConduct.heroDescription')}</p>
+            <div className="space-y-4 text-slate-600 self-end">
               <p>{t('codeOfConduct.purpose.description1')}</p>
             </div>
           </div>
@@ -183,12 +182,12 @@ function CodeOfConduct() {
               section.tone === 'danger' ? 'border-red-200 bg-red-50/75' : ''
             }`}
           >
-            <div className="grid gap-8 lg:grid-cols-3">
-              <div className="flex items-center gap-2">
+            <div className="flex flex-col gap-8">
+              <div className="flex flex-row items-center gap-2">
                 <Tooltip content={t('codeOfConduct.copyLink')}>
                   <Button
                     variant={section.tone === 'danger' ? 'outline' : 'secondary'}
-                    className="block h-fit w-fit rounded-full p-2"
+                    className="block h-fit w-fit rounded-full p-2 self-start"
                     onClick={async () => {
                       await copyAnchorLink(section.id)
                       toast.success(t('codeOfConduct.linkCopied'))
@@ -198,7 +197,7 @@ function CodeOfConduct() {
                     <span className="sr-only">{t('codeOfConduct.copyLink')}</span>
                   </Button>
                 </Tooltip>
-                <h2 className={`text-2xl font-bold tracking-tight md:text-3xl ${section.tone === 'danger' ? 'text-red-950' : 'text-brand'}`}>
+                <h2 className={`text-2xl font-bold tracking-tight md:text-3xl self-start ${section.tone === 'danger' ? 'text-red-950' : 'text-brand'}`}>
                   {section.title}
                 </h2>
               </div>
