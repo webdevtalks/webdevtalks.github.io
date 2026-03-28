@@ -4,7 +4,24 @@
       "aboutUs": "About us",
       "survey": "Survey",
       "home": "Home",
-      "codeOfConduct": "Code of Conduct"
+      "codeOfConduct": "Code of Conduct",
+      "openMenu": "Open menu",
+      "subtitle": "Talks and networking for Colima"
+  },
+  "homePage": {
+      "eyebrow": "Colima tech community",
+      "headline": "Talks, networking, and community without the stale conference look.",
+      "description": "Web Dev Talks connects developers, designers, PMs, QA, and students around practical events and a stronger local tech ecosystem.",
+      "communityLabel": "We are community",
+      "card1Eyebrow": "Community-first",
+      "card1Title": "A local tech scene with actual connective tissue.",
+      "card1Body": "Speakers, hiring conversations, mentorship, and recurring events that give Colima's community a place to keep showing up.",
+      "card2Eyebrow": "Cross-discipline",
+      "card2Title": "Not only for web developers.",
+      "card2Body": "Product, QA, design, infrastructure, and students all have a clear place in the room and in the conversation.",
+      "card3Eyebrow": "Sustainable",
+      "card3Title": "Sponsors fund better events, not bloat.",
+      "card3Body": "The community holds up best when the focus stays on useful, consistent, well-run gatherings."
   },
   "sponsorship": {
       "description1": "WebDevTalks is a community of development and technology that began over 10 years ago with the aim of bringing developers closer to various topics within the field of software development, web, mobile, IoT, project management, design, and more.",
@@ -19,8 +36,8 @@
       "students": "Students",
       "sponsor": "Sponsorship",
       "costs": "Sponsorhip Costs",
-      "contact1": "For any questions or clarifications, you can reach out to",
-      "contact2": " or to any of our social networks",
+      "contact1": "If you have questions, reach us at",
+      "contact2": "or message us on any of our social channels.",
       "tax": "Our prices includes taxes (VAT).",
       "minutes": "{{minutes}} minutes",
       "goldTime": "5 minutes during the bi-monthly session (to promote the company, job oportunities, workshops, etc).",
@@ -48,7 +65,10 @@
       "silverPerEvent": "{{dolar}}",
       "ourSponsors": "Our Sponsors",
       "ourPatreons": "Our Patreons",
-      "votes": "# dof votes"
+      "votes": "# dof votes",
+      "heroEyebrow": "Sponsor WDT",
+      "audienceProfile": "Audience profile",
+      "closingNote": "Your support helps us keep building better events for the community."
   },
   "aboutUs": {
       "adrianReyes": "- Adriana Reyes.",
@@ -78,12 +98,17 @@
       "closingNote": "Thank you in advance for your support in continuing to grow our community. 💙",
       "communityHeader": "“We are a community”",
       "adrianaReyes": " - Adriana Reyes.",
-      "gallery": "Gallery"
+      "gallery": "Gallery",
+      "heroEyebrow": "About WDT",
+      "galleryDescription": "A community page should feel alive. This gallery now behaves like a visual section with intent instead of a generic widget."
   },
   "codeOfConduct": {
       "title": "Code of Conduct",
       "copyLink": "Copy link to this section",
+      "linkCopied": "Link copied to clipboard",
       "tableOfContents": "Table of Contents",
+      "heroEyebrow": "Community safety",
+      "heroDescription": "This page now behaves more like a clear policy surface: scannable, anchored, and easier to trust.",
       "purpose": {
           "title": "1. Purpose",
           "description1": "Web Dev Talks is an open community whose objective is to foster learning, networking, and professional growth within the technology field, in a safe, respectful, and inclusive environment for all people.",

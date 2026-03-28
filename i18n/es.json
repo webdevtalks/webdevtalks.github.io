@@ -4,7 +4,24 @@
       "aboutUs": "Acerca de nosotros",
       "survey": "Encuesta",
       "home": "Inicio",
-      "codeOfConduct": "Código de Conducta"
+      "codeOfConduct": "Código de Conducta",
+      "openMenu": "Abrir menú",
+      "subtitle": "Charlas y networking para Colima"
+  },
+  "homePage": {
+      "eyebrow": "Comunidad tech de Colima",
+      "headline": "Charlas, networking y comunidad sin apariencia de conferencia vieja.",
+      "description": "Web Dev Talks conecta a desarrolladores, diseñadores, PMs, QA y estudiantes a través de eventos prácticos y una comunidad tech local más fuerte.",
+      "communityLabel": "Somos comunidad",
+      "card1Eyebrow": "Comunidad primero",
+      "card1Title": "Una escena local con conexiones reales.",
+      "card1Body": "Charlas, oportunidades laborales, mentoría y eventos recurrentes que le dan a la comunidad de Colima un lugar para seguir apareciendo.",
+      "card2Eyebrow": "Multidisciplinaria",
+      "card2Title": "No es solo para desarrolladores web.",
+      "card2Body": "Producto, QA, diseño, infraestructura y estudiantes tienen un lugar claro tanto en el evento como en la conversación.",
+      "card3Eyebrow": "Sostenible",
+      "card3Title": "Los patrocinadores financian mejores eventos, no relleno.",
+      "card3Body": "La comunidad se sostiene mejor cuando el enfoque está en encuentros útiles, consistentes y bien ejecutados."
   },
   "sponsorship": {
       "description1": "WebDevTalks(WDT) es una comunidad de desarrollo y tecnología que inició hace más de 10 años con la finalidad de acercar a desarrolladores, diseñadores, managers, product owners, testers y cualquier profesional con una carrera relacionada a IT a diversos temas dentro del área del desarrollo de software web, móvil, IoT, gestión de proyectos, testing, infraestructura, diseño y más.",
@@ -28,8 +45,8 @@
       "sponsorshipGold6": "Agradecimiento por redes sociales después del evento bimestral como patrocinador {{level}}",
       "sponsor": "Patrocinio",
       "contribution": "Contribución",
-      "contact1": "Para cualquier duda o aclaración puede dirigirse a",
-      "contact2": "o a cualquiera de nuestras redes sociales",
+      "contact1": "Si tienes dudas, escríbenos a",
+      "contact2": "o contáctanos por cualquiera de nuestras redes.",
       "tax": "Todos nuestros precios incluyen IVA.",
       "minutes": "{{minutes}} minutos",
       "goldTime": "Tendrás 5 minutos en nuestras sesiones para promocionar tu empresa, vacantes, eventos próximos, etc.",
@@ -57,7 +74,10 @@
       "silverPerEvent": "{{peso}}",
       "ourSponsors": "Nuestros Patrocinadores",
       "ourPatreons": "Nuestros Patreons",
-      "votes": "# de votos"
+      "votes": "# de votos",
+      "heroEyebrow": "Patrocina WDT",
+      "audienceProfile": "Perfil de audiencia",
+      "closingNote": "Tu apoyo nos ayuda a seguir creando mejores eventos para la comunidad."
   },
   "aboutUs": {
       "adrianReyes": "- Adriana Reyes.",
@@ -87,12 +107,17 @@
       "closingNote": "Agradecemos de antemano su apoyo para seguir creciendo nuestra comunidad. 💙",
       "communityHeader": "“Somos comunidad”",
       "adrianaReyes": " - Adriana Reyes.",
-      "gallery": "Galeria"
+      "gallery": "Galeria",
+      "heroEyebrow": "Acerca de WDT",
+      "galleryDescription": "Una página de comunidad debe sentirse viva. Esta galería ahora funciona como una sección visual con intención, no como un widget genérico."
   },
   "codeOfConduct": {
       "title": "Código de Conducta",
       "copyLink": "Copiar enlace a esta sección",
+      "linkCopied": "Enlace copiado al portapapeles",
       "tableOfContents": "Tabla de contenidos",
+      "heroEyebrow": "Seguridad de la comunidad",
+      "heroDescription": "Esta página ahora se presenta como una política clara y fácil de recorrer: escaneable, anclada y más confiable.",
       "purpose": {
           "title": "1. Propósito",
           "description1": "Web Dev Talks es una comunidad abierta cuyo objetivo es fomentar el aprendizaje, el networking y el crecimiento profesional dentro del área de tecnología, en un ambiente seguro, respetuoso e inclusivo para todas las personas.",
