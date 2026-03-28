@@ -54,7 +54,7 @@ const Icons: FC<IconsProps> = ({ color, className }): ReactElement => {
             target="_blank"
             rel="noreferrer"
             aria-label={label}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white/72 text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:border-black/20 hover:bg-white"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white/72 text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:border-black/20 hover:bg-zinc-200/70"
             style={color ? { color } : undefined}
           >
             <Icon className="h-5 w-5" />

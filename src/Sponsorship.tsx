@@ -108,7 +108,7 @@ const Sponsorship = (): ReactElement => {
   const sponsorshipPlans = [
     {
       tier: 'Gold',
-      accent: 'from-amber-300 via-yellow-200 to-white',
+      accent: 'from-yellow-200 via-sky-100 to-white',
       benefits: [
         { title: t('sponsorship.minutes', { minutes: 5 }), body: t('sponsorship.goldTime') },
         { title: t('sponsorship.shares', { shares: 5 }), body: t('sponsorship.goldShares') },
@@ -156,8 +156,8 @@ const Sponsorship = (): ReactElement => {
               <div className="rounded-3xl border border-black/10 bg-white/72 p-5 shadow-sm">
                 <img src={logo} alt="Logo WDT" className="mb-6 h-16 w-auto object-contain" />
                 <div className="grid gap-3 sm:grid-cols-3">
-                  <div className="rounded-2xl border border-black/8 bg-amber-50 px-4 py-4">
-                    <div className="text-xs font-semibold uppercase tracking-widest text-amber-700">{t('sponsorship.attendeesTitle')}</div>
+                  <div className="rounded-2xl border border-black/8 bg-yellow-50 px-4 py-4">
+                    <div className="text-xs font-semibold uppercase tracking-widest text-yellow-700">{t('sponsorship.attendeesTitle')}</div>
                     <div className="mt-2 text-3xl font-bold text-slate-950">97</div>
                   </div>
                   <div className="rounded-2xl border border-black/8 bg-sky-50 px-4 py-4">
@@ -288,7 +288,7 @@ const Sponsorship = (): ReactElement => {
             <p>{t('sponsorship.tax')}</p>
             <p>
               {t('sponsorship.contact1')}{' '}
-              <a className="font-semibold text-slate-950 underline decoration-amber-400 underline-offset-4" href="mailto:webdevtalkscolima@gmail.com">
+              <a className="font-semibold text-slate-950 underline decoration-sky-400 underline-offset-4" href="mailto:webdevtalkscolima@gmail.com">
                 webdevtalkscolima@gmail.com
               </a>{' '}
               {t('sponsorship.contact2')}

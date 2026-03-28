@@ -8,7 +8,7 @@ const Footer = (): ReactElement => {
   const { t } = useTranslation()
 
   return (
-    <footer className="border-t border-black/8 bg-amber-50/80 backdrop-blur-xl">
+    <footer className="border-t border-black/8 bg-white/80 backdrop-blur-xl">
       <div className="page-frame flex flex-col gap-5 py-6 md:flex-row md:items-center md:justify-between">
         <div className="flex items-center gap-4">
           <Link to="/" className="inline-flex items-center gap-3">

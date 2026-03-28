@@ -21,7 +21,7 @@ export function Sheet({
         <Dialog.Overlay className="sheet-overlay fixed inset-0 z-40 bg-slate-950/35 backdrop-blur-sm" />
         <Dialog.Content
           className={cn(
-            'sheet-content fixed inset-y-0 left-0 z-50 flex w-5/6 max-w-sm flex-col border-r border-black/10 bg-amber-50 p-5 shadow-2xl outline-none',
+            'sheet-content fixed inset-y-0 left-0 z-50 flex w-5/6 max-w-sm flex-col border-r border-black/10 bg-white p-5 shadow-2xl outline-none',
           )}
         >
           <Dialog.Title className="sr-only">{title}</Dialog.Title>

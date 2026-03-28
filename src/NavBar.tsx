@@ -27,11 +27,11 @@ const NavBar = (): ReactElement => {
       'inline-flex h-9 items-center justify-center rounded-full px-3.5 text-sm font-semibold transition-all duration-200',
       active
         ? 'bg-slate-950 text-white shadow-xl'
-        : 'text-slate-700 hover:bg-white/70',
+        : 'text-slate-700 hover:bg-zinc-200/70',
     )
 
   return (
-    <header className="sticky top-0 z-30 border-b border-black/8 bg-amber-50/70 backdrop-blur-xl">
+    <header className="sticky top-0 z-30 border-b border-black/8 bg-white/75 backdrop-blur-xl">
       <div className="page-frame flex items-center justify-between gap-4 py-3">
         <div className="flex items-center gap-3">
           <button
@@ -95,7 +95,9 @@ const NavBar = (): ReactElement => {
               onClick={() => setIsDrawerOpen(false)}
               className={cn(
                 'inline-flex h-11 items-center rounded-2xl px-5 text-sm font-semibold transition-all',
-                isActive(link.to) ? 'bg-slate-950 text-white' : 'border border-black/10 bg-white/80 text-slate-900',
+                isActive(link.to)
+                  ? 'bg-slate-950 text-white'
+                  : 'border border-black/10 bg-white/80 text-slate-900 hover:bg-zinc-200/70',
               )}
             >
               {link.label}

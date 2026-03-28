@@ -98,7 +98,7 @@ function About() {
             <div className="brand-grid justify-center">
               <span className="eyebrow">{t('aboutUs.heroEyebrow')}</span>
               <h1 className="section-title text-slate-950">Web Dev Talks</h1>
-              <blockquote className="border-l-4 border-amber-400 pl-5 text-lg leading-8 text-slate-700">
+              <blockquote className="border-l-4 border-yellow-300 pl-5 text-lg leading-8 text-slate-700">
                 {t('aboutUs.quote')}
                 <span className="mt-3 block font-semibold text-slate-950">{t('aboutUs.adrianReyes')}</span>
               </blockquote>
