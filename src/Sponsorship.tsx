@@ -147,7 +147,7 @@ const Sponsorship = (): ReactElement => {
           <div className="grid gap-10 p-6 md:grid-cols-2 md:p-8 lg:p-10">
             <div className="space-y-5">
               <span className="inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1.5 text-[0.82rem] font-bold uppercase tracking-[0.08em] text-sky-600">{t('sponsorship.heroEyebrow')}</span>
-              <h1 className="text-4xl font-bold leading-none tracking-tight text-slate-950 md:text-5xl lg:text-6xl">{t('navbar.sponsorship')}</h1>
+              <h1 className="text-4xl font-bold leading-none tracking-tight text-brand md:text-5xl lg:text-6xl">{t('navbar.sponsorship')}</h1>
               <p className="text-lg leading-8 text-slate-600">{t('sponsorship.description1')}</p>
               <p className="text-slate-600">{t('sponsorship.description2')}</p>
               <p className="text-slate-600">{t('sponsorship.description3')}</p>
@@ -158,19 +158,19 @@ const Sponsorship = (): ReactElement => {
                 <div className="grid gap-3 sm:grid-cols-3">
                   <div className="rounded-2xl border border-black/8 bg-yellow-50 px-4 py-4">
                     <div className="text-xs font-semibold uppercase tracking-widest text-yellow-700">{t('sponsorship.attendeesTitle')}</div>
-                    <div className="mt-2 text-3xl font-bold text-slate-950">97</div>
+                    <div className="mt-2 text-3xl font-bold text-brand">97</div>
                   </div>
                   <div className="rounded-2xl border border-black/8 bg-sky-50 px-4 py-4">
                     <div className="text-xs font-semibold uppercase tracking-widest text-sky-700">{t('sponsorship.ourSponsors')}</div>
-                    <div className="mt-2 text-3xl font-bold text-slate-950">3</div>
+                    <div className="mt-2 text-3xl font-bold text-brand">3</div>
                   </div>
                   <div className="rounded-2xl border border-black/8 bg-emerald-50 px-4 py-4">
                     <div className="text-xs font-semibold uppercase tracking-widest text-emerald-700">{t('sponsorship.ourPatreons')}</div>
-                    <div className="mt-2 text-3xl font-bold text-slate-950">{patreons.length}</div>
+                    <div className="mt-2 text-3xl font-bold text-brand">{patreons.length}</div>
                   </div>
                 </div>
               </div>
-              <div className="overflow-hidden rounded-3xl border border-black/10 bg-slate-950 shadow-lg">
+              <div className="overflow-hidden rounded-3xl border border-black/10 bg-brand shadow-lg">
                 <iframe
                   width="100%"
                   className="aspect-video"
@@ -194,7 +194,7 @@ const Sponsorship = (): ReactElement => {
           <div className="grid gap-8 lg:grid-cols-3">
             <div>
               <p className="inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1.5 text-[0.82rem] font-bold uppercase tracking-[0.08em] text-sky-600">{t('sponsorship.attendeesTitle')}</p>
-              <h2 className="mt-4 text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{t('sponsorship.audienceProfile')}</h2>
+              <h2 className="mt-4 text-2xl font-bold tracking-tight text-brand md:text-3xl">{t('sponsorship.audienceProfile')}</h2>
               <p className="mt-4 text-slate-600">{t('sponsorship.venues')}</p>
             </div>
             <div className="mx-auto w-full min-w-0 max-w-xl rounded-3xl border border-black/8 bg-white/82 p-4 shadow-sm sm:col-span-2 sm:p-6">
@@ -222,17 +222,17 @@ const Sponsorship = (): ReactElement => {
                     return (
                       <div key={`${plan.tier}-${benefit.body}`} className="rounded-2xl border border-black/8 bg-white/72 p-4">
                         <div className="mb-2 flex items-center gap-3">
-                          <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-950 text-white">
+                          <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-brand text-white">
                             <Icon className="h-4 w-4" />
                           </span>
-                          <div className="font-semibold text-slate-950">{benefit.title}</div>
+                          <div className="font-semibold text-brand">{benefit.title}</div>
                         </div>
                         <p className="text-sm leading-6 text-slate-600">{benefit.body}</p>
                       </div>
                     )
                   })}
                 </div>
-                <div className="rounded-3xl border border-black/8 bg-slate-950 px-5 py-5 text-white">
+                <div className="rounded-3xl border border-black/8 bg-brand px-5 py-5 text-white">
                   <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-slate-300">{t('sponsorship.costs')}</p>
                   <div className="grid gap-3">
                     {plan.pricing.map((price) => (
@@ -252,7 +252,7 @@ const Sponsorship = (): ReactElement => {
           <div className="mb-6 flex items-end justify-between gap-4">
             <div>
               <p className="inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1.5 text-[0.82rem] font-bold uppercase tracking-[0.08em] text-sky-600">{t('sponsorship.ourSponsors')}</p>
-              <h2 className="mt-4 text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{t('sponsorship.ourSponsors')}</h2>
+              <h2 className="mt-4 text-2xl font-bold tracking-tight text-brand md:text-3xl">{t('sponsorship.ourSponsors')}</h2>
             </div>
           </div>
           <div className="grid gap-4 md:grid-cols-3">
@@ -268,7 +268,7 @@ const Sponsorship = (): ReactElement => {
           <div className="mb-6 flex items-end justify-between gap-4">
             <div>
               <p className="inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1.5 text-[0.82rem] font-bold uppercase tracking-[0.08em] text-sky-600">{t('sponsorship.ourPatreons')}</p>
-              <h2 className="mt-4 text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{t('sponsorship.ourPatreons')}</h2>
+              <h2 className="mt-4 text-2xl font-bold tracking-tight text-brand md:text-3xl">{t('sponsorship.ourPatreons')}</h2>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
@@ -288,7 +288,7 @@ const Sponsorship = (): ReactElement => {
             <p>{t('sponsorship.tax')}</p>
             <p>
               {t('sponsorship.contact1')}{' '}
-              <a className="font-semibold text-slate-950 underline decoration-sky-400 underline-offset-4" href="mailto:webdevtalkscolima@gmail.com">
+              <a className="font-semibold text-brand underline decoration-sky-400 underline-offset-4" href="mailto:webdevtalkscolima@gmail.com">
                 webdevtalkscolima@gmail.com
               </a>{' '}
               {t('sponsorship.contact2')}

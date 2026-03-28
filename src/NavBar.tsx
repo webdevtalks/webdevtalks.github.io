@@ -26,7 +26,7 @@ const NavBar = (): ReactElement => {
     cn(
       'inline-flex h-9 items-center justify-center rounded-full px-3.5 text-sm font-semibold transition-all duration-200',
       active
-        ? 'bg-slate-950 text-white shadow-xl'
+        ? 'bg-brand text-white shadow-xl'
         : 'text-slate-700 hover:bg-zinc-200/70',
     )
 
@@ -47,7 +47,7 @@ const NavBar = (): ReactElement => {
               <img src={logo} alt="Logo WDT" className="h-full w-full object-contain p-2" />
             </span>
             <div className="hidden sm:block">
-              <div className="text-lg font-bold tracking-tight text-slate-950">Web Dev Talks</div>
+              <div className="text-lg font-bold tracking-tight text-brand">Web Dev Talks</div>
               <div className="text-sm text-slate-500">{t('navbar.subtitle')}</div>
             </div>
           </Link>
@@ -83,7 +83,7 @@ const NavBar = (): ReactElement => {
               <img src={logo} alt="Logo WDT" className="h-full w-full object-contain p-2" />
             </span>
             <div>
-              <div className="text-lg font-bold tracking-tight text-slate-950">Web Dev Talks</div>
+              <div className="text-lg font-bold tracking-tight text-brand">Web Dev Talks</div>
               <div className="text-sm text-slate-500">{t('navbar.home')}</div>
             </div>
           </Link>
@@ -96,7 +96,7 @@ const NavBar = (): ReactElement => {
               className={cn(
                 'inline-flex h-11 items-center rounded-2xl px-5 text-sm font-semibold transition-all',
                 isActive(link.to)
-                  ? 'bg-slate-950 text-white'
+                  ? 'bg-brand text-white'
                   : 'border border-black/10 bg-white/80 text-slate-900 hover:bg-zinc-200/70',
               )}
             >

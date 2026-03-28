@@ -15,7 +15,7 @@ const Footer = (): ReactElement => {
             <span className="inline-flex h-12 w-12 overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm">
               <img src={logo} alt="Logo WDT" className="h-full w-full object-contain p-2" />
             </span>
-            <span className="text-base font-bold tracking-tight text-slate-950">
+            <span className="text-base font-bold tracking-tight text-brand">
               Web Dev Talks
             </span>
           </Link>

@@ -48,7 +48,7 @@ export function Carousel({
         ))}
       </div>
       <div className="absolute inset-x-0 bottom-0 items-center justify-between p-4 hidden sm:flex">
-        <div className="flex gap-2 rounded-full bg-slate-950/70 px-3 py-2 backdrop-blur">
+        <div className="flex gap-2 rounded-full bg-brand/70 px-3 py-2 backdrop-blur">
           {images.map((image, imageIndex) => (
             <button
               key={image.src}

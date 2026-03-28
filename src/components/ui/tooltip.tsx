@@ -18,10 +18,10 @@ export function Tooltip({
       <TooltipPrimitive.Portal>
         <TooltipPrimitive.Content
           sideOffset={10}
-          className="rounded-full bg-slate-950 px-3 py-1.5 text-xs font-medium text-white shadow-xl"
+          className="rounded-full bg-brand px-3 py-1.5 text-xs font-medium text-white shadow-xl"
         >
           {content}
-          <TooltipPrimitive.Arrow className="fill-slate-950" />
+          <TooltipPrimitive.Arrow className="fill-brand" />
         </TooltipPrimitive.Content>
       </TooltipPrimitive.Portal>
     </TooltipPrimitive.Root>

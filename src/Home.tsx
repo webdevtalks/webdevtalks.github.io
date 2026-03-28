@@ -24,7 +24,7 @@ const Home = (): ReactElement => {
                 {t('homePage.eyebrow')}
               </span>
               <div className="grid gap-5 md:gap-7">
-                <h1 className="text-balance text-4xl font-bold leading-none tracking-tight text-slate-950 md:text-5xl lg:text-6xl">
+                <h1 className="text-balance text-4xl font-bold leading-none tracking-tight text-brand md:text-5xl lg:text-6xl">
                   {t('homePage.headline')}
                 </h1>
                 <p className="max-w-2xl text-lg text-slate-600 md:text-xl">
@@ -59,7 +59,7 @@ const Home = (): ReactElement => {
                     />
                   </div>
                   <div className="mt-3 shrink-0 space-y-2">
-                    <p className="text-xl font-bold leading-tight text-slate-950 sm:text-3xl">Web Dev Talks</p>
+                    <p className="text-xl font-bold leading-tight text-brand sm:text-3xl">Web Dev Talks</p>
                     <p className="text-xs uppercase tracking-widest text-slate-500 sm:text-sm">{t('homePage.communityLabel')}</p>
                   </div>
                 </div>
@@ -76,21 +76,21 @@ const Home = (): ReactElement => {
       <section className="-mt-2 grid gap-5 md:grid-cols-3">
         <Card className="rounded-3xl p-6">
           <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1.5 text-[0.82rem] font-bold uppercase tracking-[0.08em] text-sky-600">{t('homePage.card1Eyebrow')}</p>
-          <h2 className="mb-3 text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{t('homePage.card1Title')}</h2>
+          <h2 className="mb-3 text-2xl font-bold tracking-tight text-brand md:text-3xl">{t('homePage.card1Title')}</h2>
           <p className="text-slate-600">
             {t('homePage.card1Body')}
           </p>
         </Card>
         <Card className="rounded-3xl p-6">
           <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1.5 text-[0.82rem] font-bold uppercase tracking-[0.08em] text-sky-600">{t('homePage.card2Eyebrow')}</p>
-          <h2 className="mb-3 text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{t('homePage.card2Title')}</h2>
+          <h2 className="mb-3 text-2xl font-bold tracking-tight text-brand md:text-3xl">{t('homePage.card2Title')}</h2>
           <p className="text-slate-600">
             {t('homePage.card2Body')}
           </p>
         </Card>
         <Card className="rounded-3xl p-6">
           <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1.5 text-[0.82rem] font-bold uppercase tracking-[0.08em] text-sky-600">{t('homePage.card3Eyebrow')}</p>
-          <h2 className="mb-3 text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{t('homePage.card3Title')}</h2>
+          <h2 className="mb-3 text-2xl font-bold tracking-tight text-brand md:text-3xl">{t('homePage.card3Title')}</h2>
           <p className="text-slate-600">
             {t('homePage.card3Body')}
           </p>
