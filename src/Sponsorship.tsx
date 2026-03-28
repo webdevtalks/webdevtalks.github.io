@@ -210,10 +210,10 @@ const Sponsorship = (): ReactElement => {
             <Card key={plan.tier} className="overflow-hidden rounded-3xl">
               <div className={`h-24 bg-gradient-to-r ${plan.accent}`} />
               <CardHeader className="-mt-12 pt-0">
+                <CardTitle>{t('sponsorship.sponsor')}</CardTitle>
                 <div className="inline-flex w-fit rounded-full border border-black/10 bg-white px-4 py-2 text-sm font-semibold uppercase tracking-widest text-slate-700 shadow-sm">
                   {plan.tier}
                 </div>
-                <CardTitle>{plan.tier} {t('sponsorship.sponsor')}</CardTitle>
               </CardHeader>
               <CardContent className="grid gap-6">
                 <div className="grid gap-3">
