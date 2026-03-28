@@ -14,7 +14,7 @@ export default function SiteShell({
       <NavBar />
       <main className="pb-16">
         {hero}
-        <div className="page-frame">{children}</div>
+        <div className="mx-auto w-full max-w-6xl px-4">{children}</div>
       </main>
       <Footer />
     </div>

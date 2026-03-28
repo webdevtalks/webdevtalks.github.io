@@ -13,18 +13,18 @@ const Home = (): ReactElement => {
 
   const hero = (
     <section className="relative overflow-hidden pt-10">
-      <div className="page-frame relative pb-10 pt-6 md:pb-14">
-        <div className="hero-orb hero-orb-left" />
-        <div className="hero-orb hero-orb-right" />
+      <div className="relative mx-auto w-full max-w-6xl px-4 pb-10 pt-6 md:pb-14">
+        <div className="pointer-events-none absolute left-[-5rem] top-16 h-56 w-56 rounded-full bg-yellow-300/35 blur-3xl" />
+        <div className="pointer-events-none absolute right-[-4rem] top-8 h-72 w-72 rounded-full bg-sky-300/20 blur-3xl" />
         <Card className="relative overflow-hidden rounded-3xl px-6 py-8 md:px-10 md:py-12">
           <div className="grid items-center gap-10 lg:grid-cols-2">
-            <div className="brand-grid">
-              <span className="eyebrow">
+            <div className="grid gap-5 md:gap-7">
+              <span className="inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1.5 text-[0.82rem] font-bold uppercase tracking-[0.08em] text-sky-600">
                 <Sparkles className="h-4 w-4" />
                 {t('homePage.eyebrow')}
               </span>
-              <div className="brand-grid">
-                <h1 className="section-title text-balance text-slate-950">
+              <div className="grid gap-5 md:gap-7">
+                <h1 className="text-balance text-4xl font-bold leading-none tracking-tight text-slate-950 md:text-5xl lg:text-6xl">
                   {t('homePage.headline')}
                 </h1>
                 <p className="max-w-2xl text-lg text-slate-600 md:text-xl">
@@ -75,22 +75,22 @@ const Home = (): ReactElement => {
     <SiteShell hero={hero}>
       <section className="-mt-2 grid gap-5 md:grid-cols-3">
         <Card className="rounded-3xl p-6">
-          <p className="eyebrow mb-4">{t('homePage.card1Eyebrow')}</p>
-          <h2 className="section-subtitle mb-3 text-slate-950">{t('homePage.card1Title')}</h2>
+          <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1.5 text-[0.82rem] font-bold uppercase tracking-[0.08em] text-sky-600">{t('homePage.card1Eyebrow')}</p>
+          <h2 className="mb-3 text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{t('homePage.card1Title')}</h2>
           <p className="text-slate-600">
             {t('homePage.card1Body')}
           </p>
         </Card>
         <Card className="rounded-3xl p-6">
-          <p className="eyebrow mb-4">{t('homePage.card2Eyebrow')}</p>
-          <h2 className="section-subtitle mb-3 text-slate-950">{t('homePage.card2Title')}</h2>
+          <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1.5 text-[0.82rem] font-bold uppercase tracking-[0.08em] text-sky-600">{t('homePage.card2Eyebrow')}</p>
+          <h2 className="mb-3 text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{t('homePage.card2Title')}</h2>
           <p className="text-slate-600">
             {t('homePage.card2Body')}
           </p>
         </Card>
         <Card className="rounded-3xl p-6">
-          <p className="eyebrow mb-4">{t('homePage.card3Eyebrow')}</p>
-          <h2 className="section-subtitle mb-3 text-slate-950">{t('homePage.card3Title')}</h2>
+          <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1.5 text-[0.82rem] font-bold uppercase tracking-[0.08em] text-sky-600">{t('homePage.card3Eyebrow')}</p>
+          <h2 className="mb-3 text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{t('homePage.card3Title')}</h2>
           <p className="text-slate-600">
             {t('homePage.card3Body')}
           </p>

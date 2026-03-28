@@ -32,7 +32,7 @@ const NavBar = (): ReactElement => {
 
   return (
     <header className="sticky top-0 z-30 border-b border-black/8 bg-white/75 backdrop-blur-xl">
-      <div className="page-frame flex items-center justify-between gap-4 py-3">
+      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-3">
         <div className="flex items-center gap-3">
           <button
             type="button"

@@ -92,12 +92,12 @@ function About() {
 
   const hero = (
     <section className="pt-8 mb-6">
-      <div className="page-frame">
+      <div className="mx-auto w-full max-w-6xl px-4">
         <Card className="overflow-hidden rounded-3xl">
           <div className="grid gap-8 p-6 md:grid-cols-2 md:p-8 lg:p-10">
-            <div className="brand-grid justify-center">
-              <span className="eyebrow">{t('aboutUs.heroEyebrow')}</span>
-              <h1 className="section-title text-slate-950">Web Dev Talks</h1>
+            <div className="grid content-center gap-5 md:gap-7">
+              <span className="inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1.5 text-[0.82rem] font-bold uppercase tracking-[0.08em] text-sky-600">{t('aboutUs.heroEyebrow')}</span>
+              <h1 className="text-4xl font-bold leading-none tracking-tight text-slate-950 md:text-5xl lg:text-6xl">Web Dev Talks</h1>
               <blockquote className="border-l-4 border-yellow-300 pl-5 text-lg leading-8 text-slate-700">
                 {t('aboutUs.quote')}
                 <span className="mt-3 block font-semibold text-slate-950">{t('aboutUs.adrianReyes')}</span>
@@ -119,9 +119,9 @@ function About() {
           <Card key={section.title} className="rounded-3xl p-6 md:p-8">
             <div className="grid gap-6 md:grid-cols-3 md:gap-10">
               <div>
-                <h2 className="section-subtitle text-slate-950">{section.title}</h2>
+                <h2 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{section.title}</h2>
               </div>
-              <div className="prose-copy space-y-4 md:col-span-2">
+              <div className="space-y-4 text-base leading-8 text-black/80 md:col-span-2 md:text-lg">
                 {section.body.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
@@ -142,8 +142,8 @@ function About() {
         <Card className="rounded-3xl p-6 md:p-8">
           <div className="grid gap-8 lg:grid-cols-2">
             <div className="space-y-4">
-              <p className="eyebrow">{t('aboutUs.offer')}</p>
-              <h2 className="section-subtitle text-slate-950">{t('aboutUs.offerRights')}</h2>
+              <p className="inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1.5 text-[0.82rem] font-bold uppercase tracking-[0.08em] text-sky-600">{t('aboutUs.offer')}</p>
+              <h2 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{t('aboutUs.offerRights')}</h2>
               <p className="text-slate-600">
                 <strong>{t('aboutUs.note')}</strong> {t('aboutUs.benefitsNote')}
               </p>
@@ -162,8 +162,8 @@ function About() {
         <Card className="rounded-3xl p-6 md:p-8">
           <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="eyebrow">{t('aboutUs.communityHeader')}</p>
-              <h2 className="section-subtitle mt-4 text-slate-950">{t('aboutUs.gallery')}</h2>
+              <p className="inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1.5 text-[0.82rem] font-bold uppercase tracking-[0.08em] text-sky-600">{t('aboutUs.communityHeader')}</p>
+              <h2 className="mt-4 text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{t('aboutUs.gallery')}</h2>
             </div>
             <p className="max-w-xl text-slate-600">
               {t('aboutUs.galleryDescription')}

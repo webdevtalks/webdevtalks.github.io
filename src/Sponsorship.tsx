@@ -142,12 +142,12 @@ const Sponsorship = (): ReactElement => {
 
   const hero = (
     <section className="pt-8 mb-6">
-      <div className="page-frame">
+      <div className="mx-auto w-full max-w-6xl px-4">
         <Card className="overflow-hidden rounded-3xl">
           <div className="grid gap-10 p-6 md:grid-cols-2 md:p-8 lg:p-10">
             <div className="space-y-5">
-              <span className="eyebrow">{t('sponsorship.heroEyebrow')}</span>
-              <h1 className="section-title text-slate-950">{t('navbar.sponsorship')}</h1>
+              <span className="inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1.5 text-[0.82rem] font-bold uppercase tracking-[0.08em] text-sky-600">{t('sponsorship.heroEyebrow')}</span>
+              <h1 className="text-4xl font-bold leading-none tracking-tight text-slate-950 md:text-5xl lg:text-6xl">{t('navbar.sponsorship')}</h1>
               <p className="text-lg leading-8 text-slate-600">{t('sponsorship.description1')}</p>
               <p className="text-slate-600">{t('sponsorship.description2')}</p>
               <p className="text-slate-600">{t('sponsorship.description3')}</p>
@@ -193,8 +193,8 @@ const Sponsorship = (): ReactElement => {
         <Card className="rounded-3xl p-6 md:p-8">
           <div className="grid gap-8 lg:grid-cols-3">
             <div>
-              <p className="eyebrow">{t('sponsorship.attendeesTitle')}</p>
-              <h2 className="section-subtitle mt-4 text-slate-950">{t('sponsorship.audienceProfile')}</h2>
+              <p className="inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1.5 text-[0.82rem] font-bold uppercase tracking-[0.08em] text-sky-600">{t('sponsorship.attendeesTitle')}</p>
+              <h2 className="mt-4 text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{t('sponsorship.audienceProfile')}</h2>
               <p className="mt-4 text-slate-600">{t('sponsorship.venues')}</p>
             </div>
             <div className="mx-auto w-full min-w-0 max-w-xl rounded-3xl border border-black/8 bg-white/82 p-4 shadow-sm sm:col-span-2 sm:p-6">
@@ -251,8 +251,8 @@ const Sponsorship = (): ReactElement => {
         <Card className="rounded-3xl p-6 md:p-8">
           <div className="mb-6 flex items-end justify-between gap-4">
             <div>
-              <p className="eyebrow">{t('sponsorship.ourSponsors')}</p>
-              <h2 className="section-subtitle mt-4 text-slate-950">{t('sponsorship.ourSponsors')}</h2>
+              <p className="inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1.5 text-[0.82rem] font-bold uppercase tracking-[0.08em] text-sky-600">{t('sponsorship.ourSponsors')}</p>
+              <h2 className="mt-4 text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{t('sponsorship.ourSponsors')}</h2>
             </div>
           </div>
           <div className="grid gap-4 md:grid-cols-3">
@@ -267,8 +267,8 @@ const Sponsorship = (): ReactElement => {
         <Card className="rounded-3xl p-6 md:p-8">
           <div className="mb-6 flex items-end justify-between gap-4">
             <div>
-              <p className="eyebrow">{t('sponsorship.ourPatreons')}</p>
-              <h2 className="section-subtitle mt-4 text-slate-950">{t('sponsorship.ourPatreons')}</h2>
+              <p className="inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1.5 text-[0.82rem] font-bold uppercase tracking-[0.08em] text-sky-600">{t('sponsorship.ourPatreons')}</p>
+              <h2 className="mt-4 text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{t('sponsorship.ourPatreons')}</h2>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">

@@ -9,7 +9,7 @@ const Footer = (): ReactElement => {
 
   return (
     <footer className="border-t border-black/8 bg-white/80 backdrop-blur-xl">
-      <div className="page-frame flex flex-col gap-5 py-6 md:flex-row md:items-center md:justify-between">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-5 px-4 py-6 md:flex-row md:items-center md:justify-between">
         <div className="flex items-center gap-4">
           <Link to="/" className="inline-flex items-center gap-3">
             <span className="inline-flex h-12 w-12 overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm">

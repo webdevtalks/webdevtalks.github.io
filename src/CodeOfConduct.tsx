@@ -127,12 +127,12 @@ function CodeOfConduct() {
 
   const hero = (
     <section className="pt-8 mb-6">
-      <div className="page-frame">
+      <div className="mx-auto w-full max-w-6xl px-4">
         <Card className="rounded-3xl px-6 py-8 md:px-8 md:py-10">
           <div className="grid gap-6 md:grid-cols-2">
             <div>
-              <span className="eyebrow">{t('codeOfConduct.heroEyebrow')}</span>
-              <h1 className="section-title mt-4 text-slate-950">{t('codeOfConduct.title')}</h1>
+              <span className="inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1.5 text-[0.82rem] font-bold uppercase tracking-[0.08em] text-sky-600">{t('codeOfConduct.heroEyebrow')}</span>
+              <h1 className="mt-4 text-4xl font-bold leading-none tracking-tight text-slate-950 md:text-5xl lg:text-6xl">{t('codeOfConduct.title')}</h1>
             </div>
             <div className="space-y-4 text-slate-600">
               <p>{t('codeOfConduct.heroDescription')}</p>
@@ -150,8 +150,8 @@ function CodeOfConduct() {
         <Card className="rounded-3xl p-6 md:p-8">
           <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="eyebrow">{t('codeOfConduct.tableOfContents')}</p>
-              <h2 className="section-subtitle mt-4 text-slate-950">{t('codeOfConduct.tableOfContents')}</h2>
+              <p className="inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1.5 text-[0.82rem] font-bold uppercase tracking-[0.08em] text-sky-600">{t('codeOfConduct.tableOfContents')}</p>
+              <h2 className="mt-4 text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{t('codeOfConduct.tableOfContents')}</h2>
             </div>
           </div>
           <div className="grid gap-3 md:grid-cols-2">
@@ -198,14 +198,14 @@ function CodeOfConduct() {
                     <span className="sr-only">{t('codeOfConduct.copyLink')}</span>
                   </Button>
                 </Tooltip>
-                <h2 className={`section-subtitle ${section.tone === 'danger' ? 'text-red-950' : 'text-slate-950'}`}>
+                <h2 className={`text-2xl font-bold tracking-tight md:text-3xl ${section.tone === 'danger' ? 'text-red-950' : 'text-slate-950'}`}>
                   {section.title}
                 </h2>
               </div>
 
               <div className="space-y-5 lg:col-span-2">
                 {section.intro.map((paragraph) => (
-                  <p key={paragraph} className="prose-copy">
+                  <p key={paragraph} className="text-base leading-8 text-black/80 md:text-lg">
                     {paragraph}
                   </p>
                 ))}

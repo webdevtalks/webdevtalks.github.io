@@ -71,93 +71,6 @@ textarea {
     transparent;
 }
 
-.page-frame {
-  width: min(1120px, calc(100vw - 2rem));
-  margin: 0 auto;
-}
-
-.glass-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(16px);
-}
-
-.hero-orb {
-  position: absolute;
-  inset: auto;
-  border-radius: 999px;
-  filter: blur(32px);
-  opacity: 0.7;
-  pointer-events: none;
-}
-
-.hero-orb-left {
-  top: 4rem;
-  left: -5rem;
-  width: 14rem;
-  height: 14rem;
-  background: rgba(242, 211, 86, 0.34);
-}
-
-.hero-orb-right {
-  top: 2rem;
-  right: -4rem;
-  width: 18rem;
-  height: 18rem;
-  background: rgba(82, 150, 199, 0.18);
-}
-
-.text-balance {
-  text-wrap: balance;
-}
-
-.prose-copy {
-  color: rgba(23, 23, 23, 0.82);
-  font-size: clamp(1rem, 0.98rem + 0.2vw, 1.08rem);
-  line-height: 1.8;
-}
-
-.prose-copy p {
-  margin: 0;
-}
-
-.section-title {
-  font-family: "Source Sans 3", "Segoe UI", Roboto, sans-serif;
-  font-size: clamp(1.8rem, 1.25rem + 2.2vw, 3.4rem);
-  line-height: 1.05;
-  letter-spacing: -0.025em;
-  font-weight: 700;
-}
-
-.section-subtitle {
-  font-family: "Source Sans 3", "Segoe UI", Roboto, sans-serif;
-  font-size: clamp(1.3rem, 1.08rem + 0.9vw, 2rem);
-  line-height: 1.12;
-  letter-spacing: -0.02em;
-  font-weight: 700;
-}
-
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  border-radius: 999px;
-  border: 1px solid rgba(242, 211, 86, 0.42);
-  background: rgba(242, 211, 86, 0.12);
-  color: var(--brand-soft);
-  padding: 0.35rem 0.75rem;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.brand-grid {
-  display: grid;
-  gap: 1.25rem;
-}
-
 .sheet-overlay[data-state="open"] {
   animation: sheet-overlay-in 180ms ease-out forwards;
 }
@@ -215,11 +128,5 @@ textarea {
   to {
     opacity: 0;
     transform: translateX(-18px);
-  }
-}
-
-@media (min-width: 768px) {
-  .brand-grid {
-    gap: 1.75rem;
   }
 }
