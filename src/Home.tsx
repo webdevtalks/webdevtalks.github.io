@@ -48,17 +48,17 @@ const Home = (): ReactElement => {
             </div>
 
             <div className="mx-auto w-full min-w-0 max-w-md md:hidden lg:block">
-              <div className="relative mx-auto w-full min-w-0 min-h-96 overflow-hidden rounded-3xl border border-white/60 bg-white/75 p-4 shadow-2xl sm:p-6 lg:aspect-square lg:min-h-0">
-                <div className="absolute inset-x-6 top-6 h-28 rounded-3xl bg-gradient-to-r from-yellow-300/70 to-sky-200/55 blur-2xl" />
-                <div className="relative flex h-full min-w-0 flex-col rounded-3xl border border-black/8 bg-white/90 px-4 pb-4 pt-5 text-center sm:px-6 sm:pb-5 sm:pt-6">
-                  <div className="flex min-h-56 flex-1 items-center justify-center overflow-hidden">
+              <div className="relative mx-auto w-full min-w-0 min-h-96 overflow-hidden rounded-3xl border border-white/60 bg-white/75 p-4 shadow-2xl sm:p-6">
+                <div className="pointer-events-none absolute inset-x-6 top-6 h-28 rounded-3xl bg-gradient-to-r from-yellow-300/70 to-sky-200/55 blur-2xl" />
+                <div className="relative space-y-4 rounded-3xl border border-black/8 bg-white/90 px-4 pb-5 pt-5 text-center sm:px-6 sm:pb-6 sm:pt-6">
+                  <div className="flex items-center justify-center">
                     <img
                       src={logo}
                       alt="Logo WDT"
-                      className="h-auto w-full max-w-xs max-h-full object-contain"
+                      className="h-auto w-full max-w-xs object-contain"
                     />
                   </div>
-                  <div className="mt-3 shrink-0 space-y-2">
+                  <div className="space-y-2">
                     <p className="text-xl font-bold leading-tight text-brand sm:text-3xl">Web Dev Talks</p>
                     <p className="text-xs uppercase tracking-widest text-slate-500 sm:text-sm">{t('homePage.communityLabel')}</p>
                   </div>
