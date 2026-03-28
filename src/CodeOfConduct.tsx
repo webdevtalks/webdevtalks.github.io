@@ -1,697 +1,250 @@
-import { Typography, Container, List, ListItem, ListItemText, ListItemIcon, Divider, Box, IconButton, Tooltip } from '@mui/material'
-import CircleIcon from '@mui/icons-material/Circle'
-import LinkIcon from '@mui/icons-material/Link'
+import { Link as LinkIcon } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import NavBar from './NavBar'
-import Footer from './Footer'
+import { toast } from 'sonner'
+import SiteShell from './components/SiteShell'
+import { Card } from './components/ui/card'
+import { Button } from './components/ui/button'
+import { Tooltip } from './components/ui/tooltip'
 import { useAnchorLinks } from './hooks/useAnchorLinks'
+
+interface SectionDefinition {
+  id: string
+  title: string
+  intro: string[]
+  bullets?: string[]
+  outro?: string[]
+  tone?: 'default' | 'danger'
+}
 
 function CodeOfConduct() {
   const { t } = useTranslation()
   const { copyAnchorLink, scrollToElement } = useAnchorLinks()
 
-  // Component for section header with anchor link
-  const SectionHeader = ({ id, variant, children, color = 'primary.main' }: {
-    id: string,
-    variant: 'h1' | 'h2',
-    children: React.ReactNode,
-    color?: string
-  }) => (
-    <Box
-      id={id}
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: 1,
-        mb: 2,
-        '&:hover .anchor-link': {
-          opacity: 0.6
-        }
-      }}
-    >
-      <Box sx={{ display: { xs: 'none', sm: 'flex' }, alignItems: 'center' }}>
-        <Tooltip title={t("codeOfConduct.copyLink") || "Copiar enlace"}>
-          <IconButton
-            className="anchor-link"
-            size="small"
-            onClick={() => copyAnchorLink(id)}
-            sx={{
-              opacity: 0,
-              transition: 'opacity 0.2s ease-in-out',
-              '&:hover': { opacity: 1 },
-              color: color,
-              mr: 0.5
-            }}
-          >
-            <LinkIcon fontSize="small" />
-          </IconButton>
-        </Tooltip>
-      </Box>
-      <Typography variant={variant} sx={{ color, flex: 1 }}>
-        {children}
-      </Typography>
-    </Box>
+  const sections: SectionDefinition[] = [
+    {
+      id: 'proposito',
+      title: t('codeOfConduct.purpose.title'),
+      intro: [t('codeOfConduct.purpose.description1'), t('codeOfConduct.purpose.description2'), t('codeOfConduct.purpose.appliesTo')],
+      bullets: [
+        t('codeOfConduct.purpose.inPersonEvents'),
+        t('codeOfConduct.purpose.onlineEvents'),
+        t('codeOfConduct.purpose.networking'),
+        t('codeOfConduct.purpose.socialMedia'),
+        t('codeOfConduct.purpose.communicationChannels'),
+        t('codeOfConduct.purpose.memberInteractions'),
+      ],
+      outro: [t('codeOfConduct.purpose.participation')],
+    },
+    {
+      id: 'valores',
+      title: t('codeOfConduct.values.title'),
+      intro: [t('codeOfConduct.values.description')],
+      bullets: [
+        t('codeOfConduct.values.respect'),
+        t('codeOfConduct.values.inclusion'),
+        t('codeOfConduct.values.professionalism'),
+        t('codeOfConduct.values.collaboration'),
+        t('codeOfConduct.values.diversity'),
+        t('codeOfConduct.values.learning'),
+      ],
+      outro: [t('codeOfConduct.values.welcome')],
+    },
+    {
+      id: 'conducta-esperada',
+      title: t('codeOfConduct.expected.title'),
+      intro: [t('codeOfConduct.expected.description')],
+      bullets: [
+        t('codeOfConduct.expected.respectful'),
+        t('codeOfConduct.expected.avoidOffensive'),
+        t('codeOfConduct.expected.respectStaff'),
+        t('codeOfConduct.expected.professional'),
+        t('codeOfConduct.expected.respectSpaces'),
+        t('codeOfConduct.expected.constructive'),
+      ],
+    },
+    {
+      id: 'conducta-inaceptable',
+      title: t('codeOfConduct.unacceptable.title'),
+      intro: [t('codeOfConduct.unacceptable.description')],
+      bullets: [
+        t('codeOfConduct.unacceptable.harassment'),
+        t('codeOfConduct.unacceptable.stalking'),
+        t('codeOfConduct.unacceptable.offensiveComments'),
+        t('codeOfConduct.unacceptable.intimidation'),
+        t('codeOfConduct.unacceptable.sexualConduct'),
+        t('codeOfConduct.unacceptable.insults'),
+        t('codeOfConduct.unacceptable.interruptions'),
+        t('codeOfConduct.unacceptable.uncomfortable'),
+        t('codeOfConduct.unacceptable.propertyDamage'),
+        t('codeOfConduct.unacceptable.invasivePromotion'),
+      ],
+      outro: [t('codeOfConduct.unacceptable.note'), t('codeOfConduct.unacceptable.admissionRights')],
+      tone: 'danger',
+    },
+    {
+      id: 'alcance-fuera-evento',
+      title: t('codeOfConduct.scope.title'),
+      intro: [t('codeOfConduct.scope.description')],
+      bullets: [
+        t('codeOfConduct.scope.directed'),
+        t('codeOfConduct.scope.safety'),
+        t('codeOfConduct.scope.hostileEnvironment'),
+        t('codeOfConduct.scope.socialMediaHarassment'),
+      ],
+      outro: [t('codeOfConduct.scope.reserve')],
+    },
+    {
+      id: 'cumplimiento-medidas',
+      title: t('codeOfConduct.enforcement.title'),
+      intro: [t('codeOfConduct.enforcement.description')],
+      bullets: [
+        t('codeOfConduct.enforcement.warnings'),
+        t('codeOfConduct.enforcement.expulsion'),
+        t('codeOfConduct.enforcement.ticketCancellation'),
+        t('codeOfConduct.enforcement.futureAccess'),
+        t('codeOfConduct.enforcement.speakerInvitations'),
+        t('codeOfConduct.enforcement.participation'),
+      ],
+      outro: [t('codeOfConduct.enforcement.outsideEvents'), t('codeOfConduct.enforcement.finalDecisions')],
+    },
+    {
+      id: 'reporte-incidentes',
+      title: t('codeOfConduct.reporting.title'),
+      intro: [t('codeOfConduct.reporting.description'), t('codeOfConduct.reporting.confidentiality'), t('codeOfConduct.reporting.howTo')],
+      bullets: [
+        t('codeOfConduct.reporting.duringEvent'),
+        t('codeOfConduct.reporting.socialMedia'),
+        t('codeOfConduct.reporting.email'),
+      ],
+    },
+    {
+      id: 'compromiso',
+      title: t('codeOfConduct.commitment.title'),
+      intro: [t('codeOfConduct.commitment.description'), t('codeOfConduct.commitment.responsibility')],
+      outro: [t('codeOfConduct.commitment.community')],
+    },
+  ]
+
+  const hero = (
+    <section className="pt-8 mb-6">
+      <div className="page-frame">
+        <Card className="rounded-3xl px-6 py-8 md:px-8 md:py-10">
+          <div className="grid gap-6 md:grid-cols-2">
+            <div>
+              <span className="eyebrow">{t('codeOfConduct.heroEyebrow')}</span>
+              <h1 className="section-title mt-4 text-slate-950">{t('codeOfConduct.title')}</h1>
+            </div>
+            <div className="space-y-4 text-slate-600">
+              <p>{t('codeOfConduct.heroDescription')}</p>
+              <p>{t('codeOfConduct.purpose.description1')}</p>
+            </div>
+          </div>
+        </Card>
+      </div>
+    </section>
   )
 
   return (
-    <>
-      <NavBar />
-      <Container sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'stretch',
-        minWidth: 0,
-        pt: 5,
-        pb: 5,
-        // Add scroll padding to account for sticky header
-        '& [id]': {
-          scrollMarginTop: '80px' // 65px header + 15px extra padding
-        }
-      }}>
-        <Typography variant="h1" sx={{ mb: 4, textAlign: 'center' }}>
-          {t("codeOfConduct.title")}
-        </Typography>
+    <SiteShell hero={hero}>
+      <div className="space-y-6">
+        <Card className="rounded-3xl p-6 md:p-8">
+          <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="eyebrow">{t('codeOfConduct.tableOfContents')}</p>
+              <h2 className="section-subtitle mt-4 text-slate-950">{t('codeOfConduct.tableOfContents')}</h2>
+            </div>
+          </div>
+          <div className="grid gap-3 md:grid-cols-2">
+            {sections.map((section) => (
+              <button
+                key={section.id}
+                type="button"
+                onClick={() => scrollToElement(section.id)}
+                className={`rounded-2xl border px-4 py-4 text-left transition hover:-translate-y-0.5 ${
+                  section.tone === 'danger'
+                    ? 'border-red-200 bg-red-50 text-red-900'
+                    : 'border-black/8 bg-white/72 text-slate-800'
+                }`}
+              >
+                <div className="text-sm font-semibold uppercase tracking-widest opacity-70">
+                  {section.id.replace(/-/g, ' ')}
+                </div>
+                <div className="mt-2 text-xl font-bold tracking-tight">{section.title}</div>
+              </button>
+            ))}
+          </div>
+        </Card>
 
-        {/* Tabla de contenidos */}
-        <Box sx={{
-          width: '100%',
-          maxWidth: '100%',
-          minWidth: 0,
-          mb: 4,
-          p: { xs: 2, sm: 3 },
-          bgcolor: 'grey.50',
-          borderRadius: 2,
-          border: '1px solid',
-          borderColor: 'grey.200',
-          boxSizing: 'border-box',
-        }}>
-          <Typography variant="h3" sx={{ mb: 2, color: 'primary.main', overflowWrap: 'break-word' }}>
-            {t("codeOfConduct.tableOfContents") || "Tabla de contenidos"}
-          </Typography>
-          <List
-            dense
-            sx={{
-              width: '100%',
-              minWidth: 0,
-              '& .MuiListItem-root': { minWidth: 0 },
-              '& .MuiListItemText-root': { minWidth: 0 },
-              '& .MuiListItemText-root .MuiTypography-root': {
-                overflowWrap: 'break-word',
-                wordBreak: 'break-word',
-                maxWidth: '100%',
-              },
-            }}
+        {sections.map((section) => (
+          <Card
+            key={section.id}
+            id={section.id}
+            className={`rounded-3xl p-6 scroll-mt-24 md:p-8 ${
+              section.tone === 'danger' ? 'border-red-200 bg-red-50/75' : ''
+            }`}
           >
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '6px' }} />
-              </ListItemIcon>
-              <ListItemText>
-                <Typography
-                  component="button"
-                  onClick={() => scrollToElement('proposito')}
-                  sx={{
-                    textDecoration: 'none',
-                    color: 'primary.main',
-                    background: 'none',
-                    border: 'none',
-                    cursor: 'pointer',
-                    textAlign: 'left',
-                    padding: 0,
-                    font: 'inherit',
-                    '&:hover': { textDecoration: 'underline' }
-                  }}
-                >
-                  {t("codeOfConduct.purpose.title")}
-                </Typography>
-              </ListItemText>
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '6px' }} />
-              </ListItemIcon>
-              <ListItemText>
-                <Typography
-                  component="button"
-                  onClick={() => scrollToElement('valores')}
-                  sx={{
-                    textDecoration: 'none',
-                    color: 'primary.main',
-                    background: 'none',
-                    border: 'none',
-                    cursor: 'pointer',
-                    textAlign: 'left',
-                    padding: 0,
-                    font: 'inherit',
-                    '&:hover': { textDecoration: 'underline' }
-                  }}
-                >
-                  {t("codeOfConduct.values.title")}
-                </Typography>
-              </ListItemText>
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '6px' }} />
-              </ListItemIcon>
-              <ListItemText>
-                <Typography
-                  component="button"
-                  onClick={() => scrollToElement('conducta-esperada')}
-                  sx={{
-                    textDecoration: 'none',
-                    color: 'primary.main',
-                    background: 'none',
-                    border: 'none',
-                    cursor: 'pointer',
-                    textAlign: 'left',
-                    padding: 0,
-                    font: 'inherit',
-                    '&:hover': { textDecoration: 'underline' }
-                  }}
-                >
-                  {t("codeOfConduct.expected.title")}
-                </Typography>
-              </ListItemText>
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'error.main' }}>
-                <CircleIcon sx={{ fontSize: '6px' }} />
-              </ListItemIcon>
-              <ListItemText>
-                <Typography
-                  component="button"
-                  onClick={() => scrollToElement('conducta-inaceptable')}
-                  sx={{
-                    textDecoration: 'none',
-                    color: 'error.main',
-                    background: 'none',
-                    border: 'none',
-                    cursor: 'pointer',
-                    textAlign: 'left',
-                    padding: 0,
-                    font: 'inherit',
-                    '&:hover': { textDecoration: 'underline' }
-                  }}
-                >
-                  {t("codeOfConduct.unacceptable.title")}
-                </Typography>
-              </ListItemText>
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '6px' }} />
-              </ListItemIcon>
-              <ListItemText>
-                <Typography
-                  component="button"
-                  onClick={() => scrollToElement('alcance-fuera-evento')}
-                  sx={{
-                    textDecoration: 'none',
-                    color: 'primary.main',
-                    background: 'none',
-                    border: 'none',
-                    cursor: 'pointer',
-                    textAlign: 'left',
-                    padding: 0,
-                    font: 'inherit',
-                    '&:hover': { textDecoration: 'underline' }
-                  }}
-                >
-                  {t("codeOfConduct.scope.title")}
-                </Typography>
-              </ListItemText>
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '6px' }} />
-              </ListItemIcon>
-              <ListItemText>
-                <Typography
-                  component="button"
-                  onClick={() => scrollToElement('cumplimiento-medidas')}
-                  sx={{
-                    textDecoration: 'none',
-                    color: 'primary.main',
-                    background: 'none',
-                    border: 'none',
-                    cursor: 'pointer',
-                    textAlign: 'left',
-                    padding: 0,
-                    font: 'inherit',
-                    '&:hover': { textDecoration: 'underline' }
-                  }}
-                >
-                  {t("codeOfConduct.enforcement.title")}
-                </Typography>
-              </ListItemText>
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '6px' }} />
-              </ListItemIcon>
-              <ListItemText>
-                <Typography
-                  component="button"
-                  onClick={() => scrollToElement('reporte-incidentes')}
-                  sx={{
-                    textDecoration: 'none',
-                    color: 'primary.main',
-                    background: 'none',
-                    border: 'none',
-                    cursor: 'pointer',
-                    textAlign: 'left',
-                    padding: 0,
-                    font: 'inherit',
-                    '&:hover': { textDecoration: 'underline' }
-                  }}
-                >
-                  {t("codeOfConduct.reporting.title")}
-                </Typography>
-              </ListItemText>
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '6px' }} />
-              </ListItemIcon>
-              <ListItemText>
-                <Typography
-                  component="button"
-                  onClick={() => scrollToElement('compromiso')}
-                  sx={{
-                    textDecoration: 'none',
-                    color: 'primary.main',
-                    background: 'none',
-                    border: 'none',
-                    cursor: 'pointer',
-                    textAlign: 'left',
-                    padding: 0,
-                    font: 'inherit',
-                    '&:hover': { textDecoration: 'underline' }
-                  }}
-                >
-                  {t("codeOfConduct.commitment.title")}
-                </Typography>
-              </ListItemText>
-            </ListItem>
-          </List>
-        </Box>
+            <div className="grid gap-8 lg:grid-cols-3">
+              <div className="flex items-center gap-2">
+                <Tooltip content={t('codeOfConduct.copyLink')}>
+                  <Button
+                    variant={section.tone === 'danger' ? 'outline' : 'secondary'}
+                    className="block h-fit w-fit rounded-full p-2"
+                    onClick={async () => {
+                      await copyAnchorLink(section.id)
+                      toast.success(t('codeOfConduct.linkCopied'))
+                    }}
+                  >
+                    <LinkIcon className="h-4 w-4" />
+                    <span className="sr-only">{t('codeOfConduct.copyLink')}</span>
+                  </Button>
+                </Tooltip>
+                <h2 className={`section-subtitle ${section.tone === 'danger' ? 'text-red-950' : 'text-slate-950'}`}>
+                  {section.title}
+                </h2>
+              </div>
 
-        {/* Sección 1: Propósito */}
-        <Box sx={{ width: '100%', mb: 4 }}>
-          <SectionHeader id="proposito" variant="h2">
-            {t("codeOfConduct.purpose.title")}
-          </SectionHeader>
-          <Typography sx={{ textAlign: 'justify', mb: 2 }}>
-            {t("codeOfConduct.purpose.description1")}
-          </Typography>
-          <Typography sx={{ textAlign: 'justify', mb: 2 }}>
-            {t("codeOfConduct.purpose.description2")}
-          </Typography>
-          <Typography sx={{ textAlign: 'justify', mb: 2, fontWeight: 'bold' }}>
-            {t("codeOfConduct.purpose.appliesTo")}
-          </Typography>
-          <List sx={{ pl: 2 }}>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.purpose.inPersonEvents')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.purpose.onlineEvents')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.purpose.networking')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.purpose.socialMedia')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.purpose.communicationChannels')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.purpose.memberInteractions')} />
-            </ListItem>
-          </List>
-          <Typography sx={{ textAlign: 'justify', mt: 2, fontStyle: 'italic' }}>
-            {t("codeOfConduct.purpose.participation")}
-          </Typography>
-        </Box>
+              <div className="space-y-5 lg:col-span-2">
+                {section.intro.map((paragraph) => (
+                  <p key={paragraph} className="prose-copy">
+                    {paragraph}
+                  </p>
+                ))}
 
-        <Divider sx={{ width: '100%', my: 3 }} />
+                {section.bullets && (
+                  <div className="grid gap-3 md:grid-cols-2">
+                    {section.bullets.map((bullet) => (
+                      <div
+                        key={bullet}
+                        className={`rounded-2xl border px-4 py-4 text-sm leading-6 shadow-sm ${
+                          section.tone === 'danger'
+                            ? 'border-red-200 bg-white/90 text-red-950'
+                            : 'border-black/8 bg-white/78 text-slate-700'
+                        }`}
+                      >
+                        {bullet}
+                      </div>
+                    ))}
+                  </div>
+                )}
 
-        {/* Sección 2: Valores */}
-        <Box sx={{ width: '100%', mb: 4 }}>
-          <SectionHeader id="valores" variant="h2">
-            {t("codeOfConduct.values.title")}
-          </SectionHeader>
-          <Typography sx={{ textAlign: 'justify', mb: 2 }}>
-            {t("codeOfConduct.values.description")}
-          </Typography>
-          <List sx={{ pl: 2 }}>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.values.respect')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.values.inclusion')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.values.professionalism')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.values.collaboration')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.values.diversity')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.values.learning')} />
-            </ListItem>
-          </List>
-          <Typography sx={{ textAlign: 'justify', mt: 2 }}>
-            {t("codeOfConduct.values.welcome")}
-          </Typography>
-        </Box>
-
-        <Divider sx={{ width: '100%', my: 3 }} />
-
-        {/* Sección 3: Conducta Esperada */}
-        <Box sx={{ width: '100%', mb: 4 }}>
-          <SectionHeader id="conducta-esperada" variant="h2">
-            {t("codeOfConduct.expected.title")}
-          </SectionHeader>
-          <Typography sx={{ textAlign: 'justify', mb: 2 }}>
-            {t("codeOfConduct.expected.description")}
-          </Typography>
-          <List sx={{ pl: 2 }}>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.expected.respectful')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.expected.avoidOffensive')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.expected.respectStaff')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.expected.professional')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.expected.respectSpaces')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.expected.constructive')} />
-            </ListItem>
-          </List>
-        </Box>
-
-        <Divider sx={{ width: '100%', my: 3 }} />
-
-        {/* Sección 4: Conducta Inaceptable */}
-        <Box sx={{ width: '100%', mb: 4 }}>
-          <SectionHeader id="conducta-inaceptable" variant="h2" color="error.main">
-            {t("codeOfConduct.unacceptable.title")}
-          </SectionHeader>
-          <Typography sx={{ textAlign: 'justify', mb: 2 }}>
-            {t("codeOfConduct.unacceptable.description")}
-          </Typography>
-          <List sx={{ pl: 2 }}>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'error.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.unacceptable.harassment')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'error.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.unacceptable.stalking')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'error.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.unacceptable.offensiveComments')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'error.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.unacceptable.intimidation')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'error.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.unacceptable.sexualConduct')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'error.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.unacceptable.insults')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'error.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.unacceptable.interruptions')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'error.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.unacceptable.uncomfortable')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'error.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.unacceptable.propertyDamage')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'error.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.unacceptable.invasivePromotion')} />
-            </ListItem>
-          </List>
-          <Typography sx={{ textAlign: 'justify', mt: 2 }}>
-            {t("codeOfConduct.unacceptable.note")}
-          </Typography>
-          <Typography sx={{ textAlign: 'justify', mt: 2, fontWeight: 'bold', color: 'error.main' }}>
-            {t("codeOfConduct.unacceptable.admissionRights")}
-          </Typography>
-        </Box>
-
-        <Divider sx={{ width: '100%', my: 3 }} />
-
-        {/* Sección 5: Alcance fuera del evento */}
-        <Box sx={{ width: '100%', mb: 4 }}>
-          <SectionHeader id="alcance-fuera-evento" variant="h2">
-            {t("codeOfConduct.scope.title")}
-          </SectionHeader>
-          <Typography sx={{ textAlign: 'justify', mb: 2 }}>
-            {t("codeOfConduct.scope.description")}
-          </Typography>
-          <List sx={{ pl: 2 }}>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.scope.directed')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.scope.safety')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.scope.hostileEnvironment')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.scope.socialMediaHarassment')} />
-            </ListItem>
-          </List>
-          <Typography sx={{ textAlign: 'justify', mt: 2 }}>
-            {t("codeOfConduct.scope.reserve")}
-          </Typography>
-        </Box>
-
-        <Divider sx={{ width: '100%', my: 3 }} />
-
-        {/* Sección 6: Cumplimiento y medidas */}
-        <Box sx={{ width: '100%', mb: 4 }}>
-          <SectionHeader id="cumplimiento-medidas" variant="h2">
-            {t("codeOfConduct.enforcement.title")}
-          </SectionHeader>
-          <Typography sx={{ textAlign: 'justify', mb: 2 }}>
-            {t("codeOfConduct.enforcement.description")}
-          </Typography>
-          <List sx={{ pl: 2 }}>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.enforcement.warnings')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.enforcement.expulsion')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.enforcement.ticketCancellation')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.enforcement.futureAccess')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.enforcement.speakerInvitations')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.enforcement.participation')} />
-            </ListItem>
-          </List>
-          <Typography sx={{ textAlign: 'justify', mt: 2 }}>
-            {t("codeOfConduct.enforcement.outsideEvents")}
-          </Typography>
-          <Typography sx={{ textAlign: 'justify', mt: 2, fontWeight: 'bold' }}>
-            {t("codeOfConduct.enforcement.finalDecisions")}
-          </Typography>
-        </Box>
-
-        <Divider sx={{ width: '100%', my: 3 }} />
-
-        {/* Sección 7: Reporte de incidentes */}
-        <Box sx={{ width: '100%', mb: 4 }}>
-          <SectionHeader id="reporte-incidentes" variant="h2">
-            {t("codeOfConduct.reporting.title")}
-          </SectionHeader>
-          <Typography sx={{ textAlign: 'justify', mb: 2 }}>
-            {t("codeOfConduct.reporting.description")}
-          </Typography>
-          <Typography sx={{ textAlign: 'justify', mb: 2 }}>
-            {t("codeOfConduct.reporting.confidentiality")}
-          </Typography>
-          <Typography sx={{ textAlign: 'justify', mb: 2, fontWeight: 'bold' }}>
-            {t("codeOfConduct.reporting.howTo")}
-          </Typography>
-          <List sx={{ pl: 2 }}>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.reporting.duringEvent')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.reporting.socialMedia')} />
-            </ListItem>
-            <ListItem sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: '20px', color: 'primary.main' }}>
-                <CircleIcon sx={{ fontSize: '8px' }} />
-              </ListItemIcon>
-              <ListItemText primary={t('codeOfConduct.reporting.email')} />
-            </ListItem>
-          </List>
-        </Box>
-
-        <Divider sx={{ width: '100%', my: 3 }} />
-
-        {/* Sección 8: Compromiso */}
-        <Box sx={{ width: '100%', mb: 4 }}>
-          <SectionHeader id="compromiso" variant="h2">
-            {t("codeOfConduct.commitment.title")}
-          </SectionHeader>
-          <Typography sx={{ textAlign: 'justify', mb: 2 }}>
-            {t("codeOfConduct.commitment.description")}
-          </Typography>
-          <Typography sx={{ textAlign: 'justify', mb: 2 }}>
-            {t("codeOfConduct.commitment.responsibility")}
-          </Typography>
-          <Typography sx={{ textAlign: 'center', mt: 4, fontSize: '1.2rem', fontWeight: 'bold', color: 'primary.main' }}>
-            {t("codeOfConduct.commitment.community")}
-          </Typography>
-        </Box>
-      </Container>
-      <Footer />
-    </>
+                {section.outro?.map((paragraph) => (
+                  <p
+                    key={paragraph}
+                    className={`rounded-2xl border px-5 py-4 text-sm leading-6 ${
+                      section.tone === 'danger'
+                        ? 'border-red-200 bg-white/88 text-red-950'
+                        : 'border-black/8 bg-white/72 text-slate-600'
+                    }`}
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </Card>
+        ))}
+      </div>
+    </SiteShell>
   )
 }
 

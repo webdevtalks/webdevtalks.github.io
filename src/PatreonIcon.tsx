@@ -1,6 +1,9 @@
-const PatreonIcon = () => (
-  <div style={{ display: 'flex', margin: '5px' }}>
+import { type SVGProps } from 'react'
+
+const PatreonIcon = ({ className }: SVGProps<SVGSVGElement>) => (
+  <div style={{ display: 'flex' }}>
     <svg
+      className={className}
       version="1.1"
       id="Layer_1"
       xmlns="http://www.w3.org/2000/svg"

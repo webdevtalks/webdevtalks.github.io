@@ -1,21 +1,12 @@
 import { type ReactElement } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Pie } from 'react-chartjs-2'
-import {
-  Container,
-  Typography,
-  Box,
-  Link,
-  Avatar,
-  Grid,
-  Card,
-  CardContent,
-  Stack,
-  Divider
-} from '@mui/material'
-import MaterialTooltip from '@mui/material/Tooltip';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
-import NavBar from './NavBar'
+import { Chart as ChartJS, ArcElement, Tooltip as ChartTooltip, Legend, type ChartOptions } from 'chart.js'
+import { Clock3, Megaphone, Presentation, Share2 } from 'lucide-react'
+import SiteShell from './components/SiteShell'
+import { Card, CardContent, CardHeader, CardTitle } from './components/ui/card'
+import { Tooltip } from './components/ui/tooltip'
+import logo from './assets/images/logo.png'
 import rubyCentral from './assets/images/sponsors/ruby_central.png'
 import laFronteraCaseCafe from './assets/images/sponsors/la_frontera_casa_cafe.png'
 import vauxoo from './assets/images/sponsors/vauxoo.png'
@@ -40,381 +31,276 @@ import gil from './assets/images/patreons/gil.png'
 import reginaEspinosa from './assets/images/patreons/regina_espinosa.jpeg'
 import edmundoPerez from './assets/images/patreons/edmundo_perez.jpeg'
 import hectorAlvarez from './assets/images/patreons/hector_alvarez.jpeg'
-import logo from './assets/images/logo.png'
-import Footer from './Footer';
 
-import AccessTimeIcon from '@mui/icons-material/AccessTime'
-import ShareIcon from '@mui/icons-material/Share'
-import FacebookIcon from '@mui/icons-material/Facebook'
+ChartJS.register(ArcElement, ChartTooltip, Legend)
 
-ChartJS.register(ArcElement, Tooltip, Legend)
+const patreons = [
+  ['Alejandro Rebollar', alejandroRebollar],
+  ['Alexis Chavez', alexisChavez],
+  ['Alexis Navarro', alexisNavarro],
+  ['L', l],
+  ['Benjamin Pena', benjaminPena],
+  ['Edson Paul', edsonPaul],
+  ['Miguel Urbina', miguelUrbina],
+  ['Oscar Swanros', oscarSwanros],
+  ['Soriel Vallejo', sorielVallejo],
+  ['Juan Meza', juanMeza],
+  ['Edwin Cruz', edwinCruz],
+  ['Maria Avila', mariaAvila],
+  ['Francisco Chacon', franciscoChacon],
+  ['Walter Mata', walterMata],
+  ['Myrka Larios', myrkaLarios],
+  ['Gibran Lopez', gibranLopez],
+  ['Abril Gonzalez', abrilGonzalez],
+  ['Gil', gil],
+  ['Regina Espinosa', reginaEspinosa],
+  ['Edmundo Perez', edmundoPerez],
+  ['Hector Alvarez', hectorAlvarez],
+] as const
 
-const Sponsorship = (): ReactElement =>  {
+const sponsors = [
+  { name: 'La Frontera Casa Cafe', image: laFronteraCaseCafe },
+  { name: 'Vauxoo', image: vauxoo },
+  { name: 'Ruby Central', image: rubyCentral },
+]
+
+const benefitIcons = [Clock3, Share2, Presentation, Megaphone]
+
+const Sponsorship = (): ReactElement => {
   const { t } = useTranslation()
 
-  const data = {
-    labels: [t("sponsorship.areas"), 'Software', 'PM', 'QA', t("sponsorship.design"), t("sponsorship.students")],
+  const audienceData = {
+    labels: [t('sponsorship.areas'), 'Software', 'PM', 'QA', t('sponsorship.design'), t('sponsorship.students')],
     datasets: [
       {
-        label: t("sponsorship.votes"),
+        label: t('sponsorship.votes'),
         data: [4, 51, 6, 4, 2, 30],
-        backgroundColor: [
-          '#E59866',
-          '#5499C7',
-          '#E67E22',
-          '#F7DC6F',
-          '#85C1E9',
-          '#58D68D',
-        ],
-        borderColor: [
-          'white',
-          'white',
-          'white',
-          'white',
-          'white',
-          'white',
-        ],
-        borderWidth: 1,
+        backgroundColor: ['#f59e0b', '#2563eb', '#fb7185', '#10b981', '#8b5cf6', '#f97316'],
+        borderColor: ['#fff', '#fff', '#fff', '#fff', '#fff', '#fff'],
+        borderWidth: 3,
       },
     ],
   }
 
+  const audienceOptions: ChartOptions<'pie'> = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          boxWidth: 12,
+          boxHeight: 12,
+          padding: 12,
+          usePointStyle: true,
+          pointStyle: 'circle',
+          font: {
+            size: 12,
+          },
+        },
+      },
+    },
+    layout: {
+      padding: 8,
+    },
+  }
+
+  const sponsorshipPlans = [
+    {
+      tier: 'Gold',
+      accent: 'from-amber-300 via-yellow-200 to-white',
+      benefits: [
+        { title: t('sponsorship.minutes', { minutes: 5 }), body: t('sponsorship.goldTime') },
+        { title: t('sponsorship.shares', { shares: 5 }), body: t('sponsorship.goldShares') },
+        { title: t('sponsorship.boothSpace'), body: t('sponsorship.goldBoothSpace') },
+        { title: t('sponsorship.socialNetwork'), body: t('sponsorship.goldSocialNetwork') },
+        { title: t('sponsorship.promotion'), body: t('sponsorship.goldPromotion') },
+      ],
+      pricing: [
+        { label: t('sponsorship.annually'), value: t('sponsorship.goldAnnually', { peso: '$8,874 MXN', dolar: '$510 USD' }) },
+        { label: t('sponsorship.semester'), value: t('sponsorship.goldSemester', { peso: '$4,698 MXN', dolar: '$270 USD' }) },
+        { label: t('sponsorship.perEvent'), value: t('sponsorship.goldPerEvent', { peso: '$1,740 MXN', dolar: '$100 USD' }) },
+      ],
+    },
+    {
+      tier: 'Silver',
+      accent: 'from-slate-300 via-slate-200 to-white',
+      benefits: [
+        { title: '-', body: t('sponsorship.silverTime') },
+        { title: t('sponsorship.shares', { shares: 2 }), body: t('sponsorship.silverShares') },
+        { title: '-', body: t('sponsorship.silverBoothSpace') },
+        { title: t('sponsorship.socialNetwork'), body: t('sponsorship.silverSocialNetwork') },
+        { title: t('sponsorship.promotion'), body: t('sponsorship.silverPromotion') },
+      ],
+      pricing: [
+        { label: t('sponsorship.annually'), value: t('sponsorship.silverAnnually', { peso: '$5,916 MXN', dolar: '$340 USD' }) },
+        { label: t('sponsorship.semester'), value: t('sponsorship.silverSemester', { peso: '$3,132 MXN', dolar: '$180 USD' }) },
+        { label: t('sponsorship.perEvent'), value: t('sponsorship.silverPerEvent', { peso: '$1,160 MXN', dolar: '$70 USD' }) },
+      ],
+    },
+  ]
+
+  const hero = (
+    <section className="pt-8 mb-6">
+      <div className="page-frame">
+        <Card className="overflow-hidden rounded-3xl">
+          <div className="grid gap-10 p-6 md:grid-cols-2 md:p-8 lg:p-10">
+            <div className="space-y-5">
+              <span className="eyebrow">{t('sponsorship.heroEyebrow')}</span>
+              <h1 className="section-title text-slate-950">{t('navbar.sponsorship')}</h1>
+              <p className="text-lg leading-8 text-slate-600">{t('sponsorship.description1')}</p>
+              <p className="text-slate-600">{t('sponsorship.description2')}</p>
+              <p className="text-slate-600">{t('sponsorship.description3')}</p>
+            </div>
+            <div className="grid gap-4">
+              <div className="rounded-3xl border border-black/10 bg-white/72 p-5 shadow-sm">
+                <img src={logo} alt="Logo WDT" className="mb-6 h-16 w-auto object-contain" />
+                <div className="grid gap-3 sm:grid-cols-3">
+                  <div className="rounded-2xl border border-black/8 bg-amber-50 px-4 py-4">
+                    <div className="text-xs font-semibold uppercase tracking-widest text-amber-700">{t('sponsorship.attendeesTitle')}</div>
+                    <div className="mt-2 text-3xl font-bold text-slate-950">97</div>
+                  </div>
+                  <div className="rounded-2xl border border-black/8 bg-sky-50 px-4 py-4">
+                    <div className="text-xs font-semibold uppercase tracking-widest text-sky-700">{t('sponsorship.ourSponsors')}</div>
+                    <div className="mt-2 text-3xl font-bold text-slate-950">3</div>
+                  </div>
+                  <div className="rounded-2xl border border-black/8 bg-emerald-50 px-4 py-4">
+                    <div className="text-xs font-semibold uppercase tracking-widest text-emerald-700">{t('sponsorship.ourPatreons')}</div>
+                    <div className="mt-2 text-3xl font-bold text-slate-950">{patreons.length}</div>
+                  </div>
+                </div>
+              </div>
+              <div className="overflow-hidden rounded-3xl border border-black/10 bg-slate-950 shadow-lg">
+                <iframe
+                  width="100%"
+                  className="aspect-video"
+                  src="https://www.youtube.com/embed/3kLz1Q0myiM"
+                  title={t('sponsorship.wdtVideo')}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          </div>
+        </Card>
+      </div>
+    </section>
+  )
+
   return (
-    <>
-      <NavBar/>
-      <Container>
-        <Box sx={{ display: 'flex', justifyContent: 'center', p: 5 }}>
-          <Avatar src={logo} alt="Logo WDT" sx={{ width: '100%', height: '100%', maxWidth: '250px' }} />
-        </Box>
-        <Typography sx={{ textAlign: 'justify' }} variant="body1" paragraph>{t("sponsorship.description1")}</Typography>
-        <Typography sx={{ textAlign: 'justify', mb: 1.5 }} variant="body1">{t("sponsorship.description2")}</Typography>
-        <Typography sx={{ textAlign: 'justify' }} variant="body1" paragraph>{t("sponsorship.description3")}</Typography>
-        <Box my={5}>
-          <iframe width="100%" style={{ maxHeight: '600px', height: '60vw' }} src="https://www.youtube.com/embed/3kLz1Q0myiM" title="YouTube video player" allow="accelerometer autoplay clipboard-write encrypted-media gyroscope picture-in-picture" allowFullScreen></iframe>
-        </Box>
+    <SiteShell hero={hero}>
+      <div className="space-y-6">
+        <Card className="rounded-3xl p-6 md:p-8">
+          <div className="grid gap-8 lg:grid-cols-3">
+            <div>
+              <p className="eyebrow">{t('sponsorship.attendeesTitle')}</p>
+              <h2 className="section-subtitle mt-4 text-slate-950">{t('sponsorship.audienceProfile')}</h2>
+              <p className="mt-4 text-slate-600">{t('sponsorship.venues')}</p>
+            </div>
+            <div className="mx-auto w-full min-w-0 max-w-xl rounded-3xl border border-black/8 bg-white/82 p-4 shadow-sm sm:col-span-2 sm:p-6">
+              <div className="relative mx-auto aspect-square w-full max-w-md">
+                <Pie data={audienceData} options={audienceOptions} />
+              </div>
+            </div>
+          </div>
+        </Card>
 
-        <Typography variant="h2" sx={{ my: 8, textAlign: 'center' }}>{t("sponsorship.attendeesTitle")}</Typography>
-        <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-          <Box width={{ xs: '100%', sm: '75%', md: '50%' }} >
-            <Pie data={data} />
-          </Box>
-        </Box>
-
-        <Typography variant="h3" sx={{ my: 8, textAlign: 'center' }}>Venues</Typography>
-        <Typography sx={{ textAlign: 'justify' }} variant="body1" paragraph>{t("sponsorship.venues")}</Typography>
-
-        <Typography variant="h3" sx={{ mt: 8, mb: 3, textAlign: 'center' }}>{t("sponsorship.sponsorshipPlans")}</Typography>
-        <Typography sx={{ textAlign: 'center' }} variant="body1" paragraph>{t("sponsorship.sponsorshipPlansBody")}</Typography>
-
-        <Grid container spacing={5}>
-          <Grid item xs={12} md={6}>
-            <Card variant="outlined">
-              <CardContent>
-                <Typography variant="h5" gutterBottom>
-                  Gold
-                </Typography>
-                <Divider/>
-                <Stack spacing={5} sx={{ mt: 2 }}>
-                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                      <AccessTimeIcon/>
-                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
-                        {t("sponsorship.minutes", { minutes: 5 })}
-                      </Typography>
-                    </Box>
-                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
-                      {t("sponsorship.goldTime")}
-                    </Typography>
-                  </Box>
-                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                      <ShareIcon/>
-                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
-                        {t("sponsorship.shares", { shares: 5 })}
-                      </Typography>
-                    </Box>
-                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
-                      {t("sponsorship.goldShares")}
-                    </Typography>
-                  </Box>
-                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
-                        {t("sponsorship.boothSpace")}
-                      </Typography>
-                    </Box>
-                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
-                      {t("sponsorship.goldBoothSpace")}
-                    </Typography>
-                  </Box>
-                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                      <FacebookIcon/>
-                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
-                        {t("sponsorship.socialNetwork")}
-                      </Typography>
-                    </Box>
-                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
-                      {t("sponsorship.goldSocialNetwork")}
-                    </Typography>
-                  </Box>
-                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
-                        {t("sponsorship.promotion")}
-                      </Typography>
-                    </Box>
-                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
-                      {t("sponsorship.goldPromotion")}
-                    </Typography>
-                  </Box>
-                </Stack>
+        <div className="grid gap-6 lg:grid-cols-2">
+          {sponsorshipPlans.map((plan) => (
+            <Card key={plan.tier} className="overflow-hidden rounded-3xl">
+              <div className={`h-24 bg-gradient-to-r ${plan.accent}`} />
+              <CardHeader className="-mt-12 pt-0">
+                <div className="inline-flex w-fit rounded-full border border-black/10 bg-white px-4 py-2 text-sm font-semibold uppercase tracking-widest text-slate-700 shadow-sm">
+                  {plan.tier}
+                </div>
+                <CardTitle>{plan.tier} {t('sponsorship.sponsor')}</CardTitle>
+              </CardHeader>
+              <CardContent className="grid gap-6">
+                <div className="grid gap-3">
+                  {plan.benefits.map((benefit, index) => {
+                    const Icon = benefitIcons[index % benefitIcons.length]
+                    return (
+                      <div key={`${plan.tier}-${benefit.body}`} className="rounded-2xl border border-black/8 bg-white/72 p-4">
+                        <div className="mb-2 flex items-center gap-3">
+                          <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-950 text-white">
+                            <Icon className="h-4 w-4" />
+                          </span>
+                          <div className="font-semibold text-slate-950">{benefit.title}</div>
+                        </div>
+                        <p className="text-sm leading-6 text-slate-600">{benefit.body}</p>
+                      </div>
+                    )
+                  })}
+                </div>
+                <div className="rounded-3xl border border-black/8 bg-slate-950 px-5 py-5 text-white">
+                  <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-slate-300">{t('sponsorship.costs')}</p>
+                  <div className="grid gap-3">
+                    {plan.pricing.map((price) => (
+                      <div key={`${plan.tier}-${price.label}`} className="flex flex-col justify-between gap-1 rounded-xl border border-white/10 bg-white/6 px-4 py-3 sm:flex-row sm:items-center sm:gap-4">
+                        <span className="text-sm text-slate-300">{price.label}</span>
+                        <span className="font-semibold text-white">{price.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </CardContent>
             </Card>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Card variant="outlined">
-              <CardContent>
-                <Typography variant="h5" gutterBottom>
-                  Silver
-                </Typography>
-                <Divider/>
-                <Stack spacing={5} sx={{ mt: 2 }}>
-                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                      <AccessTimeIcon/>
-                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
-                        -
-                      </Typography>
-                    </Box>
-                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
-                      {t("sponsorship.silverTime")}
-                    </Typography>
-                  </Box>
-                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                      <ShareIcon/>
-                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
-                        {t("sponsorship.shares", { shares: 2 })}
-                      </Typography>
-                    </Box>
-                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
-                      {t("sponsorship.silverShares")}
-                    </Typography>
-                  </Box>
-                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
-                        -
-                      </Typography>
-                    </Box>
-                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
-                      {t("sponsorship.silverBoothSpace")}
-                    </Typography>
-                  </Box>
-                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                      <FacebookIcon/>
-                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
-                        {t("sponsorship.socialNetwork")}
-                      </Typography>
-                    </Box>
-                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
-                      {t("sponsorship.silverSocialNetwork")}
-                    </Typography>
-                  </Box>
-                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
-                        {t("sponsorship.promotion")}
-                      </Typography>
-                    </Box>
-                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
-                      {t("sponsorship.silverPromotion")}
-                    </Typography>
-                  </Box>
-                </Stack>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
+          ))}
+        </div>
 
-        <Typography variant="h3" sx={{ my: 4, textAlign: 'center' }}>{t("sponsorship.costs")}</Typography>
+        <Card className="rounded-3xl p-6 md:p-8">
+          <div className="mb-6 flex items-end justify-between gap-4">
+            <div>
+              <p className="eyebrow">{t('sponsorship.ourSponsors')}</p>
+              <h2 className="section-subtitle mt-4 text-slate-950">{t('sponsorship.ourSponsors')}</h2>
+            </div>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {sponsors.map((sponsor) => (
+              <div key={sponsor.name} className="flex min-h-36 items-center justify-center rounded-3xl border border-black/8 bg-white/78 p-6 shadow-sm">
+                <img src={sponsor.image} alt={sponsor.name} className="max-h-20 w-full object-contain" />
+              </div>
+            ))}
+          </div>
+        </Card>
 
-        <Grid container spacing={5}>
-          <Grid item xs={12} md={6}>
-            <Card variant="outlined">
-              <CardContent>
-                <Typography variant="h5" gutterBottom>
-                  Gold
-                </Typography>
-                <Divider/>
-                <Stack spacing={2} sx={{ mt: 2 }}>
-                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
-                        {t("sponsorship.annually")}
-                      </Typography>
-                    </Box>
-                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
-                      {t("sponsorship.goldAnnually", { peso: '$8,874 MXN', dolar: '$510 USD' })}
-                    </Typography>
-                  </Box>
-                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
-                        {t("sponsorship.semester")}
-                      </Typography>
-                    </Box>
-                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
-                      {t("sponsorship.goldSemester", { peso: '$4,698 MXN', dolar: '$270 USD' })}
-                    </Typography>
-                  </Box>
-                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
-                        {t("sponsorship.perEvent")}
-                      </Typography>
-                    </Box>
-                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
-                      {t("sponsorship.goldPerEvent", { peso: '$1,740 MXN', dolar: '$100 USD' })}
-                    </Typography>
-                  </Box>
-                </Stack>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Card variant="outlined">
-              <CardContent>
-                <Typography variant="h5" gutterBottom>
-                  Silver
-                </Typography>
-                <Divider/>
-                <Stack spacing={2} sx={{ mt: 2 }}>
-                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
-                        {t("sponsorship.annually")}
-                      </Typography>
-                    </Box>
-                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
-                      {t("sponsorship.silverAnnually", { peso: '$5,916 MXN', dolar: '$340 USD' })}
-                    </Typography>
-                  </Box>
-                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
-                        {t("sponsorship.semester")}
-                      </Typography>
-                    </Box>
-                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
-                      {t("sponsorship.silverSemester", { peso: '$3,9132 MXN', dolar: '$180 USD' })}
-                    </Typography>
-                  </Box>
-                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                      <Typography variant="h6" sx={{ ml: 1, textAlign: 'center' }}>
-                        {t("sponsorship.perEvent")}
-                      </Typography>
-                    </Box>
-                    <Typography variant="body2" sx={{ ml: 1, textAlign: 'center' }} color="text.secondary">
-                      {t("sponsorship.silverPerEvent", { peso: '$1,160 MXN', dolar: '$70 USD' })}
-                    </Typography>
-                  </Box>
-                </Stack>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
+        <Card className="rounded-3xl p-6 md:p-8">
+          <div className="mb-6 flex items-end justify-between gap-4">
+            <div>
+              <p className="eyebrow">{t('sponsorship.ourPatreons')}</p>
+              <h2 className="section-subtitle mt-4 text-slate-950">{t('sponsorship.ourPatreons')}</h2>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+            {patreons.map(([name, image]) => (
+              <Tooltip key={name} content={name}>
+                <div className="flex flex-col items-center gap-3 rounded-2xl border border-black/8 bg-white/74 px-3 py-4 shadow-sm">
+                  <img src={image} alt={name} className="h-14 w-14 rounded-full object-cover ring-2 ring-white" />
+                  <span className="text-center text-xs font-medium text-slate-600">{name}</span>
+                </div>
+              </Tooltip>
+            ))}
+          </div>
+        </Card>
 
-        <Typography variant="h3" sx={{ my: 8, textAlign: 'center' }}>{t('sponsorship.ourSponsors')}</Typography>
-        <Grid container spacing={4} sx={{ mt: 8, alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center', px: 4 }}>
-          <Grid item xs={6} md={3} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
-            <Avatar variant='square' src={laFronteraCaseCafe} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
-          </Grid>
-          <Grid item xs={6} md={3} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
-            <Avatar variant='square' src={vauxoo} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
-          </Grid>
-          <Grid item xs={6} md={3} sx={{ display: 'flex', justifyContent: 'center', height: '100px', width: '100%' }}>
-            <Avatar variant='square' src={rubyCentral} sx={{ height: '100%', width: '100%', '& img': { objectFit: 'contain' } }} />
-          </Grid>
-        </Grid>
-        <Typography variant="h3" sx={{ my: 8, textAlign: 'center' }}>{t('sponsorship.ourPatreons')}</Typography>
-        <Box sx={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap' }}>
-          <MaterialTooltip title="Alejandro Rebollar" sx={{ p: 4 }}>
-            <Avatar src={alejandroRebollar} sx={{ height: '50px', width: '50px', m: 2 }} />
-          </MaterialTooltip>
-          <MaterialTooltip title="Alexis Chavez">
-            <Avatar src={alexisChavez} sx={{ height: '50px', width: '50px', m: 2 }} />
-          </MaterialTooltip>
-          <MaterialTooltip title="Alexis Navarro">
-            <Avatar src={alexisNavarro} sx={{ height: '50px', width: '50px', m: 2 }} />
-          </MaterialTooltip>
-          <MaterialTooltip title="L">
-            <Avatar src={l} sx={{ height: '50px', width: '50px', m: 2 }} />
-          </MaterialTooltip>
-          <MaterialTooltip title="Benjamin Peña">
-            <Avatar src={benjaminPena} sx={{ height: '50px', width: '50px', m: 2 }} />
-          </MaterialTooltip>
-          <MaterialTooltip title="Edson Paul">
-            <Avatar src={edsonPaul} sx={{ height: '50px', width: '50px', m: 2 }} />
-          </MaterialTooltip>
-          <MaterialTooltip title="Miguel Urbina">
-            <Avatar src={miguelUrbina} sx={{ height: '50px', width: '50px', m: 2 }} />
-          </MaterialTooltip>
-          <MaterialTooltip title="Oscar Swanros">
-            <Avatar src={oscarSwanros} sx={{ height: '50px', width: '50px', m: 2 }} />
-          </MaterialTooltip>
-          <MaterialTooltip title="Soriel Vallejo">
-            <Avatar src={sorielVallejo} sx={{ height: '50px', width: '50px', m: 2 }} />
-          </MaterialTooltip>
-          <MaterialTooltip title="Juan Meza">
-            <Avatar src={juanMeza} sx={{ height: '50px', width: '50px', m: 2 }} />
-          </MaterialTooltip>
-          <MaterialTooltip title="Edwin Cruz">
-            <Avatar src={edwinCruz} sx={{ height: '50px', width: '50px', m: 2 }} />
-          </MaterialTooltip>
-          <MaterialTooltip title="María Avila">
-            <Avatar src={mariaAvila} sx={{ height: '50px', width: '50px', m: 2 }} />
-          </MaterialTooltip>
-          <MaterialTooltip title="Francisco Chacón">
-            <Avatar src={franciscoChacon} sx={{ height: '50px', width: '50px', m: 2 }} />
-          </MaterialTooltip>
-          <MaterialTooltip title="Walter Mata">
-            <Avatar src={walterMata} sx={{ height: '50px', width: '50px', m: 2 }} />
-          </MaterialTooltip>
-          <MaterialTooltip title="Myrka Larios">
-            <Avatar src={myrkaLarios} sx={{ height: '50px', width: '50px', m: 2 }} />
-          </MaterialTooltip>
-          <MaterialTooltip title="Gibran Lopez">
-            <Avatar src={gibranLopez} sx={{ height: '50px', width: '50px', m: 2 }} />
-          </MaterialTooltip>
-          <MaterialTooltip title="Abril González">
-            <Avatar src={abrilGonzalez} sx={{ height: '50px', width: '50px', m: 2 }} />
-          </MaterialTooltip>
-          <MaterialTooltip title="Gil">
-            <Avatar src={gil} sx={{ height: '50px', width: '50px', m: 2 }} />
-          </MaterialTooltip>
-          <MaterialTooltip title="Regina Espinosa">
-            <Avatar src={reginaEspinosa} sx={{ height: '50px', width: '50px', m: 2 }} />
-          </MaterialTooltip>
-          <MaterialTooltip title="Edmundo Perez">
-            <Avatar src={edmundoPerez} sx={{ height: '50px', width: '50px', m: 2 }} />
-          </MaterialTooltip>
-          <MaterialTooltip title="Héctor Alvarez">
-            <Avatar src={hectorAlvarez} sx={{ height: '50px', width: '50px', m: 2 }} />
-          </MaterialTooltip>
-        </Box>
-
-        <Box sx={{ mt: 8 }}>
-          <Typography variant="caption">{t("sponsorship.tax")}</Typography>
-          <Typography variant="caption" paragraph>{t("sponsorship.contact1")} <Link href="mailto:webdevtalkscolima@gmail.com">webdevtalkscolima@gmail.com</Link> {t("sponsorship.contact2")}</Typography>
-        </Box>
-      </Container>
-      <Footer/>
-    </>
-  ) as ReactElement;
+        <Card className="rounded-3xl p-6 md:p-8">
+          <div className="text-slate-600">
+            <p>{t('sponsorship.tax')}</p>
+            <p>
+              {t('sponsorship.contact1')}{' '}
+              <a className="font-semibold text-slate-950 underline decoration-amber-400 underline-offset-4" href="mailto:webdevtalkscolima@gmail.com">
+                webdevtalkscolima@gmail.com
+              </a>{' '}
+              {t('sponsorship.contact2')}
+            </p>
+            <p className="text-sm text-slate-500">
+              {t('sponsorship.closingNote')}
+            </p>
+          </div>
+        </Card>
+      </div>
+    </SiteShell>
+  )
 }
 
 export default Sponsorship

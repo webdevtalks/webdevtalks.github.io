@@ -1,135 +1,119 @@
-import { useState, useEffect } from 'react'
+import { useState, type ReactElement } from 'react'
+import { Menu } from 'lucide-react'
+import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { useLocation } from 'react-router-dom'
-import { Link } from 'react-router-dom'
 import { useSurvey } from './hooks/useSurvey'
-import {
-  Box,
-  AppBar,
-  Toolbar,
-  Typography,
-  Container,
-  IconButton,
-  Button,
-  Avatar,
-  Drawer,
-  List,
-  ListItem,
-  ListItemButton,
-} from '@mui/material'
+import { Button } from './components/ui/button'
+import { Sheet } from './components/ui/sheet'
+import { cn } from './lib/utils'
 import { LanguageSelector } from './LanguageSelector'
-import { ReactElement } from 'react'
-import MenuIcon from '@mui/icons-material/Menu'
 import logo from './assets/images/logo.png'
 
 const NavBar = (): ReactElement => {
-  const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false)
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const location = useLocation()
   const { openSurvey } = useSurvey()
   const { t } = useTranslation()
 
-  const toggleDrawer = (newOpen: boolean) => () => {
-    setIsDrawerOpen(newOpen)
-  }
+  const links = [
+    { to: '/about', label: t('navbar.aboutUs') },
+    { to: '/sponsorship', label: t('navbar.sponsorship') },
+    { to: '/code-of-conduct', label: t('navbar.codeOfConduct') },
+  ]
 
-
-  const isActive = (path: string): boolean => {
-    return location.pathname === path
-  }
-
-  useEffect(() => {
-    return () => {
-      setIsDrawerOpen(false)
-    }
-  }, [])
+  const isActive = (path: string) => location.pathname === path
+  const navLinkClass = (active: boolean) =>
+    cn(
+      'inline-flex h-9 items-center justify-center rounded-full px-3.5 text-sm font-semibold transition-all duration-200',
+      active
+        ? 'bg-slate-950 text-white shadow-xl'
+        : 'text-slate-700 hover:bg-white/70',
+    )
 
   return (
-    <>
-      <AppBar position="sticky" color="default">
-        <Container maxWidth="xl">
-          <Toolbar variant="dense" sx={{ alignItems: { xs: 'center', md: 'stretch' }, justifyContent: 'space-between' }}>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={toggleDrawer(true)}
-              edge="start"
-              sx={{ display: { xs: 'flex', md: 'none' }}}
+    <header className="sticky top-0 z-30 border-b border-black/8 bg-amber-50/70 backdrop-blur-xl">
+      <div className="page-frame flex items-center justify-between gap-4 py-3">
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            aria-label={t('navbar.openMenu')}
+            onClick={() => setIsDrawerOpen(true)}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white/80 text-slate-800 shadow-sm lg:hidden"
+          >
+            <Menu className="h-5 w-5" />
+          </button>
+          <Link to="/" className="flex items-center gap-3 shrink-0">
+            <span className="inline-flex h-12 w-12 overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm">
+              <img src={logo} alt="Logo WDT" className="h-full w-full object-contain p-2" />
+            </span>
+            <div className="hidden sm:block">
+              <div className="text-lg font-bold tracking-tight text-slate-950">Web Dev Talks</div>
+              <div className="text-sm text-slate-500">{t('navbar.subtitle')}</div>
+            </div>
+          </Link>
+        </div>
+
+        <nav className="hidden items-center gap-2 lg:flex">
+          {links.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              className={navLinkClass(isActive(link.to))}
             >
-              <MenuIcon />
-            </IconButton>
-            <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' } }>
-              <Link to="/" style={{ textDecoration: 'none', marginRight: '1rem', flexShrink: 0 }}>
-                <Avatar src={logo} alt="Logo WDT" sx={{ width: '100%', height: '100%', maxWidth: '50px', py: 1 }} />
-              </Link>
-              <Link to="/sponsorship" style={{ textDecoration: 'none', height: '100%' }}>
-                <Button className={isActive('/sponsorship') ? 'active' : '' } sx={{ height: '100%', borderRadius: '0' }}>
-                  <Typography>{t("navbar.sponsorship")}</Typography>
-                </Button>
-              </Link>
-              <Link to="/about" style={{ textDecoration: 'none', height: '100%' }}>
-                <Button className={isActive('/about') ? 'active' : '' } sx={{ height: '100%', borderRadius: '0' }}>
-                  <Typography>{t("navbar.aboutUs")}</Typography>
-                </Button>
-              </Link>
-              <Link to="/code-of-conduct" style={{ textDecoration: 'none', height: '100%' }}>
-                <Button className={isActive('/code-of-conduct') ? 'active' : '' } sx={{ height: '100%', borderRadius: '0' }}>
-                  <Typography>{t("navbar.codeOfConduct")}</Typography>
-                </Button>
-              </Link>
-              <Link to="/" onClick={openSurvey} style={{ textDecoration: 'none', height: '100%' }}>
-                <Button sx={{ height: '100%', borderRadius: '0' }}>
-                  <Typography>{t("navbar.survey")}</Typography>
-                </Button>
-              </Link>
-            </Box>
-            <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <LanguageSelector/>
-            </Box>
-          </Toolbar>
-        </Container>
-      </AppBar>
-      <Drawer open={isDrawerOpen} onClose={toggleDrawer(false)}>
-        <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
-          <List sx={{ p: 0 }}>
-            <ListItem sx={{ p: 0 }}>
-              <Link to="/" style={{ textDecoration: 'none', width: '100%' }}>
-                <ListItemButton className={isActive('/') ? 'active' : ''}>
-                  <Typography>{t("navbar.home")}</Typography>
-                </ListItemButton>
-              </Link>
-            </ListItem>
-            <ListItem sx={{ p: 0 }}>
-              <Link to="/sponsorship" style={{ textDecoration: 'none', width: '100%' }}>
-                <ListItemButton className={isActive('/sponsorship') ? 'active' : ''}>
-                  <Typography>{t("navbar.sponsorship")}</Typography>
-                </ListItemButton>
-              </Link>
-            </ListItem>
-            <ListItem sx={{ p: 0 }}>
-              <Link to="/about" style={{ textDecoration: 'none', width: '100%' }}>
-                <ListItemButton className={isActive('/about') ? 'active' : ''}>
-                  <Typography>{t("navbar.aboutUs")}</Typography>
-                </ListItemButton>
-              </Link>
-            </ListItem>
-            <ListItem sx={{ p: 0 }}>
-              <Link to="/code-of-conduct" style={{ textDecoration: 'none', width: '100%' }}>
-                <ListItemButton className={isActive('/code-of-conduct') ? 'active' : ''}>
-                  <Typography>{t("navbar.codeOfConduct")}</Typography>
-                </ListItemButton>
-              </Link>
-            </ListItem>
-            <ListItem sx={{ p: 0 }}>
-              <Link to="#" onClick={openSurvey} style={{ textDecoration: 'none', width: '100%' }}>
-                <ListItemButton sx={{ height: '100%' }}>
-                  <Typography>{t("navbar.survey")}</Typography>
-                </ListItemButton>
-              </Link>
-            </ListItem>
-          </List>
-        </Box>
-      </Drawer>
-    </>
+              {link.label}
+            </Link>
+          ))}
+          <Button variant="outline" size="sm" className="rounded-full px-3.5" onClick={openSurvey}>
+            {t('navbar.survey')}
+          </Button>
+        </nav>
+
+        <LanguageSelector />
+      </div>
+
+      <Sheet
+        open={isDrawerOpen}
+        onOpenChange={setIsDrawerOpen}
+        title={t('navbar.openMenu')}
+        description={t('navbar.subtitle')}
+      >
+        <div className="mt-4 flex flex-col gap-3">
+          <Link to="/" className="mb-2 flex items-center gap-3" onClick={() => setIsDrawerOpen(false)}>
+            <span className="inline-flex h-12 w-12 overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm">
+              <img src={logo} alt="Logo WDT" className="h-full w-full object-contain p-2" />
+            </span>
+            <div>
+              <div className="text-lg font-bold tracking-tight text-slate-950">Web Dev Talks</div>
+              <div className="text-sm text-slate-500">{t('navbar.home')}</div>
+            </div>
+          </Link>
+
+          {links.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              onClick={() => setIsDrawerOpen(false)}
+              className={cn(
+                'inline-flex h-11 items-center rounded-2xl px-5 text-sm font-semibold transition-all',
+                isActive(link.to) ? 'bg-slate-950 text-white' : 'border border-black/10 bg-white/80 text-slate-900',
+              )}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <Button
+            variant="outline"
+            className="justify-start rounded-2xl"
+            onClick={() => {
+              setIsDrawerOpen(false)
+              openSurvey()
+            }}
+          >
+            {t('navbar.survey')}
+          </Button>
+        </div>
+      </Sheet>
+    </header>
   )
 }
 

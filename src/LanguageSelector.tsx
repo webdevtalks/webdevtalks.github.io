@@ -1,39 +1,20 @@
-import { useState } from 'react'
-import { useTranslation } from "react-i18next";
-import { LANGUAGES } from "./constants";
-import { Select, FormControl, Box, InputLabel, MenuItem, SelectChangeEvent } from '@mui/material';
+import { useTranslation } from 'react-i18next'
+import { LANGUAGES } from './constants'
+import { Select, SelectItem } from './components/ui/select'
 
 export const LanguageSelector = () => {
-  const [language, setLanguage] = useState('');
-  const { i18n } = useTranslation();
+  const { i18n } = useTranslation()
+  const currentLanguage = i18n.resolvedLanguage || i18n.language || 'es'
 
-  const onChangeLang = (e: SelectChangeEvent) => {
-    const languageCode = e.target.value;
-    i18n.changeLanguage(languageCode);
-    setLanguage(languageCode);
-  };
-
-  return(
-    <>
-      <Box sx={{ minWidth: 120 }}>
-        <FormControl fullWidth size="small">
-          <InputLabel id="language-input">Idioma</InputLabel>
-          <Select
-            labelId="language-input"
-            id="demo-simple-select"
-            value={language}
-            label="Idioma"
-            color="primary"
-            onChange={onChangeLang}
-          >
-           {LANGUAGES.map(({code, label}) => (
-              <MenuItem key={code} value={code}>
-                  {label}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-      </Box>
-    </>
+  return (
+    <div className="flex items-center gap-2">
+      <Select value={currentLanguage} onValueChange={i18n.changeLanguage} placeholder="Idioma">
+        {LANGUAGES.map(({ code, label }) => (
+          <SelectItem key={code} value={code}>
+            {label}
+          </SelectItem>
+        ))}
+      </Select>
+    </div>
   )
 }

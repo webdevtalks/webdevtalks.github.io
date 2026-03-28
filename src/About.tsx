@@ -1,8 +1,8 @@
-import { Typography, Container, Avatar, List, ListItem, ListItemText, ListItemIcon } from '@mui/material'
-import CircleIcon from '@mui/icons-material/Circle';
 import { useTranslation } from 'react-i18next'
+import SiteShell from './components/SiteShell'
+import { Card } from './components/ui/card'
+import { Carousel } from './components/ui/carousel'
 import main from './assets/images/main.jpg'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
 import image1 from './assets/images/1.jpg'
 import image2 from './assets/images/2.jpg'
 import image3 from './assets/images/3.jpg'
@@ -27,112 +27,152 @@ import image21 from './assets/images/21.jpg'
 import image22 from './assets/images/22.jpg'
 import image23 from './assets/images/23.jpg'
 import image24 from './assets/images/24.jpg'
-import NavBar from './NavBar'
-import Carousel from 'react-material-ui-carousel'
-import Footer from './Footer';
+
+const galleryImages = [
+  image2,
+  image3,
+  image4,
+  image5,
+  image6,
+  image7,
+  image9,
+  image10,
+  image11,
+  image12,
+  image13,
+  image14,
+  image15,
+  image16,
+  image17,
+  image18,
+  image19,
+  image20,
+  image21,
+  image22,
+  image23,
+  image24,
+].map((src) => ({ src, alt: 'Web Dev Talks' }))
 
 function About() {
   const { t } = useTranslation()
 
+  const sections = [
+    {
+      title: t('aboutUs.whoIs'),
+      body: [t('aboutUs.description'), t('aboutUs.description2')],
+    },
+    {
+      title: t('aboutUs.motivationHeader'),
+      body: [t('aboutUs.motivationBody1'), t('aboutUs.motivationBody2')],
+    },
+    {
+      title: t('aboutUs.dynamic'),
+      body: [t('aboutUs.dynamicBody1'), t('aboutUs.dynamicBody2')],
+    },
+    {
+      title: t('aboutUs.socialImpact'),
+      body: [t('aboutUs.socialImpactBody1')],
+    },
+    {
+      title: t('aboutUs.jobsOffer'),
+      body: [t('aboutUs.jobsOfferBody1')],
+    },
+    {
+      title: t('sponsorship.sponsor'),
+      body: [t('aboutUs.sponsorBody')],
+    },
+  ]
+
+  const offers = [
+    t('aboutUs.socialMentions'),
+    t('aboutUs.sharePosts'),
+    t('aboutUs.promoteContent'),
+    t('aboutUs.eventPresence'),
+  ]
+
+  const hero = (
+    <section className="pt-8 mb-6">
+      <div className="page-frame">
+        <Card className="overflow-hidden rounded-3xl">
+          <div className="grid gap-8 p-6 md:grid-cols-2 md:p-8 lg:p-10">
+            <div className="brand-grid justify-center">
+              <span className="eyebrow">{t('aboutUs.heroEyebrow')}</span>
+              <h1 className="section-title text-slate-950">Web Dev Talks</h1>
+              <blockquote className="border-l-4 border-amber-400 pl-5 text-lg leading-8 text-slate-700">
+                {t('aboutUs.quote')}
+                <span className="mt-3 block font-semibold text-slate-950">{t('aboutUs.adrianReyes')}</span>
+              </blockquote>
+            </div>
+            <div className="overflow-hidden rounded-3xl border border-black/10 bg-white/60 shadow-lg">
+              <img src={main} alt="Web Dev Talks main event" className="h-full w-full object-cover" />
+            </div>
+          </div>
+        </Card>
+      </div>
+    </section>
+  )
+
   return (
-    <>
-      <NavBar />
-      <Container sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', pt: 5 }}>
-        <Typography variant="h1" sx={{ mb: 3}}>Web Dev Talks</Typography>
-        <Typography sx={{ my: 3, textAlign: 'justify' }}>{t("aboutUs.quote")}<b>{t("aboutUs.adrianReyes")}</b></Typography>
+    <SiteShell hero={hero}>
+      <div className="space-y-6">
+        {sections.map((section) => (
+          <Card key={section.title} className="rounded-3xl p-6 md:p-8">
+            <div className="grid gap-6 md:grid-cols-3 md:gap-10">
+              <div>
+                <h2 className="section-subtitle text-slate-950">{section.title}</h2>
+              </div>
+              <div className="prose-copy space-y-4 md:col-span-2">
+                {section.body.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+            </div>
+          </Card>
+        ))}
 
-        <Avatar variant="square" src={main} alt="" sx={{ width: '100%', height: '100%' }} />
+        <div className="grid gap-6 lg:grid-cols-2">
+          <Card className="overflow-hidden rounded-3xl">
+            <img src={image1} alt="Web Dev Talks community" className="h-full min-h-80 w-full object-cover" />
+          </Card>
+          <Card className="overflow-hidden rounded-3xl">
+            <img src={image8} alt="Web Dev Talks attendees" className="h-full min-h-80 w-full object-cover" />
+          </Card>
+        </div>
 
-        <Typography variant="h2" sx={{ my: 5 }}>{t("aboutUs.whoIs")}</Typography>
-        <Typography sx={{ textAlign: 'justify', mb: 1 }}>{t("aboutUs.description")}</Typography>
-        <Typography sx={{ textAlign: 'justify' }}>{t("aboutUs.description2")}</Typography>
+        <Card className="rounded-3xl p-6 md:p-8">
+          <div className="grid gap-8 lg:grid-cols-2">
+            <div className="space-y-4">
+              <p className="eyebrow">{t('aboutUs.offer')}</p>
+              <h2 className="section-subtitle text-slate-950">{t('aboutUs.offerRights')}</h2>
+              <p className="text-slate-600">
+                <strong>{t('aboutUs.note')}</strong> {t('aboutUs.benefitsNote')}
+              </p>
+            </div>
+            <div className="grid gap-3">
+              {offers.map((offer) => (
+                <div key={offer} className="rounded-2xl border border-black/8 bg-white/70 px-5 py-4 text-slate-700 shadow-sm">
+                  {offer}
+                </div>
+              ))}
+            </div>
+          </div>
+          <p className="mt-6 text-slate-600">{t('aboutUs.closingNote')}</p>
+        </Card>
 
-        <Typography variant="h2" sx={{ my: 3 }}>{t("aboutUs.motivationHeader")}</Typography>
-        <Typography sx={{ textAlign: 'justify', mb: 1 }}>{t("aboutUs.motivationBody1")}</Typography>
-        <Typography sx={{ textAlign: 'justify' }}>{t("aboutUs.motivationBody2")}</Typography>
-
-        <Typography variant="h2" sx={{ my: 3 }}>{t("aboutUs.dynamic")}</Typography>
-        <Typography sx={{ textAlign: 'justify', mb: 1 }}>{t("aboutUs.dynamicBody1")}</Typography>
-        <Typography sx={{ textAlign: 'justify' }}>{t("aboutUs.dynamicBody2")}</Typography>
-
-        <Avatar variant="square" src={image1} alt="" sx={{ width: '100%', height: '100%', my: 5 }} />
-
-        <Avatar variant="square" src={image8} alt="" sx={{ width: '100%', height: '100%', my: 5 }} />
-
-        <Typography variant="h2" sx={{ my: 3 }}>{t("aboutUs.socialImpact")}</Typography>
-        <Typography sx={{ textAlign: 'justify' }}>{t("aboutUs.socialImpactBody1")}</Typography>
-
-        <Typography variant="h2" sx={{ my: 3 }}>{t("aboutUs.jobsOffer")}</Typography>
-        <Typography sx={{ textAlign: 'justify' }}>{t("aboutUs.jobsOfferBody1")}</Typography>
-
-        <Typography variant="h2" sx={{ my: 3 }}>{t("sponsorship.sponsor")}</Typography>
-        <Typography sx={{ textAlign: 'justify' }}>{t("aboutUs.sponsorBody")}</Typography>
-
-        <Typography variant="h2" sx={{ my: 3 }}>{t("aboutUs.offer")}</Typography>
-
-        <List sx={{ width: '100%' }}>
-          <ListItem>
-            <ListItemIcon sx={{ minWidth: '20px', color: 'black' }}>
-              <CircleIcon sx={{ fontSize: '8px' }} />
-            </ListItemIcon>
-            <ListItemText primary={t('aboutUs.socialMentions')}/>
-          </ListItem>
-          <ListItem>
-            <ListItemIcon sx={{ minWidth: '20px', color: 'black' }}>
-              <CircleIcon sx={{ fontSize: '8px' }} />
-            </ListItemIcon>
-            <ListItemText primary={t('aboutUs.sharePosts')}/>
-          </ListItem>
-          <ListItem>
-            <ListItemIcon sx={{ minWidth: '20px', color: 'black' }}>
-              <CircleIcon sx={{ fontSize: '8px' }} />
-            </ListItemIcon>
-            <ListItemText primary={t('aboutUs.promoteContent')}/>
-          </ListItem>
-          <ListItem>
-            <ListItemIcon sx={{ minWidth: '20px', color: 'black' }}>
-              <CircleIcon sx={{ fontSize: '8px' }} />
-            </ListItemIcon>
-            <ListItemText primary={t('aboutUs.eventPresence')}/>
-          </ListItem>
-        </List>
-
-        <Typography sx={{ mb: 2 }}>
-          <strong>{t("aboutUs.note")}</strong> {t("aboutUs.benefitsNote")}
-        </Typography>
-
-        <Typography>{t("aboutUs.closingNote")}</Typography>
-
-        <Typography variant="h3" sx={{ my: 3 }}>{t("aboutUs.communityHeader")}</Typography>
-
-        <Typography variant="h3" sx={{ my: 5 }}>{t("aboutUs.gallery")}</Typography>
-        <Carousel sx={{ width: '100%', marginBottom: '1rem' }} interval={5000} animation={'slide'} height={'50vw'} indicators={false} duration={750}>
-          <LazyLoadImage src={image2} alt={''} style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
-          <LazyLoadImage src={image3} alt={''} style={{ height: '100%', width: '100%', objectFit: 'cover' }}/>
-          <LazyLoadImage src={image4} alt={''} style={{ height: '100%', width: '100%', objectFit: 'cover' }}/>
-          <LazyLoadImage src={image5} alt={''} style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
-          <LazyLoadImage src={image6} alt={''} style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
-          <LazyLoadImage src={image7} alt={''} style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
-          <LazyLoadImage src={image9} alt={''} style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
-          <LazyLoadImage src={image10} alt={''} style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
-          <LazyLoadImage src={image11} alt={''} style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
-          <LazyLoadImage src={image12} alt={''} style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
-          <LazyLoadImage src={image13} alt={''} style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
-          <LazyLoadImage src={image14} alt={''} style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
-          <LazyLoadImage src={image15} alt={''} style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
-          <LazyLoadImage src={image16} alt={''} style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
-          <LazyLoadImage src={image17} alt={''} style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
-          <LazyLoadImage src={image18} alt={''} style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
-          <LazyLoadImage src={image19} alt={''} style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
-          <LazyLoadImage src={image20} alt={''} style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
-          <LazyLoadImage src={image21} alt={''} style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
-          <LazyLoadImage src={image22} alt={''} style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
-          <LazyLoadImage src={image23} alt={''} style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
-          <LazyLoadImage src={image24} alt={''} style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
-        </Carousel>
-      </Container>
-      <Footer/>
-    </>
+        <Card className="rounded-3xl p-6 md:p-8">
+          <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="eyebrow">{t('aboutUs.communityHeader')}</p>
+              <h2 className="section-subtitle mt-4 text-slate-950">{t('aboutUs.gallery')}</h2>
+            </div>
+            <p className="max-w-xl text-slate-600">
+              {t('aboutUs.galleryDescription')}
+            </p>
+          </div>
+          <Carousel images={galleryImages} />
+        </Card>
+      </div>
+    </SiteShell>
   )
 }
 

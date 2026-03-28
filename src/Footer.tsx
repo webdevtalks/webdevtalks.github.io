@@ -1,29 +1,29 @@
-import { type ReactElement}  from 'react'
-import logo from './assets/images/logo.png'
+import { type ReactElement } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { Box, Avatar } from '@mui/material'
 import Icons from './Icons'
+import logo from './assets/images/logo.png'
 
 const Footer = (): ReactElement => {
+  const { t } = useTranslation()
+
   return (
-    <Box
-      sx={{
-        backgroundColor: theme => theme.palette.primary.main,
-        px: 6,
-        py: 1,
-        color: 'white',
-        position: "sticky",
-        display: 'flex',
-        justifyContent: { xs: 'center', md: 'space-between' }
-      }}
-    >
-      <Box sx={{ display: { xs: 'none', md: 'flex' } }} >
-        <Link to="/" style={{ textDecoration: 'none', flexShrink: 0 }}>
-          <Avatar src={logo} alt="Logo WDT" sx={{ width: '100%', height: '100%', maxWidth: '50px' }} />
-        </Link>
-      </Box>
-      <Icons color={"#ffff"}/>
-    </Box>
+    <footer className="border-t border-black/8 bg-amber-50/80 backdrop-blur-xl">
+      <div className="page-frame flex flex-col gap-5 py-6 md:flex-row md:items-center md:justify-between">
+        <div className="flex items-center gap-4">
+          <Link to="/" className="inline-flex items-center gap-3">
+            <span className="inline-flex h-12 w-12 overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm">
+              <img src={logo} alt="Logo WDT" className="h-full w-full object-contain p-2" />
+            </span>
+            <span className="text-base font-bold tracking-tight text-slate-950">
+              Web Dev Talks
+            </span>
+          </Link>
+          <span className="hidden text-sm text-slate-500 md:inline">{t('navbar.subtitle')}</span>
+        </div>
+        <Icons />
+      </div>
+    </footer>
   )
 }
 
