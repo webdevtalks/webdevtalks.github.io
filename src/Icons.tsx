@@ -46,7 +46,7 @@ const links = [
 
 const Icons: FC<IconsProps> = ({ color, className }): ReactElement => {
   return (
-    <div className={cn('flex flex-wrap items-center gap-2', className)}>
+    <div className={cn('flex flex-wrap items-center gap-2 w-full justify-start md:justify-end', className)}>
       {links.map(({ href, label, icon: Icon }) => (
         <Tooltip key={href} content={label}>
           <a
