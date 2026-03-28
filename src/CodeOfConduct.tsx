@@ -165,10 +165,7 @@ function CodeOfConduct() {
                     : 'border-black/8 bg-white/72 text-slate-800'
                 }`}
               >
-                <div className="text-sm font-semibold uppercase tracking-widest opacity-70">
-                  {section.id.replace(/-/g, ' ')}
-                </div>
-                <div className="mt-2 text-xl font-bold tracking-tight">{section.title}</div>
+                <div className="text-xl font-bold tracking-tight">{section.title}</div>
               </button>
             ))}
           </div>

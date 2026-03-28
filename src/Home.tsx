@@ -1,5 +1,5 @@
 import { type ReactElement } from 'react'
-import { ArrowRight, Sparkles } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import SiteShell from './components/SiteShell'
@@ -19,10 +19,6 @@ const Home = (): ReactElement => {
         <Card className="relative overflow-hidden rounded-3xl px-6 py-8 md:px-10 md:py-12">
           <div className="grid items-center gap-10 lg:grid-cols-2">
             <div className="grid gap-5 md:gap-7">
-              <span className="inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1.5 text-[0.82rem] font-bold uppercase tracking-[0.08em] text-sky-600">
-                <Sparkles className="h-4 w-4" />
-                {t('homePage.eyebrow')}
-              </span>
               <div className="grid gap-5 md:gap-7">
                 <h1 className="text-balance text-4xl font-bold leading-none tracking-tight text-brand md:text-5xl lg:text-6xl">
                   {t('homePage.headline')}
