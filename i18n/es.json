@@ -9,7 +9,6 @@
       "subtitle": "Charlas y networking para Colima"
   },
   "homePage": {
-      "eyebrow": "Comunidad tech de Colima",
       "headline": "Charlas, networking y más.",
       "description": "Web Dev Talks conecta a desarrolladores, diseñadores, PMs, QA y estudiantes a través de eventos prácticos y una comunidad tech local más fuerte.",
       "communityLabel": "Somos comunidad",
@@ -20,8 +19,8 @@
       "card2Title": "No es solo para desarrolladores web.",
       "card2Body": "Producto, QA, diseño, infraestructura y estudiantes tienen un lugar claro tanto en el evento como en la conversación.",
       "card3Eyebrow": "Sostenible",
-      "card3Title": "Los patrocinadores financian mejores eventos, no relleno.",
-      "card3Body": "La comunidad se sostiene mejor cuando el enfoque está en encuentros útiles, consistentes y bien ejecutados."
+      "card3Title": "Comunidad, Patreon y patrocinio.",
+      "card3Body": "Todos nuestros eventos son sostenidos por la propia comunidad, a través de nuestros patreons y de los patrocinadores del área tech local."
   },
   "sponsorship": {
       "description1": "WebDevTalks(WDT) es una comunidad de desarrollo y tecnología que inició hace más de 10 años con la finalidad de acercar a desarrolladores, diseñadores, managers, product owners, testers y cualquier profesional con una carrera relacionada a IT a diversos temas dentro del área del desarrollo de software web, móvil, IoT, gestión de proyectos, testing, infraestructura, diseño y más.",
