@@ -40,7 +40,7 @@ const links = [
   { href: 'https://www.instagram.com/webdevtalksmx', label: 'Instagram', icon: InstagramIcon },
   { href: 'https://twitter.com/webdevtalksmx', label: 'X', icon: XIcon },
   { href: 'https://www.linkedin.com/company/web-dev-talks', label: 'LinkedIn', icon: LinkedInIcon },
-  { href: 'https://patreon.com/WebDevTalksColima', label: 'Patreon', icon: PatreonIcon },
+  { href: 'https://www.patreon.com/cw/WebDevTalksColima', label: 'Patreon', icon: PatreonIcon },
   { href: 'mailto:webdevtalkscolima@gmail.com', label: 'Email', icon: Mail },
 ]
 
