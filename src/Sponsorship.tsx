@@ -2,9 +2,11 @@ import { type ReactElement } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Pie } from 'react-chartjs-2'
 import { Chart as ChartJS, ArcElement, Tooltip as ChartTooltip, Legend, type ChartOptions } from 'chart.js'
-import { Clock3, Megaphone, Presentation, Share2 } from 'lucide-react'
+import { Clock3, ExternalLink, Megaphone, Presentation, Share2 } from 'lucide-react'
 import SiteShell from './components/SiteShell'
+import { buttonVariants } from './components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from './components/ui/card'
+import { cn } from './lib/utils'
 import { Tooltip } from './components/ui/tooltip'
 import logo from './assets/images/logo.png'
 import rubyCentral from './assets/images/sponsors/ruby_central.png'
@@ -149,6 +151,20 @@ const Sponsorship = (): ReactElement => {
               <span className="inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1.5 text-[0.82rem] font-bold uppercase tracking-[0.08em] text-sky-600">{t('sponsorship.heroEyebrow')}</span>
               <h1 className="text-4xl font-bold leading-none tracking-tight text-brand md:text-5xl lg:text-6xl">{t('navbar.sponsorship')}</h1>
               <p className="text-lg leading-8 text-slate-600">{t('sponsorship.description1')}</p>
+              <div className="flex justify-start">
+                <a
+                  href="https://www.patreon.com/cw/WebDevTalksColima"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    buttonVariants({ variant: 'default', size: 'lg' }),
+                    'h-14 max-w-full rounded-full px-8 text-lg',
+                  )}
+                >
+                  {t('sponsorship.patreonCta')}
+                  <ExternalLink className="h-5 w-5" aria-hidden />
+                </a>
+              </div>
               <p className="text-slate-600">{t('sponsorship.description2')}</p>
               <p className="text-slate-600">{t('sponsorship.description3')}</p>
             </div>
