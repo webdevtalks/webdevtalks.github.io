@@ -64,6 +64,7 @@ const sponsors = [
   { name: 'La Frontera Casa Cafe', image: laFronteraCaseCafe },
   { name: 'Vauxoo', image: vauxoo },
   { name: 'Ruby Central', image: rubyCentral },
+  { name: 'Community Supporters', image: '/community_supporters.svg' },
 ]
 
 const benefitIcons = [Clock3, Share2, Presentation, Megaphone]
@@ -178,7 +179,7 @@ const Sponsorship = (): ReactElement => {
                   </div>
                   <div className="rounded-2xl border border-black/8 bg-sky-50 px-4 py-4">
                     <div className="text-xs font-semibold uppercase tracking-widest text-sky-700">{t('sponsorship.ourSponsors')}</div>
-                    <div className="mt-2 text-3xl font-bold text-brand">3</div>
+                    <div className="mt-2 text-3xl font-bold text-brand">{sponsors.length}</div>
                   </div>
                   <div className="rounded-2xl border border-black/8 bg-emerald-50 px-4 py-4">
                     <div className="text-xs font-semibold uppercase tracking-widest text-emerald-700">{t('sponsorship.ourPatreons')}</div>
@@ -273,10 +274,13 @@ const Sponsorship = (): ReactElement => {
               <p className="inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1.5 text-[0.82rem] font-bold uppercase tracking-[0.08em] text-sky-600">{t('sponsorship.ourSponsors')}</p>
             </div>
           </div>
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="flex w-full flex-wrap justify-center gap-4">
             {sponsors.map((sponsor) => (
-              <div key={sponsor.name} className="flex min-h-36 items-center justify-center rounded-3xl border border-black/8 bg-white/78 p-6 shadow-sm">
-                <img src={sponsor.image} alt={sponsor.name} className="max-h-20 w-full object-contain" />
+              <div
+                key={sponsor.name}
+                className="flex min-h-36 w-full shrink-0 items-center justify-center rounded-3xl border border-black/8 bg-white/78 p-2 shadow-sm sm:w-[calc((100%-1rem)/2)] md:w-[calc((100%-2rem)/3)]"
+              >
+                <img src={sponsor.image} alt={sponsor.name} className="max-h-24 w-full object-contain" />
               </div>
             ))}
           </div>
