@@ -10,7 +10,7 @@ import { cn } from './lib/utils'
 import { Tooltip } from './components/ui/tooltip'
 import logo from './assets/images/logo.png'
 import rubyCentral from './assets/images/sponsors/ruby_central.png'
-import laFronteraCaseCafe from './assets/images/sponsors/la_frontera_casa_cafe.png'
+import cabanasSanPancho from './assets/images/sponsors/cabanas_san_pancho.png'
 import vauxoo from './assets/images/sponsors/vauxoo.png'
 import alejandroRebollar from './assets/images/patreons/alejandro_rebollar.png'
 import alexisChavez from './assets/images/patreons/alexis_chavez.png'
@@ -61,7 +61,7 @@ const patreons = [
 ] as const
 
 const sponsors = [
-  { name: 'La Frontera Casa Cafe', image: laFronteraCaseCafe },
+  { name: 'Cabañas San Pancho', image: cabanasSanPancho },
   { name: 'Vauxoo', image: vauxoo },
   { name: 'Ruby Central', image: rubyCentral },
   { name: 'Community Supporters', image: '/community_supporters.svg' },
