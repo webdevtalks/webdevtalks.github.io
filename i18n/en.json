@@ -196,5 +196,43 @@
           "responsibility": "Maintaining this environment is everyone's responsibility.",
           "community": "\"We are community\"."
       }
+  },
+  "speakerGuidelines": {
+      "title": "Speaker guidelines",
+      "intro": "A quick guide to prepare your Web Dev Talks session: timing, support material, slide design, and welcome topics.",
+      "copyLink": "Copy link to this section",
+      "linkCopied": "Link copied to clipboard",
+      "tableOfContents": "Table of Contents",
+      "heroEyebrow": "For speakers",
+      "duration": {
+          "title": "1. Talk duration",
+          "description": "Stage time is limited so we can fit several talks and still leave room for networking.",
+          "max": "Maximum 20 minutes per talk",
+          "ideal": "Ideally: 15 minutes of talk and 5 minutes of Q&A"
+      },
+      "material": {
+          "title": "2. Support material",
+          "description": "Your presentation must open from our equipment. For logistics and to document sessions, we project and record the screen from one of our computers.",
+          "formats": "Share a Google Slides or Canva link (or another cloud tool with link access)",
+          "access": "The link must be accessible from our computer, without depending on your laptop",
+          "recording": "Screen casting and recording happen from our equipment",
+          "note": "Avoid local files, USB drives, or decks that only run on your machine."
+      },
+      "slides": {
+          "title": "3. Slide design",
+          "description": "We project from a fair distance—prioritize readability over dense content.",
+          "count": "We recommend no more than 30 slides (remember you only have 20 minutes)",
+          "typography": "Use large, easy-to-read text",
+          "contrast": "Choose colors with strong contrast",
+          "distance": "The screen is seen from 5–10 meters by the nearest attendees and up to 20 meters by those at the back"
+      },
+      "topics": {
+          "title": "4. Topics",
+          "description": "We look for talks that contribute to Colima's tech community.",
+          "welcome": "Any IT-related topic is welcome",
+          "intent": "Content should be well-intentioned and respectful",
+          "codeOfConduct": "Please follow our",
+          "codeOfConductLink": "code of conduct"
+      }
   }
 }
