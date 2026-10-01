@@ -204,5 +204,43 @@
           "responsibility": "Mantener este ambiente es responsabilidad de todos.",
           "community": "“Somos comunidad”"
       }
+  },
+  "speakerGuidelines": {
+      "title": "Lineamientos para speakers",
+      "intro": "Guía rápida para preparar tu charla en Web Dev Talks: duración, material de apoyo, diseño de slides y temas bienvenidos.",
+      "copyLink": "Copiar enlace a esta sección",
+      "linkCopied": "Enlace copiado al portapapeles",
+      "tableOfContents": "Tabla de contenidos",
+      "heroEyebrow": "Para speakers",
+      "duration": {
+          "title": "1. Duración de la charla",
+          "description": "El tiempo en escenario es limitado para que quepan varias charlas y quede espacio para networking.",
+          "max": "Máximo 20 minutos por charla",
+          "ideal": "Idealmente: 15 minutos de charla y 5 minutos de preguntas y respuestas"
+      },
+      "material": {
+          "title": "2. Material de apoyo",
+          "description": "La presentación debe poder abrirse desde nuestros equipos. Por logística y para documentar las sesiones, proyectamos y grabamos pantalla desde una de nuestras computadoras.",
+          "formats": "Comparte un enlace de Google Slides o Canva (u otra herramienta en la nube con acceso por link)",
+          "access": "El link debe ser accesible desde nuestro computador, sin dependencias de tu laptop",
+          "recording": "La transmisión y grabación de pantalla se hacen desde nuestro equipo",
+          "note": "Evita archivos locales, USB o presentaciones que solo corran en tu máquina."
+      },
+      "slides": {
+          "title": "3. Diseño de slides",
+          "description": "Proyectamos a una distancia considerable: prioriza legibilidad sobre densidad de contenido.",
+          "count": "Recomendamos no más de 30 slides (recuerda que solo tienes 20 minutos)",
+          "typography": "Usa texto grande y fácil de leer",
+          "contrast": "Elige colores con buen contraste",
+          "distance": "La pantalla se ve a 5–10 metros para los asistentes más cercanos y hasta 20 metros para quienes están al fondo"
+      },
+      "topics": {
+          "title": "4. Temas",
+          "description": "Buscamos charlas que aporten a la comunidad tech de Colima.",
+          "welcome": "Cualquier tema relacionado con IT es bienvenido",
+          "intent": "El contenido debe ser bienintencionado y respetuoso",
+          "codeOfConduct": "Recuerda seguir nuestro",
+          "codeOfConductLink": "código de conducta"
+      }
   }
 }

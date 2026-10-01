@@ -5,6 +5,7 @@ import Sponsorship from './Sponsorship'
 import About from './About'
 import Survey from './Survey'
 import CodeOfConduct from './CodeOfConduct'
+import SpeakerGuidelines from './SpeakerGuidelines'
 
 export default function Router (): ReactElement | null {
   const routes = useRoutes([
@@ -13,6 +14,7 @@ export default function Router (): ReactElement | null {
     { path: '/sponsorship', element: <Sponsorship/> },
     { path: '/survey', element: <Survey/> },
     { path: '/code-of-conduct', element: <CodeOfConduct/> },
+    { path: '/speaker-guidelines', element: <SpeakerGuidelines/> },
 
     { path: '*', element: <Home/> },
   ])
